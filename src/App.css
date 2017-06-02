@@ -1,0 +1,22 @@
+body {
+    background-color: #171e27; 
+}
+
+.navbar {
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
+    border: none;
+}
+
+.bee {
+    border-radius: 50%; 
+    top: -10px; 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-brand {
+    border: none;  
+}
