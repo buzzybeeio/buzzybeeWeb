@@ -3,6 +3,7 @@ body {
 }
 
 .navbar {
+    background-color: white;
     border-radius: 0;
     width: 100%;
     margin: 0;
@@ -19,4 +20,10 @@ body {
 
 .navbar-brand {
     border: none;  
+}
+
+.Motto {
+    font-size: 50px;
+    text-align: center;
+    color: #B3C6C3;
 }
