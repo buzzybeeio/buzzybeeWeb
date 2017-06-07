@@ -10,20 +10,83 @@ body {
     border: none;
 }
 
+.navbar-brand {
+    position: absolute;
+    top: -1.1em;
+    border: none;
+}
+
+.navbar-brand>img {
+    height: 280%;
+    width: auto;
+}
+
 .bee {
-    border-radius: 50%; 
-    top: -10px; 
+    border-radius: 50%;  
+    height: 70%;
+    width: 70%;
     display: block; 
     margin-left: auto;
     margin-right: auto;
 }
 
-.navbar-brand {
-    border: none;  
+.logo {
+    position: relative; 
 }
 
-.Motto {
-    font-size: 50px;
+
+.motto {
+    width: 100%; 
+    top: 87.5%; 
+    position: absolute; 
+    font-size: 16px; 
+    font-size: 3.5vw;
     text-align: center;
-    color: #B3C6C3;
+    color: #7a9e7e;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.textBox {
+    text-align: center; 
+    color: #e8f1f2;
+}
+
+p {
+    color: #e8f1f2;
+}
+
+.quote {
+    font-style: italic; 
+    font-size: 25px; 
+}
+
+.btn {
+    margin-top: 1.5em; 
+    margin-bottom: 1.5em; 
+    color: #171e27;
+    width: 15em;
+    height: 3em;  
+}
+
+.more {
+    font-size: 25px; 
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 1.5em; 
+}
+
+.mission_container{
+    width: 100%;
+    margin: 0;
+    background-color: white; 
+}
+
+.mission {
+    padding-right: 1.2em; 
+    padding-left: 1.2em; 
+    padding-top: 1.2em;
+    padding-bottom: 1.2em; 
+}
+
+p {
+    color: #171e27;
 }

@@ -20,9 +20,9 @@ class App extends Component {
                     <div>
                         <Textbox />
                     </div>
-                    <div>
-                        <Mission />
-                    </div>
+                </div>
+                <div className="container mission_container">
+                    <Mission />
                 </div>
             </div>
         )
