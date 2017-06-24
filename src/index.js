@@ -1,7 +1,19 @@
 import React from 'react'; 
-import ReactDOM from 'react-dom'; 
-import App from './App'; 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import App from './App';
+import Jobs from './routes/Jobs';
 
 ReactDOM.render(
-    <App />, document.getElementById('root')
+    <BrowserRouter>
+        <div>
+            <Switch>
+                <Route path="/Jobs" component={Jobs}/>
+                <Route path="/" component={App}/>
+            </Switch>
+        </div>
+    </BrowserRouter>,
+    document.getElementById('root')
 )
+
+// May need Switch when authenticating
