@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Job from './Job.jsx'
 import $ from 'jquery'
 
 class JobsList extends Component {
@@ -33,13 +34,8 @@ class JobsList extends Component {
         const jobsLis = []
 
         for (let index in this.state.jobs) {
-          const job = this.state.jobs[index]
-
           jobsLis.push(
-            <li key={index}>
-              <p>title: {job.title}</p>
-              <p>company: {job.company}</p>
-            </li>
+            <Job job={this.state.jobs[index]} key={index}/>
           )
         }
 

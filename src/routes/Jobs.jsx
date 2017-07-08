@@ -10,7 +10,9 @@ class Jobs extends Component {
                 <div>
                     <Nav />
                 </div>
-                <JobsList />
+                <div className="jobs-list">
+                  <JobsList />
+                </div>
             </div>
         )
     }

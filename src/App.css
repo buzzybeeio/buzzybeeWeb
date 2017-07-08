@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+.jobs-list {
+  margin-top: 120px;
+}
+
 .logo-container {
     background-color: #171e27;
 }
@@ -26,24 +30,24 @@ body {
 }
 
 .bee {
-    border-radius: 50%;  
+    border-radius: 50%;
     height: 70%;
     width: 70%;
-    display: block; 
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 .logo {
-    position: relative; 
+    position: relative;
 }
 
 
 .motto {
-    width: 100%; 
-    top: 87.5%; 
-    position: absolute; 
-    font-size: 16px; 
+    width: 100%;
+    top: 87.5%;
+    position: absolute;
+    font-size: 16px;
     font-size: 3.5vw;
     text-align: center;
     color: #7a9e7e;
@@ -51,7 +55,7 @@ body {
 }
 
 .textBox {
-    text-align: center; 
+    text-align: center;
     color: #e8f1f2;
 }
 
@@ -60,35 +64,35 @@ p {
 }
 
 .quote {
-    font-style: italic; 
-    font-size: 25px; 
+    font-style: italic;
+    font-size: 25px;
 }
 
 .btn {
-    margin-top: 1.5em; 
-    margin-bottom: 1.5em; 
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     color: #171e27;
     width: 15em;
-    height: 3em;  
+    height: 3em;
 }
 
 .more {
-    font-size: 25px; 
+    font-size: 25px;
     text-shadow: 2px 2px 4px #000000;
-    margin-bottom: 1.5em; 
+    margin-bottom: 1.5em;
 }
 
 .mission_container{
     width: 100%;
     margin: 0;
-    background-color: white; 
+    background-color: white;
 }
 
 .mission {
-    padding-right: 1.2em; 
-    padding-left: 1.2em; 
+    padding-right: 1.2em;
+    padding-left: 1.2em;
     padding-top: 1.2em;
-    padding-bottom: 1.2em; 
+    padding-bottom: 1.2em;
 }
 
 p {
