@@ -8,9 +8,9 @@ class Nav extends Component {
             <nav className="navbar navbar-default navbar-fixed-top">
                 <div className="container">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="/">
+                        <Link to='/' className="navbar-brand">
                             <img alt="Brand" src="BuzzyBee_logo.png"/>
-                        </a>
+                        </Link>
                         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
