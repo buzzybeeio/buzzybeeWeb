@@ -3,7 +3,21 @@ body {
 }
 
 .jobs-list {
-  margin-top: 120px;
+  margin-top: 80px;
+}
+
+.job:nth-child(2n+1) {
+  background-color: #171e27;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.job {
+  padding: 10px 0;
+
 }
 
 .logo-container {

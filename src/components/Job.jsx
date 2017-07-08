@@ -8,15 +8,13 @@ class Job extends Component {
   render() {
     const job = this.props.job
 
-    console.log('job', job)
-
     return (
-      <li>
-        <p>title: {job.title}</p>
-        <p>company: <a href={job.url}>{job.company}</a></p>
-        <p>location: {job.location}</p>
-        <p>date posted: {job.datepost}</p>
-      </li>
+      <div className="job row">
+        <div className="col-md-2">{(new Date(job.datepost)).toDateString().slice(4)}</div>
+        <div className="col-md-5">{job.title}</div>
+        <div className="col-md-3"><a href={job.url}>{job.company}</a></div>
+        <div className="col-md-2">{job.location}</div>
+      </div>
     )
   }
 }

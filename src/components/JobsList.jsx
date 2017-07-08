@@ -40,9 +40,9 @@ class JobsList extends Component {
         }
 
         return (
-          <ul>
+          <div className="container">
             {jobsLis}
-          </ul>
+          </div>
         )
     }
 }
