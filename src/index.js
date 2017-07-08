@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './routes/App';
 import Jobs from './routes/Jobs';
 
 ReactDOM.render(
@@ -16,4 +16,3 @@ ReactDOM.render(
     document.getElementById('root')
 )
 
-// May need Switch when authenticating
