@@ -10,11 +10,11 @@ class Job extends Component {
 
     return (
       <div className="job row">
-        <a href={job.url}>
-          <div className="col-md-2">{(new Date(job.datepost)).toDateString().slice(4)}</div>
-          <div className="col-md-5">{job.title}</div>
-          <div className="col-md-3">{job.company}</div>
-          <div className="col-md-2">{job.location}</div>
+        <a href={job.url} target="_blank">
+          <div className="col-md-2 col-sm-2">{(new Date(job.datepost)).toDateString().slice(4)}</div>
+          <div className="col-md-5 col-sm-5">{job.title}</div>
+          <div className="col-md-3 col-sm-3">{job.company}</div>
+          <div className="col-md-2 col-sm-2">{job.location}</div>
         </a>
       </div>
     )

@@ -3,6 +3,7 @@ import Nav from '../components/navbar';
 import Logo from '../components/logo';
 import Textbox from '../components/textbox';
 import Mission from '../components/mission';
+import Footer from '../components/Footer';
 import '../App.css'
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
                 <div className="container mission_container">
                     <Mission />
                 </div>
+                <Footer />
             </div>
         )
     }

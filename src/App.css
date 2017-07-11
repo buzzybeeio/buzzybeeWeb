@@ -22,13 +22,20 @@ body {
   color: #FFB605;
 }
 
+.job:hover a:visited {
+  color: white;
+}
+
 ul {
   list-style-type: none;
 }
 
 .job {
   padding: 10px 0;
+}
 
+.job:hover {
+    background-color:#FFB605;
 }
 
 .logo-container {
@@ -128,4 +135,9 @@ p {
 
 .motto {
     min-height: 100px;
+}
+
+.footer {
+    background-color: #171e27;
+    color: white;
 }
