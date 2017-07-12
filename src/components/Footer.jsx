@@ -8,7 +8,7 @@ class Footer extends Component {
         <a href="mailto:thisisrailee@gmail.com">
           <img src="email.png" alt=""/>
         </a>
-        <div className="copyright" >&#9400; 2017 BuzzyBee </div>
+        <div className="copyright" >Copyright &#9400; 2017 BuzzyBee. All Rights Reserved.</div>
       </div>
     )
   }
