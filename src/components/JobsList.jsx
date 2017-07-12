@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Job from './Job.jsx'
 import $ from 'jquery'
+import Footer from './Footer.jsx'
 
 class JobsList extends Component {
   constructor(props) {
@@ -40,8 +41,11 @@ class JobsList extends Component {
         }
 
         return (
-          <div className="container">
-            {jobsLis}
+          <div>
+            <div className="container joblist">
+              {jobsLis}
+            </div>
+            <Footer />
           </div>
         )
     }

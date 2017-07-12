@@ -127,6 +127,12 @@ p {
     padding-bottom: 1.2em;
 }
 
+h3 {
+    color: #171e27;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 p {
     color: #171e27;
     padding-left: 10%;
@@ -140,4 +146,30 @@ p {
 .footer {
     background-color: #171e27;
     color: white;
+    padding: 15px;
+}
+
+.joblist {
+    margin-bottom: 20px; 
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+.form {
+    background-color: #171e27;
+    margin-top: 50px;
+    padding-top: 50px; 
+    padding-bottom: 20px; 
+    margin-bottom: 100px; 
+}
+
+input {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 50%; 
 }
