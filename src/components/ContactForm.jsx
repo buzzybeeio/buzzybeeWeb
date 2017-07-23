@@ -24,7 +24,6 @@ class ContactForm extends Component {
   }
 
   submission() {
-    console.log(this.state.name, this.state.email, this.state.message)
     alert('Thanks for your submission!')
   }
 
@@ -52,7 +51,7 @@ class ContactForm extends Component {
           onChange={this.handleMessageChange.bind(this)}
           name="message" id="" cols="30" rows="10" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
         </div>
-        <button type="submit" className="btn btn-warning">
+        <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
           Submit
         </button>
       </form>

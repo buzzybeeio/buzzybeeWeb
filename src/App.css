@@ -68,6 +68,8 @@ ul {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-height: 600px;
+    max-width: 600px;
 }
 
 .logo {
