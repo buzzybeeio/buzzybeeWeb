@@ -24,15 +24,15 @@ class ContactForm extends Component {
   }
 
   submission() {
-    console.log(this.state.name, this.state.email, this.state.message)
     alert('Thanks for your submission!')
   }
 
   render() {
     return(
-      <div className="form text-center">
+      <form className="form text-center" method="POST" action="/Contacts">
         <div>
           <input
+            name = "name"
             placeholder="Hey, what's your name?"
             value={this.state.name}
             onChange={this.handleNameChange.bind(this)}
@@ -40,6 +40,7 @@ class ContactForm extends Component {
         </div>
         <div>
           <input
+            name = "email"
             placeholder="And your email?"
             value={this.state.email}
             onChange={this.handleEmailChange.bind(this)}
@@ -48,12 +49,12 @@ class ContactForm extends Component {
         <div>
           <textarea value={this.state.message} 
           onChange={this.handleMessageChange.bind(this)}
-          name="" id="" cols="30" rows="10" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
+          name="message" id="" cols="30" rows="10" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
         </div>
-        <button onClick = {this.submission.bind(this)} type="button" className="btn btn-warning">
+        <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
           Submit
         </button>
-      </div>
+      </form>
     )
   }
 }
