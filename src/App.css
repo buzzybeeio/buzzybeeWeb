@@ -23,7 +23,7 @@ a:hover {
 }
 
 .job:nth-child(2n) a {
-  color: black;
+  color: #222;
 }
 
 .job a:visited {
@@ -93,6 +93,7 @@ ul {
     text-align: center;
     color: #7a9e7e;
     text-shadow: 2px 2px 4px #333;
+    text-shadow: 2px 2px 3px rgba(10,10,10,0.5);
     min-height: 100px;
 }
 
@@ -128,11 +129,12 @@ ul {
 
 .mission {
     padding: 1.2em;
+    color: #222;
 }
 
 h3, p {
     color: #171e27;
-    padding: auto 10%;
+    padding: 0% 10%;
 }
 
 .footer {
@@ -173,7 +175,7 @@ textarea {
     min-height: 150px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 500px) {
     .mission {
         padding: 0.7em;
     }
@@ -187,4 +189,62 @@ textarea {
     .navbar {
         border-bottom: 2px solid #999;
     }
+}
+
+.animation {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: #171e27;
+}
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  top: calc(50vh - 100px/2);
+  left: calc(50vw - 100px/2);
+  animation: Move 2s linear;
+  font-family: Calibri;
+  text-align: center;
+  margin: 0;
+}
+@keyframes Move {
+  0% {
+    border-radius: 10px;
+    transform: translateX(50vw);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  27% {
+    transform: rotate(-20deg);
+  }
+  34% {
+    transform: rotate(-23deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: scale(1);
+    border-radius: 10px;
+  }
+  80% {
+    height: 100px;
+    width: 100px;
+    transform: scale(0.4);
+    border-radius: 0;
+    top: calc(50vh - 100px/2);
+    left: calc(50vw - 100px/2);
+  }
+  90%, 100% {
+    transform: scale(1);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
 }
