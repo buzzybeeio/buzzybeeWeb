@@ -38,16 +38,16 @@ ul {
     background-color:#FFB605;
 }
 
-.logo-container {
+.logo-container, .footer, .wrapper {
     background-color: #171e27;
 }
 
 .navbar {
     background-color: white;
-    border-radius: 0;
     width: 100%;
     margin: 0;
     border: none;
+    border-bottom: 1px solid #aaa;
 }
 
 .navbar-brand {
@@ -76,7 +76,6 @@ ul {
     position: relative;
 }
 
-
 .motto {
     width: 100%;
     top: 87.5%;
@@ -85,15 +84,12 @@ ul {
     font-size: 3.5vw;
     text-align: center;
     color: #7a9e7e;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #333;
+    min-height: 100px;
 }
 
 .textBox {
     text-align: center;
-    color: #e8f1f2;
-}
-
-p {
     color: #e8f1f2;
 }
 
@@ -103,8 +99,7 @@ p {
 }
 
 .btn {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin: 1.5em auto;
     color: #171e27;
     width: 15em;
     height: 3em;
@@ -112,7 +107,7 @@ p {
 
 .more {
     font-size: 25px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #333;
     margin-bottom: 1.5em;
 }
 
@@ -123,32 +118,17 @@ p {
 }
 
 .mission {
-    padding-right: 1.2em;
-    padding-left: 1.2em;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
+    padding: 1.2em;
 }
 
-h3 {
+h3, p {
     color: #171e27;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-p {
-    color: #171e27;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.motto {
-    min-height: 100px;
+    padding: auto 10%;
 }
 
 .footer {
-    background-color: #171e27;
     color: white;
-    padding: 15px;
+    padding: 20px;
 }
 
 .joblist {
@@ -159,19 +139,43 @@ p {
     margin-top: 10px;
 }
 
-.form {
-    background-color: #171e27;
+.wrapper {
     margin-top: 50px;
     padding-top: 50px; 
-    padding-bottom: 20px; 
-    margin-bottom: 100px; 
+    padding-bottom: 20px;
+}
+
+form {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 9px;
+    margin: 0 auto;
 }
 
 input {
-    width: 50%;
     margin-bottom: 10px;
 }
 
 textarea {
-    width: 50%; 
+    min-height: 150px;
+}
+
+@media (max-width: 650px) {
+    .mission {
+        padding: 0.7em;
+    }
+    
+    .motto {
+        font-size: 4.5vw;
+    }
+}
+
+@media (min-resolution: 230dpi) {
+    .navbar {
+        border-bottom: 2px solid #999;
+    }
 }

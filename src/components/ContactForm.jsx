@@ -29,32 +29,34 @@ class ContactForm extends Component {
 
   render() {
     return(
-      <form className="form text-center" method="POST" action="/Contacts">
-        <div>
-          <input
-            name = "name"
-            placeholder="Hey, what's your name?"
-            value={this.state.name}
-            onChange={this.handleNameChange.bind(this)}
-          />
-        </div>
-        <div>
-          <input
-            name = "email"
-            placeholder="And your email?"
-            value={this.state.email}
-            onChange={this.handleEmailChange.bind(this)}
-          />
-        </div>
-        <div>
-          <textarea value={this.state.message} 
-          onChange={this.handleMessageChange.bind(this)}
-          name="message" id="" cols="30" rows="10" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
-        </div>
-        <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
-          Submit
-        </button>
-      </form>
+      <div className='wrapper text-center'>
+        <form method="POST" action="/Contacts">
+          <div>
+            <input
+              name = "name"
+              placeholder="Hey, what's your name?"
+              value={this.state.name}
+              onChange={this.handleNameChange.bind(this)}
+            />
+          </div>
+          <div>
+            <input
+              name = "email"
+              placeholder="And your email?"
+              value={this.state.email}
+              onChange={this.handleEmailChange.bind(this)}
+            />
+          </div>
+          <div>
+            <textarea value={this.state.message} 
+            onChange={this.handleMessageChange.bind(this)}
+            name="message" id="" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
+          </div>
+          <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
+            Submit
+          </button>
+        </form>
+      </div>
     )
   }
 }
