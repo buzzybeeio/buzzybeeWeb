@@ -2,6 +2,14 @@ body {
     background-color: white;
 }
 
+a {
+    line-height: 1.2;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .jobs-list {
   margin-top: 80px;
 }
@@ -108,6 +116,7 @@ ul {
 .more {
     font-size: 25px;
     text-shadow: 2px 2px 4px #333;
+    text-shadow: 2px 2px 3px rgba(10,10,10,0.5);
     margin-bottom: 1.5em;
 }
 
