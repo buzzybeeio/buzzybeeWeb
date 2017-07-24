@@ -38,11 +38,19 @@ class App extends Component {
     }
 
     componentDidMount(){
-        $('.logo-container').css('display', 'none')
-        setTimeout(function(){
-            $('.animation').css('display', 'none')
-            $('.logo-container').fadeIn(600)
+        var $animation = $('.animation')
+        var timeout = setTimeout(function(){
+            $animation.css('display','none')
+            $('.logo-container').fadeIn(750)
         },2000)
+        if(sessionStorage.getItem('buzzybee-already-logged')) {
+            clearTimeout(timeout)
+            $animation.css('display', 'none')
+        }
+        else {
+            $('.logo-container').css('display', 'none')
+        }
+        sessionStorage.setItem('buzzybee-already-logged',true)
     }
 }
 

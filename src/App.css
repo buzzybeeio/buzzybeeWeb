@@ -55,7 +55,6 @@ ul {
     width: 100%;
     margin: 0;
     border: none;
-    border-bottom: 1px solid #aaa;
 }
 
 .navbar-brand {
@@ -175,6 +174,8 @@ textarea {
     min-height: 150px;
 }
 
+/* media queries */
+
 @media (max-width: 500px) {
     .mission {
         padding: 0.7em;
@@ -185,11 +186,8 @@ textarea {
     }
 }
 
-@media (min-resolution: 230dpi) {
-    .navbar {
-        border-bottom: 2px solid #999;
-    }
-}
+/* end of media queries */
+/* animation code */
 
 .animation {
   overflow: hidden;
@@ -207,8 +205,7 @@ textarea {
   top: calc(50vh - 100px/2);
   left: calc(50vw - 100px/2);
   animation: Move 2s linear;
-  font-family: Calibri;
-  text-align: center;
+  animation-direction: forwards;
   margin: 0;
 }
 @keyframes Move {
@@ -248,3 +245,5 @@ textarea {
     width: 100vw;
   }
 }
+
+/* end of animation code */
