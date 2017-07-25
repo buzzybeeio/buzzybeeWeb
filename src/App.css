@@ -2,6 +2,14 @@ body {
     background-color: white;
 }
 
+a {
+    line-height: 1.2;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .jobs-list {
   margin-top: 80px;
 }
@@ -15,7 +23,7 @@ body {
 }
 
 .job:nth-child(2n) a {
-  color: black;
+  color: #222;
 }
 
 .job a:visited {
@@ -38,13 +46,12 @@ ul {
     background-color:#FFB605;
 }
 
-.logo-container {
+.logo-container, .footer, .wrapper {
     background-color: #171e27;
 }
 
 .navbar {
     background-color: white;
-    border-radius: 0;
     width: 100%;
     margin: 0;
     border: none;
@@ -76,7 +83,6 @@ ul {
     position: relative;
 }
 
-
 .motto {
     width: 100%;
     top: 87.5%;
@@ -85,15 +91,13 @@ ul {
     font-size: 3.5vw;
     text-align: center;
     color: #7a9e7e;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #333;
+    text-shadow: 2px 2px 3px rgba(10,10,10,0.5);
+    min-height: 100px;
 }
 
 .textBox {
     text-align: center;
-    color: #e8f1f2;
-}
-
-p {
     color: #e8f1f2;
 }
 
@@ -103,8 +107,7 @@ p {
 }
 
 .btn {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin: 1.5em auto;
     color: #171e27;
     width: 15em;
     height: 3em;
@@ -112,7 +115,8 @@ p {
 
 .more {
     font-size: 25px;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #333;
+    text-shadow: 2px 2px 3px rgba(10,10,10,0.5);
     margin-bottom: 1.5em;
 }
 
@@ -123,32 +127,18 @@ p {
 }
 
 .mission {
-    padding-right: 1.2em;
-    padding-left: 1.2em;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
+    padding: 1.2em;
+    color: #222;
 }
 
-h3 {
+h3, p {
     color: #171e27;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-p {
-    color: #171e27;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.motto {
-    min-height: 100px;
+    padding: 0% 10%;
 }
 
 .footer {
-    background-color: #171e27;
     color: white;
-    padding: 15px;
+    padding: 20px;
 }
 
 .joblist {
@@ -159,19 +149,102 @@ p {
     margin-top: 10px;
 }
 
-.form {
-    background-color: #171e27;
+.wrapper {
     margin-top: 50px;
     padding-top: 50px; 
-    padding-bottom: 20px; 
-    margin-bottom: 100px; 
+    padding-bottom: 20px;
+    margin-bottom: 100px;
+}
+
+form {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 9px;
+    margin: 0 auto;
 }
 
 input {
-    width: 50%;
     margin-bottom: 10px;
 }
 
 textarea {
-    width: 50%; 
+    min-height: 150px;
 }
+
+/* media queries */
+
+@media (max-width: 500px) {
+    .mission {
+        padding: 0.7em;
+    }
+    
+    .motto {
+        font-size: 4.5vw;
+    }
+}
+
+/* end of media queries */
+/* animation code */
+
+.animation {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: #171e27;
+}
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  top: calc(50vh - 100px/2);
+  left: calc(50vw - 100px/2);
+  animation: Move 2s linear;
+  animation-direction: forwards;
+  margin: 0;
+}
+@keyframes Move {
+  0% {
+    border-radius: 10px;
+    transform: translateX(50vw);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  27% {
+    transform: rotate(-20deg);
+  }
+  34% {
+    transform: rotate(-23deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: scale(1);
+    border-radius: 10px;
+  }
+  80% {
+    height: 100px;
+    width: 100px;
+    transform: scale(0.4);
+    border-radius: 0;
+    top: calc(50vh - 100px/2);
+    left: calc(50vw - 100px/2);
+  }
+  90%, 100% {
+    transform: scale(1);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+/* end of animation code */
