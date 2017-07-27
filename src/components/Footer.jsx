@@ -4,7 +4,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer text-center">
+      <div className="footer text-center animation-hide">
         <a href="mailto:thisisrailee@gmail.com">
           <img src="email.png" alt=""/>
         </a>

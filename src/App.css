@@ -199,12 +199,12 @@ textarea {
   background-color: #171e27;
 }
 .cube {
-  width: 100px;
-  height: 100px;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
   position: absolute;
-  top: calc(50vh - 100px/2);
-  left: calc(50vw - 100px/2);
+  top: 0;
+  left: 0;
   animation: Move 2s linear;
   animation-direction: forwards;
   margin: 0;
@@ -212,6 +212,10 @@ textarea {
 @keyframes Move {
   0% {
     border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    top: calc(50vh - 100px/2);
+    left: calc(50vw - 100px/2);
     transform: translateX(50vw);
   }
   20% {
@@ -238,7 +242,7 @@ textarea {
     top: calc(50vh - 100px/2);
     left: calc(50vw - 100px/2);
   }
-  90%, 100% {
+  90% {
     transform: scale(1);
     top: 0;
     left: 0;

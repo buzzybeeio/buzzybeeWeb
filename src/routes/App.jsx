@@ -1,56 +1,50 @@
-import React, { Component } from 'react'; 
-import Nav from '../components/navbar';
+import React, { Component } from 'react';
 import Logo from '../components/logo';
 import Textbox from '../components/textbox';
 import Mission from '../components/mission';
-import Footer from '../components/Footer';
 import $ from 'jquery';
 import '../App.css'
 
 class App extends Component {
 
     render() {
-        return(
+        return (
             <div>
                 <div className='animation'>
                     <div className='cube'></div>
                 </div>
-                <div className="logo-container">
-                <div>
-                    <Nav />
-                </div>
-                <div className="container">
-                    <div>
-                        <Logo />
+                <div className="animation-hide logo-container">
+                    <div className="container">
+                        <div>
+                            <Logo />
+                        </div>
+                        <div>
+                            <Textbox />
+                        </div>
                     </div>
-                    <div>
-                        <Textbox />
+                    <div className="container mission_container">
+                        <Mission />
                     </div>
-                </div>
-                <div className="container mission_container">
-                    <Mission />
-                </div>
-                    <Footer />
                 </div>
             </div>
-            
+
         )
     }
 
-    componentDidMount(){
+    componentDidMount() {
         var $animation = $('.animation')
-        var timeout = setTimeout(function(){
-            $animation.css('display','none')
-            $('.logo-container').fadeIn(750)
-        },2000)
-        if(sessionStorage.getItem('buzzybee-already-logged')) {
+        var timeout = setTimeout(function () {
+            $animation.css('display', 'none')
+            $('.animation-hide').fadeIn(750)
+        }, 2000)
+        if (sessionStorage.getItem('buzzybee-already-logged')) {
             clearTimeout(timeout)
             $animation.css('display', 'none')
         }
         else {
-            $('.logo-container').css('display', 'none')
+            $('.animation-hide').css('display', 'none')
         }
-        sessionStorage.setItem('buzzybee-already-logged',true)
+        sessionStorage.setItem('buzzybee-already-logged', true)
     }
 }
 
