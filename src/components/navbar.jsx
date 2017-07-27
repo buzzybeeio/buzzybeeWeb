@@ -5,11 +5,11 @@ class Nav extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-default navbar-fixed-top">
+            <nav className="navbar navbar-default navbar-fixed-top animation-hide">
                 <div className="container">
                     <div className="navbar-header">
                         <Link to='/' className="navbar-brand">
-                            <img alt="Brand" src="BuzzyBee_logo.png"/>
+                            <img alt="Brand" src="BuzzyBee_logo.png" />
                         </Link>
                         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span className="icon-bar"></span>

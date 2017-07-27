@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Job from './Job.jsx'
-import $ from 'jquery'
-import Footer from './Footer.jsx'
+import Job from './Job.jsx';
+import $ from 'jquery';
+import Footer from './Footer.jsx';
 
 class JobsList extends Component {
   constructor(props) {
@@ -22,33 +22,30 @@ class JobsList extends Component {
 
     return new Promise((resolve, reject) => {
       $.ajax({
-        type:"GET",
-        url:url,
-        dataType:"json",
+        type: "GET",
+        url: url,
+        dataType: "json",
         success: resolve,
         error: reject
       })
     })
   }
 
-    render() {
-        const jobsLis = []
+  render() {
+    const jobsLis = []
 
-        for (let index in this.state.jobs) {
-          jobsLis.push(
-            <Job job={this.state.jobs[index]} key={index}/>
-          )
-        }
-
-        return (
-          <div>
-            <div className="container joblist">
-              {jobsLis}
-            </div>
-            <Footer />
-          </div>
-        )
+    for (let index in this.state.jobs) {
+      jobsLis.push(
+        <Job job={this.state.jobs[index]} key={index} />
+      )
     }
+
+    return (
+      <div className="container joblist">
+        {jobsLis}
+      </div>
+    )
+  }
 }
 
 export default JobsList;
