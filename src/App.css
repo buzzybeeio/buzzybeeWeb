@@ -250,4 +250,15 @@ textarea {
   }
 }
 
+.jobs-loading-animation #bar{
+    height: 0.75rem;
+    width: 7rem;
+    background-color: black;
+    animation-duration: 0.7s;
+    margin: 0 auto;
+}
+.jobs-loading-animation p{
+    text-align: center
+}
+
 /* end of animation code */
