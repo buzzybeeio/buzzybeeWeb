@@ -20,8 +20,8 @@ class Nav extends Component {
                     <div className="collapse navbar-collapse navbar-right">
                         <ul className="nav navbar-nav">
                             <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/Jobs'>Jobs</Link></li>
-                            <li><Link to='/Contact'>Contact</Link></li>
+                            <li><Link to='/jobs'>Jobs</Link></li>
+                            <li><Link to='/contact'>Contact</Link></li>
                         </ul>
                     </div>
                 </div>

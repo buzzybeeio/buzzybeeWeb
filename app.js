@@ -9,11 +9,7 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static('build'))
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/build/index.html')
-})
-
-app.post('/Contacts', (req, res) => {
+app.post('/contact', (req, res) => {
   let name = req.body.name
   let email = req.body.email
   let message = req.body.message
@@ -31,7 +27,7 @@ app.post('/Contacts', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.redirect('/')
+  res.sendFile(__dirname + '/build/index.html')
 })
 
 app.listen(port, () => {

@@ -30,7 +30,7 @@ class ContactForm extends Component {
   render() {
     return(
       <div className='wrapper text-center'>
-        <form method="POST" action="/Contacts">
+        <form method="POST" action="/contact">
           <div>
             <input
               name = "name"
