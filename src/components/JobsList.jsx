@@ -13,6 +13,7 @@ class JobsList extends Component {
 
     this.getJobs()
       .then(jobs => {
+        this.props.stopAnimation()
         this.setState({ jobs })
       })
   }
