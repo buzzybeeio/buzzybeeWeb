@@ -10,6 +10,11 @@ a:hover {
     text-decoration: none;
 }
 
+.footer-picture {
+    max-height: 50px; 
+    max-width: 50px; 
+}
+
 .jobs-list {
   margin-top: 80px;
 }
@@ -77,6 +82,21 @@ ul {
     margin-right: auto;
     max-height: 600px;
     max-width: 600px;
+}
+
+.narrator-pic {
+    border-radius: 50%;
+    height: 70%;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.story-title {
+    text-align: center; 
 }
 
 .logo {
@@ -147,6 +167,14 @@ h3, p {
 
 .copyright {
     margin-top: 10px;
+}
+
+.story {
+    margin-top: 80px; 
+}
+
+.story-button {
+    margin-top: 0; 
 }
 
 .wrapper {
