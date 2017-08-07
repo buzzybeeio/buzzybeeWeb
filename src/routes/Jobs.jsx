@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import JobsList from '../components/JobsList';
+
 import $ from 'jquery';
+
 import '../App.css';
 
 class Jobs extends Component {
@@ -21,6 +23,7 @@ class Jobs extends Component {
                     clearInterval(window.barAnimation)
                     clearInterval(window.loadingAnimation)    
                 }}/>
+
             </div>
         )
     }
