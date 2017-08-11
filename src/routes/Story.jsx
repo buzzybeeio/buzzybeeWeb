@@ -5,8 +5,7 @@ class Story extends Component {
     render() {
         return (
             <div className="container story">
-                <img className="narrator-pic" src="successpicture.png" alt="" />
-                <h4 className="story-title"><em>Eileen, software engineer at therachat.io</em></h4>
+                <img className="narrator-pic" src="eileen.jpg" alt="" />
                 <p><em>This week we got a chance to interview Eileen Zhong. She is a software engineer at Therachat.io. Eileen not only managed to break into the tech industry without a computer science background but she managed to do so as a woman. Here is the interview:</em></p>
                 <p><strong>Tell us a little about your background, and how you decide to venture into software engineering?</strong></p>
                 <p>"I’ve been working in the Tech Industry for the past 10 months now but I didn’t come from a traditional computer science background. I went through my undergraduate career with aspirations of going to dental school and eventually becoming a dentist. However, in my senior year, after many semesters of physiology, biology, and ochem, I realized I didn’t want to be a dentist. I could either continue feeling unfulfilled but comfortable going down the path I was on or take a leap of faith and try to find something I love. I went with the latter. Software engineering came to mind when I asked myself what I could potentially be good at and enjoy. For some reason, MySpace, of all things, came up… I remember personalizing themes and editing my personal page with little style tweaks here and there. I always had such a great time that I decided software engineering would be the first alternative path I could try. Thankfully, it stuck and I am still loving it to this day!"</p>

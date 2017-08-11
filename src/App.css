@@ -85,12 +85,12 @@ ul {
 }
 
 .narrator-pic {
-    border-radius: 50%;
     height: 70%;
     width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px; 
     max-height: 400px;
     max-width: 400px;
 }
@@ -212,6 +212,10 @@ textarea {
     
     .motto {
         font-size: 4.5vw;
+    }
+
+    .bee {
+        margin-top: 25px; 
     }
 }
 
