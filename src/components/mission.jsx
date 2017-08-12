@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Mission extends Component {
-    render() {
-        return(
+var Mission = function(){
+    return (
             <div className="mission">
                 <h3>Built by Software Engineers for Software Engineers</h3>
                 <p>We know that looking for jobs is hard, so we created a platform that congregates a lot of software engineering jobs together. This platform isn't perfect, but we are continously striving to make it so.</p>
@@ -12,6 +11,5 @@ class Mission extends Component {
             </div>
         )
     }
-}
 
 export default Mission;
