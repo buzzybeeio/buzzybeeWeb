@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server'
 var Story = function () {
   return (
     <div className="container story">
-      <img className="narrator-pic" src="successpicture.png" alt="" />
+      <img className="narrator-pic" src="eileen.jpg" alt="" />
       <h4 className="story-title"><em>Eileen, software engineer at therachat.io</em></h4>
       <p><em>This week we got a chance to interview Eileen Zhong. She is a software engineer at Therachat.io. Eileen not only managed to break into the tech industry without a computer science background but she managed to do so as a woman. Here is the interview:</em></p>
       <p><strong>Tell us a little about your background, and how you decide to venture into software engineering?</strong></p>
