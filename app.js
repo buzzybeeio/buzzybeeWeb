@@ -6,7 +6,7 @@ const sendmail = require('sendmail')();
 const port = process.env.PORT || 3000
 
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('build'))
 
 app.post('/contact', (req, res) => {
@@ -19,7 +19,7 @@ app.post('/contact', (req, res) => {
     to: 'thisisrailee@gmail.com',
     subject: `From ${email} by ${name}`,
     html: message,
-  }, function(err, reply) {
+  }, function (err, reply) {
     console.log(err && err.stack);
     console.dir(reply);
   })
