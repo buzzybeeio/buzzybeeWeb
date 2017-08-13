@@ -204,6 +204,9 @@ textarea {
 }
 
 /* media queries */
+.buzzybee_writing {
+    max-height: 50px; 
+}
 
 @media (max-width: 500px) {
     .mission {
@@ -218,9 +221,6 @@ textarea {
         margin-top: 25px; 
     }
 
-    .buzzybee_writing {
-        max-height: 50px; 
-    }
 }
 
 /* end of media queries */
