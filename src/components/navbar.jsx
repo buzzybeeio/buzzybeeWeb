@@ -13,7 +13,6 @@ var Nav = function () {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
                     </button>
                 </div>
                 <div className="collapse navbar-collapse navbar-right">
