@@ -217,6 +217,10 @@ textarea {
     .bee {
         margin-top: 25px; 
     }
+
+    .buzzybee_writing {
+        max-height: 50px; 
+    }
 }
 
 /* end of media queries */
