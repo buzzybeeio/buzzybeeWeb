@@ -80,6 +80,8 @@ input, textarea {
   width: 90%;
   padding: 4px;
   margin: 0 auto;
+  border: 2px solid #ddd;
+  border-radius: 2px;
 }
 
 input {
@@ -257,6 +259,10 @@ ul {
 .navbar-brand>img {
   height: 280%;
   width: auto;
+}
+
+.buzzybee_writing {
+  max-height: 56px; 
 }
 .narrator-pic {
   height: 70%;

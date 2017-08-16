@@ -7,6 +7,8 @@ input, textarea {
   width: 90%;
   padding: 4px;
   margin: 0 auto;
+  border: 2px solid #ddd;
+  border-radius: 2px;
 }
 
 input {
