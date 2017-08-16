@@ -7,7 +7,7 @@ var Nav = function () {
             <div className="container">
                 <div className="navbar-header">
                     <Link to='/' className="navbar-brand">
-                        <img alt="Brand" src="BuzzyBee_logo.png" />
+                        <img alt="Brand" className="buzzybee_writing" src="BuzzyBee_logo.png" />
                     </Link>
                     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span className="icon-bar"></span>
