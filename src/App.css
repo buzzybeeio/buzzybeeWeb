@@ -232,8 +232,29 @@ ul {
   list-style-type: none;
 }
 
+<<<<<<< HEAD
 .job {
   padding: 10px 0;
+=======
+/* media queries */
+.buzzybee_writing {
+    max-height: 50px; 
+}
+
+@media (max-width: 500px) {
+    .mission {
+        padding: 0.7em;
+    }
+    
+    .motto {
+        font-size: 4.5vw;
+    }
+
+    .bee {
+        margin-top: 25px; 
+    }
+
+>>>>>>> master
 }
 
 .job:hover {
