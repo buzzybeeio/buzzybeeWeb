@@ -1,0 +1,39 @@
+.jobs-list {
+  margin-top: 80px;
+}
+
+.job:nth-child(2n+1) {
+  background-color: #171e27;
+}
+
+.job:nth-child(2n+1) a {
+  color: white;
+}
+
+.job:nth-child(2n) a {
+  color: #222;
+}
+
+.job a:visited {
+  color: #FFB605;
+}
+
+.job:hover a:visited {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.job {
+  padding: 10px 0;
+}
+
+.job:hover {
+    background-color:#FFB605;
+}
+
+.joblist {
+  margin-bottom: 20px; 
+}

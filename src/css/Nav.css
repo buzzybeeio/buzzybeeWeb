@@ -1,0 +1,17 @@
+.navbar {
+  background-color: white;
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+
+.navbar-brand {
+  position: absolute;
+  top: -1.1em;
+  border: none;
+}
+
+.navbar-brand>img {
+  height: 280%;
+  width: auto;
+}

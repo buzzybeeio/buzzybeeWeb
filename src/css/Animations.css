@@ -1,0 +1,73 @@
+.animation {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: #171e27;
+}
+.cube {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: Move 2s linear;
+  animation-direction: forwards;
+  margin: 0;
+}
+
+@keyframes Move {
+  0% {
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    top: calc(50vh - 100px/2);
+    left: calc(50vw - 100px/2);
+    transform: translateX(50vw);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  27% {
+    transform: rotate(-20deg);
+  }
+  34% {
+    transform: rotate(-23deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: scale(1);
+    border-radius: 10px;
+  }
+  80% {
+    height: 100px;
+    width: 100px;
+    transform: scale(0.4);
+    border-radius: 0;
+    top: calc(50vh - 100px/2);
+    left: calc(50vw - 100px/2);
+  }
+  90% {
+    transform: scale(1);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+.jobs-loading-animation #bar{
+    height: 0.75rem;
+    width: 7rem;
+    background-color: black;
+    animation-duration: 0.7s;
+    margin: 0 auto;
+}
+
+.jobs-loading-animation p{
+    text-align: center
+}

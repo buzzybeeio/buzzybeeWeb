@@ -1,0 +1,22 @@
+.narrator-pic {
+  height: 70%;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px; 
+  max-height: 400px;
+  max-width: 400px;
+}
+
+.story-title {
+  text-align: center; 
+}
+
+.story {
+  margin-top: 80px; 
+}
+
+.story-button {
+  margin-top: 0; 
+}

@@ -1,0 +1,18 @@
+form {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 4px;
+  margin: 0 auto;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+textarea {
+  min-height: 150px;
+}

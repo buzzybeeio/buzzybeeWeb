@@ -1,0 +1,9 @@
+.footer-picture {
+  max-height: 50px; 
+  max-width: 50px; 
+}
+
+.footer {
+  color: white;
+  padding: 20px;
+}
