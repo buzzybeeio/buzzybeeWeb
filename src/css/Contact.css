@@ -1,0 +1,21 @@
+form {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 4px;
+  margin: 0 auto;
+  border-width: 0;
+  border-radius: 3px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+textarea {
+  border-radius: 6px;
+  min-height: 150px;
+}
