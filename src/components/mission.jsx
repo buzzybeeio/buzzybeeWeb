@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Mission = function(){
+var Mission = () => {
     return (
             <div className="mission">
                 <h3>Built by Software Engineers for Software Engineers</h3>

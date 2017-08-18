@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Logo = function () {
+var Logo = () => {
     return (
         <div className="logo">
             <img className="bee" src="buzzybee-logo.jpg" alt="Buzzy Bee Logo" />

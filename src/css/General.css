@@ -90,6 +90,7 @@ h3, p {
 }
 
 @media (max-width: 500px) {
+
   .mission {
       padding: 0.7em;
   }
@@ -101,4 +102,5 @@ h3, p {
   .bee {
       margin-top: 25px; 
   }
+  
 }
