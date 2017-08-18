@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server'
 
 var Story = function () {
   return (
-    <div className="container story">
+    <div>
       <img className="narrator-pic" src="profilepics/najee.jpg" alt="" />
       <h4 className="story-title"><em>Najee, Software Trainer at Hack the Hood</em></h4>
       <p><em>This week we got a chance to interview Najee Amaranth. He is a Software Trainer at Hack the Hood. Despite not having a computer science degree, Najee has managed to break into the tech industry through hard work and dedication. Here is the interview:</em></p>
@@ -22,8 +22,7 @@ var Story = function () {
       <p><strong>But what if someone wants more structure, because there’s just too much to Google.</strong></p>
       <p>“That’s true. I would say learn some HTML, CSS, JavaScript from free sources (FreeCodeCamp, Codecademy) then learn some Python. And then build a website, and after you build out your website, build out some features and once you build out your features, change everything.”</p>
       <p><strong>Would you advise people to go to a bootcamp?</strong></p>
-      <p>“If they needed it. But I think that working independently is probably the best thing that you can do. If you want to be a software engineer, build an app, it is as simple as that. Take something that you do every day and see if you can create an app for it. Start with the basics, I would suggest start with JavaScript because it’s simple. I think that bootcamps are too expensive and some people who come out of bootcamps are not that good. I think that I can code because I do a lot of research on my own. Figure out how you learn best and apply that to learning software.” 
-</p>
+      <p>“If they needed it. But I think that working independently is probably the best thing that you can do. If you want to be a software engineer, build an app, it is as simple as that. Take something that you do every day and see if you can create an app for it. Start with the basics, I would suggest start with JavaScript because it’s simple. I think that bootcamps are too expensive and some people who come out of bootcamps are not that good. I think that I can code because I do a lot of research on my own. Figure out how you learn best and apply that to learning software.” </p>
       <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank">facebook</a> page!</em></p>
     </div>
   )
