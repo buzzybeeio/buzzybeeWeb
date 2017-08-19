@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
 
 var Story = function () {
   return (
@@ -28,4 +27,4 @@ var Story = function () {
   )
 }
 
-export default ReactDOMServer.renderToStaticMarkup(<Story />)
+export default Story
