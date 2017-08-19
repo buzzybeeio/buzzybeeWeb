@@ -75,12 +75,12 @@
   }
 
   .story-flex-wrapper>.story-wrapper{
-    flex: auto;
+    flex: 1;
     width: 100%;
   }
 
   .story-flex-wrapper>.aside{
-    width: auto;
+    width: 100%;
   }
 
   .sidebar-grid{
@@ -90,7 +90,7 @@
   }
 }
 
-@media (max-width: 430px){
+@media (max-width: 500px){
 
   .sidebar-grid{
     grid-template-columns: 1fr 1fr;
