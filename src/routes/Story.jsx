@@ -28,6 +28,7 @@ class Story extends Component {
             <div className='story-flex-wrapper container'>
                 <div dangerouslySetInnerHTML={{ __html: this.state.story }} className='story-wrapper'></div>
                 <div className='aside'>
+                    <h3>Stories</h3>
                     <div className='sidebar-grid'>
                         {
                             this.state.stories.map(info => {
@@ -48,7 +49,7 @@ class Story extends Component {
         function f() {
             if (window.innerWidth >= 768) {
                 height = $('.story-wrapper').height()
-                $aside.css('height', height - 20 + 'px')
+                $aside.css('height', height - 40 + 'px')
 
                 if ($('.aside > div').height() > height) {
                     $aside.css('overflow-y', 'scroll')
@@ -77,12 +78,28 @@ class Story extends Component {
             $('.story-box').click(function () {
                 const data = JSON.parse($(this).attr('data'))
                 $(this).hide(750)
-                $('.story-wrapper').hide(750, () => { component.setState({ story: data.component }) }).slideDown(750)
+                $('.story-wrapper').hide(750, () => { component.setState({ story: data.component }) }).slideDown(750, () => {
+                    var $aside = $('.aside')
+                    if (window.innerWidth >= 768) {
+                        var height = $('.story-wrapper').height()
+                        $aside.css('height', height - 40 + 'px')
+
+                        if ($('.sidebar-grid').height() > height) {
+                            $aside.css('overflow-y', 'scroll')
+                        }
+                        else {
+                            $aside.css('overflow-y', 'hidden')
+                        }
+                    }
+                    else {
+                        $aside.css('height', 'auto')
+                        $aside.css('overflow-y', 'hidden')
+                    } 
+                })
 
                 $($('.sidebar-grid').children()).each(function () {
                     if ($(this).css('display') != 'block') $(this).slideDown(750)
                 })
-
             })
             document.getElementsByClassName('aside')[0].style.opacity = '1'
         }
