@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm';
 import Logo from '../components/logo';
 import '../App.css';
 
-var Contact = function () {
+var Contact = () => {
     return (
         <div>
             <Logo />

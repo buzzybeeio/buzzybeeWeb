@@ -1,6 +1,6 @@
 import React from 'react'
 
-var Footer = function () {
+var Footer = () => {
   return (
     <div className="footer text-center animation-hide">
       <a href="mailto:thisisrailee@gmail.com">

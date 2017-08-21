@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-var Textbox = function (){
+var Textbox = () => {
         return(
             <div className="textBox">
                 <div className="quote">"Your positive action combined with positive thinking results in success."</div>

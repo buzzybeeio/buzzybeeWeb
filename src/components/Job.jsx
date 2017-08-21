@@ -19,6 +19,7 @@ class Job extends Component {
       </div>
     )
   }
+
 }
 
 export default Job;

@@ -46,6 +46,7 @@ class App extends Component {
         }
         sessionStorage.setItem('buzzybee-already-logged', true)
     }
+    
 }
 
 export default App; 

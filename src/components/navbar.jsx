@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-var Nav = function () {
+var Nav = () => {
     return (
         <nav className="navbar navbar-default navbar-fixed-top animation-hide">
             <div className="container">

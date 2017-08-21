@@ -5,10 +5,17 @@ module.exports = function(grunt){
         src: ['./src/css/*.css'],
         dest: 'src/App.css',
       },
+    },
+    watch: {
+      scripts:{
+        files: ['src/css/*.css','src/components/*.jsx','src/routes/*.jsx'],
+        tasks: ['default']
+      },
     }
   })
 
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.registerTask('default','',function(){
     var execSync = require('child_process').execSync
     execSync('grunt concat')
