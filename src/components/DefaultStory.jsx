@@ -28,9 +28,6 @@ var Story = function () {
       <p><strong>Are you currently working on any side projects right now?
       </strong></p>
       <p>“Yes. Me and my friends are working on teaching people to be more aware of mental health consciousness and I’m rebuilding the entire website, subconscious.org.”</p>
-      <p><strong>Are you recruiting? How can they reach out to you?
-      </strong></p>
-      <p>“Yes and they can shoot me an email, nguyenaiden@gmail.com.”</p>
       <p><strong>What are some last thoughts/advice that you have for everyone who is trying to become a software engineer without going for the cs degree?</strong></p>
       <p>“Just do it.”</p>
       

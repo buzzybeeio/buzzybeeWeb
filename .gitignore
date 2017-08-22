@@ -20,10 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-<<<<<<< HEAD
-
-=======
 /build
 
 /src/App.css
->>>>>>> 27fa703c92b00617230fdf163a0c2c4224c64d61
