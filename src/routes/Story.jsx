@@ -33,7 +33,7 @@ class Story extends Component {
                         {
                             this.state.stories.map(info => {
                                 var infostr = JSON.stringify(info)
-                                return (<div className="story-box" data={infostr}><img src={'profilepics/' + info.name + '.jpg'} alt={info.name + ' img'} /><span>{info.name}</span></div>)
+                                return (<div className="story-box" key={infostr} data={infostr}><img src={'profilepics/' + info.name + '.jpg'} alt={info.name + ' img'} /><span>{info.name}</span></div>)
                             })
                         }
                     </div>
