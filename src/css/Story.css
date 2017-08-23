@@ -4,18 +4,18 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   max-height: 400px;
   max-width: 400px;
 }
 
 .story-title {
-  text-align: center; 
+  text-align: center;
 }
 
 .story-button {
-  margin-top: 0; 
-} 
+  margin-top: 0;
+}
 
 .story-wrapper {
   text-align: justify;
@@ -44,7 +44,7 @@
 
 .sidebar-grid{
   display: grid;
-  grid-row-gap: 10px; 
+  grid-row-gap: 10px;
   grid-template-columns: 1fr;
   align-items: start;
 }

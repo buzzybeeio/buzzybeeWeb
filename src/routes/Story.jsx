@@ -58,10 +58,6 @@ class Story extends Component {
                     $aside.css('overflow-y', 'hidden')
                 }
             }
-            else {
-                $aside.css('height', 'auto')
-                $aside.css('overflow-y', 'hidden')
-            }
         }
 
         f();
@@ -91,10 +87,6 @@ class Story extends Component {
                             $aside.css('overflow-y', 'hidden')
                         }
                     }
-                    else {
-                        $aside.css('height', 'auto')
-                        $aside.css('overflow-y', 'hidden')
-                    } 
                 })
 
                 $($('.sidebar-grid').children()).each(function () {
@@ -106,4 +98,4 @@ class Story extends Component {
     }
 }
 
-export default Story; 
+export default Story;
