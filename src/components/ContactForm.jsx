@@ -1,39 +1,40 @@
-import React, { Component } from 'react'; 
+// @flow
+import React, { Component } from 'react';
 
 class ContactForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      name: "",
-      email: "", 
-      message: ""
-    }
+      name: '',
+      email: '',
+      message: '',
+    };
   }
 
   handleNameChange(event) {
-    this.setState({ name: event.target.value })
+    this.setState({ name: event.target.value });
   }
 
   handleEmailChange(event) {
-    this.setState({ email: event.target.value })
+    this.setState({ email: event.target.value });
   }
 
   handleMessageChange(event) {
-    this.setState({ message: event.target.value })
+    this.setState({ message: event.target.value });
   }
 
   submission() {
-    alert('Thanks for your submission!')
+    alert('Thanks for your submission!');
   }
 
   render() {
-    return(
-      <div className='wrapper text-center'>
+    return (
+      <div className="wrapper text-center">
         <form method="POST" action="/contact">
           <div>
             <input
-              name = "name"
+              name="name"
               placeholder="Hey, what's your name?"
               value={this.state.name}
               onChange={this.handleNameChange.bind(this)}
@@ -41,24 +42,28 @@ class ContactForm extends Component {
           </div>
           <div>
             <input
-              name = "email"
+              name="email"
               placeholder="And your email?"
               value={this.state.email}
               onChange={this.handleEmailChange.bind(this)}
             />
           </div>
           <div>
-            <textarea value={this.state.message} 
-            onChange={this.handleMessageChange.bind(this)}
-            name="message" id="" placeholder="Cool, what's the awesome message that you have for us?"></textarea>
+            <textarea
+              value={this.state.message}
+              onChange={this.handleMessageChange.bind(this)}
+              name="message"
+              id=""
+              placeholder="Cool, what's the awesome message that you have for us?"
+            />
           </div>
           <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
             Submit
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default ContactForm
+export default ContactForm;

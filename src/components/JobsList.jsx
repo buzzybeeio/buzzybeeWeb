@@ -1,51 +1,45 @@
-import React, { Component } from 'react';
-import Job from './Job.jsx';
+// @flow
 import $ from 'jquery';
-import Footer from './Footer.jsx';
+import React, { Component } from 'react';
+import Job from './Job';
+import Footer from './Footer';
 
 class JobsList extends Component {
   constructor(props) {
-    super(props)
-
+    super(props);
     this.state = {
-      jobs: null
-    }
-
-    this.getJobs()
-      .then(jobs => {
-        this.props.stopAnimation()
-        this.setState({ jobs })
-      })
+      jobs: null,
+    };
+    this.getJobs().then((jobs) => {
+      this.props.stopAnimation();
+      this.setState({ jobs });
+    });
   }
 
   getJobs() {
-    const url = 'http://buzzybeeapi.herokuapp.com'
-
+    const url = 'http://buzzybeeapi.herokuapp.com';
     return new Promise((resolve, reject) => {
       $.ajax({
-        type: "GET",
-        url: url,
-        dataType: "json",
+        type: 'GET',
+        url,
+        dataType: 'json',
         success: resolve,
-        error: reject
-      })
-    })
+        error: reject,
+      });
+    });
   }
 
   render() {
-    const jobsLis = []
-
-    for (let index in this.state.jobs) {
-      jobsLis.push(
-        <Job job={this.state.jobs[index]} key={index} />
-      )
+    const jobsLis = [];
+    for (const index in this.state.jobs) {
+      jobsLis.push(<Job job={this.state.jobs[index]} key={index} />);
     }
 
     return (
       <div className="container joblist">
         {jobsLis}
       </div>
-    )
+    );
   }
 }
 
