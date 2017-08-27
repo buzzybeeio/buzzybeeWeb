@@ -10,6 +10,10 @@ app.use(bodyParser.json());
 app.use(express.static('build'));
 app.use(mailRouter);
 
+app.get(/.*\/$/, (req, res) => {
+  res.redirect(req.originalUrl.slice(0, -1));
+})
+
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/build/index.html`);
 });
