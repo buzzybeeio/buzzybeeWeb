@@ -23,16 +23,16 @@ const Nav = () =>
       <div className="collapse navbar-collapse navbar-right">
         <ul className="nav navbar-nav">
           <li>
-            <Link to="/">Home</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/">Home</Link>
           </li>
           <li>
-            <Link to="/jobs">Jobs</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/jobs">Jobs</Link>
           </li>
           <li>
-            <Link to="/story">Story</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">Story</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
