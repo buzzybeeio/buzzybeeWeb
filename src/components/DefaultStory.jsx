@@ -2,116 +2,62 @@ import React from 'react';
 
 const Story = () => (
   <div>
-    <img className="narrator-pic" src="profilepics/duy.jpg" alt="" />
+    <img className="narrator-pic" src="profilepics/kamila.jpg" alt="" />
     <h4 className="story-title">
-      <em>Duy, Software Engineer Apprentice at Twilio</em>
+      <em>Kamila, Software Engineer Intern at Solv.</em>
     </h4>
     <p>
       <em>
-          This week we got a chance to interview Duy Nguyen. He is a Software Engineer Apprentice at
-          Twilio. Duy worked as a consultant prior to programming. He’s passionate about helping
-          people break into the Tech Industry and making the World a better place. Here is the
-          interview:
+      This week we got a chance to interview Kamila Lambert. She made a great transition from successful entrepreneur to working in the Tech Industry. Here is the interview:      
       </em>
     </p>
     <p>
       <strong>Can you tell us a little bit about your background?</strong>
     </p>
     <p>
-        “I was an immigrant from Vietnam. I moved here when I was eleven. I grow up in San Jose,
-        went to elementary, middle, and high school there. I went to Cal as a bio major with the
-        intention of going to medical school but towards the end of my college career I became
-        unsure if that was something that I wanted to do. I had interests in other fields as well so
-        I wanted to pursue them first. I stumbled upon consulting and I worked at a consulting firm
-        for a year and a half but I realized that I wasn’t passionate about it. I went into
-        programming because it was something that I always wanted to do, I went through Hack
-        Reactor’s coding program, and I’m currently working at Twilio.”
+    “I wanted to be a doctor in college so I went to school for that, but after doing an internship, I realized that I didn’t want to be a doctor. I didn’t like it; it wasn’t for me. So I started on my own business teaching people how to garden and helping them with their gardens – I ended up selling that business because I couldn’t see myself doing it forever. I asked myself what I wanted to do, and I want to make things. Being a software engineer allows me to do that.”
     </p>
     <p>
-      <strong>Can you further explain why you picked programming?</strong>
+      <strong>What do you currently do?</strong>
     </p>
     <p>
-        “Programming has always been in the back of my mind, but I didn’t have the courage to pursue
-        it. For most people, they are afraid to go into programming because they are scared that
-        they might not like it but it was the opposite for me, I had all these plans that I always
-        wanted to do like going to medical school, and I was afraid that if I got into programming,
-        I would love it and discard all those plans. The day that I decided to get into programming,
-        I realized that it was something that I always wanted to do.”
+    “I am currently a software engineer intern at Solv Health. I work on both their frontend and backend code base. We use React for our frontend and Python for our backend.”
     </p>
     <p>
-      <strong>How were you introduced to programming?</strong>
+      <strong>How did you learn how to code?</strong>
     </p>
     <p>
-        “Growing up, I was always into technology. For as long as I can remember, my dad has always
-        been a huge techie himself. I grew up being around him experimenting with computers. At Cal,
-        I was lucky enough to find a mentor who was studying Computer Science. He told me that I was
-        going to be a programmer one day.”
+    “I went through a coding program called Learners Guild. It’s a coding program in Oakland that’s ten months long. I did this program because I knew that fifteen-hour coding days at traditional three month bootcamps wasn’t going to work for me. Learning like that isn’t for me so I chose a longer program where I would have the time to allow the information to sink in. The program wasn’t exactly what I signed up for though, they didn’t offer as much support as they advertised and they were still trying to figure things out.”
     </p>
     <p>
-      <strong>What’s the impact that your mentor had on you?</strong>
+      <strong>Would you advise people to do a similar program or a bootcamp if they want to become software engineers?</strong>
     </p>
     <p>
-        “He basically taught me everything (programming-wise) that I know. From the day that I
-        started programming, I would go to his house and he would teach me basic concepts, and he
-        would prepare me for interviews. He passed down a lot of advice to me. I would highly advise
-        people to find their mentor and champion, it’s such an invaluable experience.”
+    “Yes and no. I think that if you know that a bootcamp is something for you, then definitely go for it but I think that bootcamps will only benefit a specific group of people. I think that the learning environment that you’re in is what is most beneficial to learning programming. I liked how everyone at Learners Guild was there to code. The most important part is the environment.”
     </p>
     <p>
-      <strong>You mentioned Hack Reactor, what is Hack Reactor?</strong>
+      <strong>How did you get your internship?</strong>
     </p>
     <p>
-        “Hack Reactor is one of the more popular programming bootcamps in the Bay Area. They teach
-        you Full Stack JavaScript; React and Angular for the front end, and Node for the back end.
-        It’s a thirteen week long program divided into two sections. The first section, you work on
-        two day sprints to learn and apply new concepts. In the second section, you work on three
-        different projects; a greenfield project, a legacy project, and a thesis project.”
+    “Connections. Connections are extremely important and valuable; I don’t think that I would have even gotten an interview if I wasn’t referred for the position. I was referred for the position through someone that I met at Learners Guild and everything worked out. I am very thankful.”
     </p>
     <p>
-      <strong>How much is Hack Reactor?</strong>
+      <strong>What was the interview process like?</strong>
     </p>
-    <p>“When I went, it was $17,800.”</p>
+    <p>“For the first interview, I met up with one of the software engineers, we walked around and talked about my background. He told me what the job entails of and what the company does, it was a non-technical interview. They sent me a coding challenge after, it was building a mobile app in React Native. I completed the challenge and they invited for another interview. I thought that I was just going to meet the team, but it ended up being a technical interview with three software engineers, each meeting lasting for 45 minutes. It wasn’t super intense problems but it was definitely challenging. They liked me and gave me an offer.”</p>
     <p>
-      <strong>Is it worth it?</strong>
-    </p>
-    <p>
-        “I think so. I’m very grateful for the curriculum and the people that I met. Hack Reactor
-        was able to assemble a great group of individuals. I met some of the hardest working people
-        through that program. I am very grateful for the experience and definitely recommend this to
-        people who are thinking about going into programming.”
+      <strong>Do you feel like you’re contributing code and do you occasionally get the imposter syndrome? Since many new software engineers have told me that they feel it in the beginning.</strong>
     </p>
     <p>
-      <strong>What made you choose Hack Reactor over other bootcamps?</strong>
+    “Yes and yes. I am very thankful that my team is so conscious about helping new software engineers, they make an effort to teach and help me and make sure that I’m not struggling too much. They had me work in a large project at a very early stage with a more advanced software engineer and I was initially hesitant because I felt like couldn’t contribute that much, but this was good for my growth because I ended up learning a bunch. At one point I had to draw out every prop being passed down to each component on paper but once I drew it out, I understood how the app worked. So I do believe that I’m contributing code. Sometimes I do feel like I don’t know enough, but I think that that’s just a feeling that everyone has. At the Guild they emphasized Googling but I didn’t think that it would be this relevant. Can I ask you a question? Now that you experienced both coding at a bootcamp and coding by yourself, which one do you prefer?”
     </p>
     <p>
-        “I first applied to App Academy because I liked their payment model but it didn’t work out
-        for me, so I looked for the next best bootcamp which was Hack Reactor. My mentor told me
-        that he knew some people who went through Hack Reactor and they now have jobs, and two
-        software engineers at my consulting firm had also previously attended Hack Reactor. I
-        decided on Hack reactor because they taught JavaScript and because they had a great track
-        record.”
+      <strong>I think that at a bootcamp, I coded more because everyone around me was coding. But I still don’t think that bootcamps are worth it because of how much they cost. Coding by myself is definitely harder because there isn’t anyone that I can go to when I’m stuck so I have to be okay with being stuck longer. Back to you, do you have any final thoughts/advice?</strong>
     </p>
     <p>
-      <strong>How was the transition from Hack Reactor to Twilio?</strong>
+    “I think that I’m lucky. I am very grateful for this internship. I would advise bootcamp graduates to be okay starting with internships, you shouldn’t come out and expect that six-figure job because that mindset will only be a disfavor. The reality is that coding takes time, it takes time to learn it, to understand it, and to implement it. If I was in a fulltime position instead of an internship, I would feel like I needed to know everything when in reality I’m still learning. I am very thankful for this internship.”
     </p>
-    <p>
-        “It was good. I had to learn a lot of new things but I’m also applying a lot of things that
-        I learned from Hack Reactor such as working in a team.”
-    </p>
-    <p>
-      <strong>Are you currently working on any side projects right now?</strong>
-    </p>
-    <p>
-        “Yes. Me and my friends are working on teaching people to be more aware of mental health
-        consciousness and I’m rebuilding the entire website, subconscious.org.”
-    </p>
-    <p>
-      <strong>
-          What are some last thoughts/advice that you have for everyone who is trying to become a
-          software engineer without going for the cs degree?
-      </strong>
-    </p>
-    <p>“Just do it.”</p>
-
+    
     <p>
       <em>
           For more awesome stories check out our{' '}
