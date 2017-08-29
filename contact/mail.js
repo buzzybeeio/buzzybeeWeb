@@ -1,17 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const sendmail = require('sendmail')();
 const nodemailer = require('nodemailer')
+
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-      user: 'trialguest268@gmail.com', // Your email id
-      pass: 'trial268' // Your password
+    user: 'trialguest268@gmail.com', // Your email id
+    pass: 'trial268' // Your password
   }
 })
 
 router.post('/contact', (req, res) => {
+  console.log(req.body)
   let name = req.body.name
   let email = req.body.email
   let message = req.body.message

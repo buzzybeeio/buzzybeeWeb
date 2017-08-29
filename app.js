@@ -1,12 +1,12 @@
 const express = require('express');
-
 const app = express();
 const bodyParser = require('body-parser');
 const mailRouter = require('./contact/mail');
 
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
 app.use(mailRouter);
 
