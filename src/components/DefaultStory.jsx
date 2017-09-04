@@ -2,71 +2,24 @@ import React from 'react';
 
 const Story = () => (
   <div>
-    <img className="narrator-pic" src="profilepics/kamila.jpg" alt="" />
-    <h4 className="story-title">
-      <em>Kamila, Software Engineer Intern at Solv.</em>
-    </h4>
-    <p>
-      <em>
-      This week we got a chance to interview Kamila Lambert. She made a great transition from successful entrepreneur to working in the Tech Industry. Here is the interview:      
-      </em>
-    </p>
-    <p>
-      <strong>Can you tell us a little bit about your background?</strong>
-    </p>
-    <p>
-    “I wanted to be a doctor in college so I went to school for that, but after doing an internship, I realized that I didn’t want to be a doctor. I didn’t like it; it wasn’t for me. So I started on my own business teaching people how to garden and helping them with their gardens – I ended up selling that business because I couldn’t see myself doing it forever. I asked myself what I wanted to do, and I want to make things. Being a software engineer allows me to do that.”
-    </p>
-    <p>
-      <strong>What do you currently do?</strong>
-    </p>
-    <p>
-    “I am currently a software engineer intern at Solv Health. I work on both their frontend and backend code base. We use React for our frontend and Python for our backend.”
-    </p>
-    <p>
-      <strong>How did you learn how to code?</strong>
-    </p>
-    <p>
-    “I went through a coding program called Learners Guild. It’s a coding program in Oakland that’s ten months long. I did this program because I knew that fifteen-hour coding days at traditional three month bootcamps wasn’t going to work for me. Learning like that isn’t for me so I chose a longer program where I would have the time to allow the information to sink in. The program wasn’t exactly what I signed up for though, they didn’t offer as much support as they advertised and they were still trying to figure things out.”
-    </p>
-    <p>
-      <strong>Would you advise people to do a similar program or a bootcamp if they want to become software engineers?</strong>
-    </p>
-    <p>
-    “Yes and no. I think that if you know that a bootcamp is something for you, then definitely go for it but I think that bootcamps will only benefit a specific group of people. I think that the learning environment that you’re in is what is most beneficial to learning programming. I liked how everyone at Learners Guild was there to code. The most important part is the environment.”
-    </p>
-    <p>
-      <strong>How did you get your internship?</strong>
-    </p>
-    <p>
-    “Connections. Connections are extremely important and valuable; I don’t think that I would have even gotten an interview if I wasn’t referred for the position. I was referred for the position through someone that I met at Learners Guild and everything worked out. I am very thankful.”
-    </p>
-    <p>
-      <strong>What was the interview process like?</strong>
-    </p>
-    <p>“For the first interview, I met up with one of the software engineers, we walked around and talked about my background. He told me what the job entails of and what the company does, it was a non-technical interview. They sent me a coding challenge after, it was building a mobile app in React Native. I completed the challenge and they invited for another interview. I thought that I was just going to meet the team, but it ended up being a technical interview with three software engineers, each meeting lasting for 45 minutes. It wasn’t super intense problems but it was definitely challenging. They liked me and gave me an offer.”</p>
-    <p>
-      <strong>Do you feel like you’re contributing code and do you occasionally get the imposter syndrome? Since many new software engineers have told me that they feel it in the beginning.</strong>
-    </p>
-    <p>
-    “Yes and yes. I am very thankful that my team is so conscious about helping new software engineers, they make an effort to teach and help me and make sure that I’m not struggling too much. They had me work in a large project at a very early stage with a more advanced software engineer and I was initially hesitant because I felt like couldn’t contribute that much, but this was good for my growth because I ended up learning a bunch. At one point I had to draw out every prop being passed down to each component on paper but once I drew it out, I understood how the app worked. So I do believe that I’m contributing code. Sometimes I do feel like I don’t know enough, but I think that that’s just a feeling that everyone has. At the Guild they emphasized Googling but I didn’t think that it would be this relevant. Can I ask you a question? Now that you experienced both coding at a bootcamp and coding by yourself, which one do you prefer?”
-    </p>
-    <p>
-      <strong>I think that at a bootcamp, I coded more because everyone around me was coding. But I still don’t think that bootcamps are worth it because of how much they cost. Coding by myself is definitely harder because there isn’t anyone that I can go to when I’m stuck so I have to be okay with being stuck longer. Back to you, do you have any final thoughts/advice?</strong>
-    </p>
-    <p>
-    “I think that I’m lucky. I am very grateful for this internship. I would advise bootcamp graduates to be okay starting with internships, you shouldn’t come out and expect that six-figure job because that mindset will only be a disfavor. The reality is that coding takes time, it takes time to learn it, to understand it, and to implement it. If I was in a fulltime position instead of an internship, I would feel like I needed to know everything when in reality I’m still learning. I am very thankful for this internship.”
-    </p>
-    
-    <p>
-      <em>
-          For more awesome stories check out our{' '}
-        <a href="https://www.facebook.com/buzzybee.io/" target="_blank">
-            facebook
-        </a>{' '}
-          page!
-      </em>
-    </p>
+    <img className="narrator-pic" src="profilepics/anthony.jpg" alt="" />
+    <h4 className="story-title"><em>Anthony, CTO at FOWNDERS</em></h4>
+    <p><em>This week we got a chance to interview Anthony Delgado. Anthony has had a passion for coding since he was a kid and he managed to become a CTO without a CS degree. Here is his story:</em></p>
+    <p><strong>Can you tell us a little bit about your background?</strong></p>
+    <p>“I started coding around 2007 full-time but even before that I was already doing a lot of things with computers. I knew some basic HTML from the geocities and myspace days. My mother was a programmer and she got me my first computer when I was in the second grade. It was a DOS computer so I had to learn all the command line prompts and by the time I was in my teens, I was proficient with computers. We had dial-up internet since the early 90s and I was the first person I knew who had access to the internet. I also became a white hat hacker and I would remove viruses from computers that were infected. I was always infatuated with computers, but I didn’t really start writing functional logical code until 2007. In 2007, I sold my first company and started an e-commerce company, it was somewhat of a failed startup but I learned a ton of stuff along the way. ”</p>
+    <p><strong>What did you go to college for?</strong></p>
+    <p>“I actually dropped out of college, but I went to Ramapo. For a year, I wasn’t sure if I wanted to study business or criminal justice and I was losing aspiration. At the time, college just wasn’t for me so I dropped out of college to start a brick-and-mortar retail store. I eventually sold that store because I wanted to create an online version of it. I knew that it would be a better business strategy to have an online store instead of a physical store and that’s what launched my start into coding. I knew that if we wanted to sell things online, creating an online store was the vehicle to do that. I started out with osCommerce, OpenCart, and cPanel installs. When I wanted something customized I would layer my own code on top of pre-existing software but I wasn’t necessarily a software developer. I saw myself as more of a digital marketer / hacker who was really good at making websites. I wasn’t aware of the world of software developers; there was no Tech Scene in New York City during that time.”</p>
+    <p><strong>How did you land your first software developer role?</strong></p>
+    <p>“After my startup, I started researching. I read online forums, I was on Stack Overflow - anything that I could to level up my skills. I worked on tons of side projects and I freelanced for local businesses in my area. One of the companies that I freelanced for was CraniumFitteds. They weren’t called CraniumFitteds yet and they didn’t have an online presence but I was able to help them create a brand and an online presence. And in their first year after having an online medium, they made over $3 million in sales. Eventually I started working there full-time and it was my first full time gig in Tech.”</p>
+    <p><strong>What inspired you to attend a coding bootcamp although you were already very knowledgeable?</strong></p>
+    <p>“After my first gig, I worked for an IT consulting firm called TDNYC. There I learned a lot about networking, TCP/IP, telephony and corporate business infrastructure. I rebuilt their website, managed their digital marketing and even built some Twilio apps along the way. I learned a lot there but I knew that corporate technology wasn’t for me. If I wanted to progress as an engineer  I needed to be working in a startup environment with other full stack developers, writing code on a daily basis.&#13;&#10;&#13;&#10;Next I accepted an offer to become a full stack developer at a digital agency called Websignia. Websignia was the first place where I got to work with other developers hands on, and this allowed me to learn all these best practices, how to properly use Git, using NPM to install packages, and so on. I leveled up a lot and ended up being the lead of their Tech Department and I was the one doing hire interviews. I got a chance to interview a graduate from Rutgers Bootcamp and he showed me all these awesome projects that he built and he was so passionate about them. This gave me flashbacks from five years ago when I was building things just for fun and it inspired me to look into the Bootcamp. I signed Websignia up as a hiring partner with the Rutgers and I also signed up to take their full course because I was so impressed with what they had to offer. I wanted to find that passion that I had when I was younger. I didn’t have a Computer Science Degree so I also wanted validation from society and attending that coding bootcamp gave me the confidence that I needed.”</p>
+    <p><strong>For people trying to become software developers, what kind of advice would you give them? Would you advise them to self-study or attend a coding bootcamp?</strong></p>
+    <p>“I would advise them to do both. I saw people at my coding bootcamp who were doing it for a job and I think that that’s the wrong reason because you have to have a passion for creating software and making things from scratch. Some people just aren’t cut out for it. The best way to find out is using free online resources to assess if you truly want to write code for a living. If that is the case, then you should attend a coding bootcamp and build on top of that passion because there are people who are not cut out for it and they are spending thousands of dollars to find that out. If it is for you, then you should go into the bootcamp with an open mentality and learn as much as possible.”</p>
+    <p><strong>What is your suggestion for bootcamp graduates that are having a hard time finding a job?</strong></p>
+    <p>“You just have to be relentless. I recently interviewed a Rutgers graduate and he was in the job market for a year after graduating but he was relentless. He took four different internships, he was tutoring, he took Udemy courses online, he taught himself new libraries and frameworks, and he kept applying until he landed a full-time job. Take a low-paying internship if you have to because you’ll learn a lot from it. Also make sure that your personal portfolio website is polished and create a brand around yourself.”</p>
+    <p><strong>Any final thoughts/ advice?</strong></p>
+    <p>“Be relentless, be ruthless, and stop fearing people. I experienced introversion when I was younger but I came out of my shell entirely because I realized that we need to stop fearing people. Sometimes who you know is more important than what you know.”</p>
+    <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank">facebook</a> and <a href="https://medium.com/@buzzybeeio268" target="_blank">medium</a> page!</em></p>
   </div>
 );
 
