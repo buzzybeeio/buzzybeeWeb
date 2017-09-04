@@ -6,6 +6,9 @@ const Footer = () =>
     <a href="mailto:thisisrailee@gmail.com">
       <img className="footer-picture" src="email.png" alt="" />
     </a>
+    <a href="https://medium.com/@buzzybeeio268" target="_blank">
+      <img className="footer-picture" src="medium.png" alt="" />
+    </a>
     <a href="https://www.facebook.com/buzzybee.io/" target="_blank">
       <img className="footer-picture" src="facebook.png" alt="" />
     </a>
