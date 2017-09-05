@@ -6,6 +6,9 @@ const Nav = () =>
   (<nav className="navbar navbar-default navbar-fixed-top animation-hide">
     <div className="container">
       <div className="navbar-header">
+        <Link to="/" className="">
+          <img className="buzzybee_writing" alt="Brand" src="buzzybee-logo.jpg" />
+        </Link>
         <Link to="/" className="navbar-brand">
           <img className="buzzybee_writing" alt="Brand" src="BuzzyBee_logo.png" />
         </Link>

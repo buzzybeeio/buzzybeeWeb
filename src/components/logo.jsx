@@ -3,8 +3,7 @@ import React from 'react';
 
 const Logo = () =>
   (<div className="logo">
-    <img className="bee" src="buzzybee-logo.jpg" alt="Buzzy Bee Logo" />
-    <div className="motto">Don't waste time. Search Smarter.</div>
+    <img className="bee" src="trihexagon_logo.png" alt="Buzzy Bee Logo" />
   </div>);
 
 export default Logo;
