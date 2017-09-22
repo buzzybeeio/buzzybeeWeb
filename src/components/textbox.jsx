@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Textbox = () =>
   (<div className="textBox">
-    <div className="quote">
-      "Your positive action combined with positive thinking results in success."
-    </div>
-    <div className="author">Shiva Khera</div>
+
     <Link to="/story">
       <button type="button" id="jobs-button" className="btn btn-success">
         Weekly Success Story
