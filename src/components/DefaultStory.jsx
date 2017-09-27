@@ -3,29 +3,29 @@ import React from 'react'
 var Story = () => {
   return (
     <div>
-      <img className="narrator-pic" src="profilepics/connor.jpg" alt="" />
-      <h4 className="story-title"><em>Connor, Senior Technichal Recruiter at MONDO</em></h4>
-      <p><em>This week we got a chance to interview Connor Leech. Connor was a Senior Technical Recruiter at MONDO. Connor worked in sales prior to programming. He’s currently working on his own personal project. Here is the interview:</em></p>
+      <img className="narrator-pic" src="profilepics/aileen.jpg" alt="" />
+      <h4 className="story-title"><em>Aileen, Software Engineer Intern at Solv.</em></h4>
+      <p><em>This week we got a chance to interview Aileen Santos. Aileen is a Software Engineer Intern at Solv Health. Prior to coding, Aileen was a teacher because she believes in education and contributing to society. Aileen continues to advocate for social causes through her coding. Here is the interview:</em></p>
       <p><strong>Can you tell us a little bit about your background?</strong></p>
-      <p>“After I graduated from college, I went through a lot of Codecademy’s resources and I also attended a coding bootcamp in San Francisco - RocketU. They are no longer around but their main focus were on Python, Django, and Angular. Prior to the bootcamp, I was already familiar with jQuery and Node. I also started blogging once I started attending the bootcamp because I found that writing about what I learned allowed me to solidify my understanding of that topic. After RocketU, I got hired through a recruiting agency as an Angular Developer. It was a contract position for $30/hour and it was a really far commute so it wasn’t the best job. Once the contract was up, I actually ended up working with the recruiting agency because I also had sales experience. Being a recruiter allowed me the inside knowledge of what technologies get people hired and what different types of companies want.” </p>
-      <p><strong>Can you share that perspective with us? What kind of technology gets hired?</strong></p>
-      <p>“I think that React is way overhyped. This is just my perspective as a recruiter, but not a lot of companies want to shell out 20 - 30% of a candidate’s salary to hire someone. There are a lot of candidates that know JavaScript because everyone that’s learning code is learning JavaScript. The best advice that someone has given me, even though I haven’t been following, is building stuff to get users. By having a user base, you have the attention. Beyond that, learn AWS.”</p>
-      <p><strong>Why AWS (Amazon Web Services)?</strong></p>
-      <p>“Because there’s a lot of work in Infrastructure. I noticed that there is a huge demand for people who knew AWS.”</p>
-      <p><strong>As a recruiter, what type of engineers were you helping? </strong></p>
-      <p>“It wasn’t strictly engineers, I placed people from digital marketing to designers to engineering directors. It was really broad. It was more dependent on who the clients were and what kind of talent they needed. It was always tough to place an entry-level engineer for front-end positions because companies would always want 3 - 5 years experience and there are just so many front- end engineers.”</p>
-      <p><strong>Let’s talk about front-end engineers then, how did the recruiting agency that you were working for test them?</strong></p>
-      <p>"We’d initially screen candidates through conversation and resume screening. Many engineering managers asked computer science fundamentals questions. Binary trees where a particularly popular interview topic. I’ve begun an open source github repo to help candidates prepare for technical interviews: https://github.com/connor11528/coding-interviews"</p>
-      <p><strong>But that isn’t necessarily front end.</strong></p>
-      <p>“Right, we wanted to make sure that they were logical and we knew that that’s what the companies that we were sending them to would test them with. For front-end roles, we also placed a lot of weight on their portfolios. If you’re going to be a front-end engineer, you have to have a really clean portfolio. You would be shocked by how many portfolios that just weren’t ready.” </p>
-      <p><strong>What’s the best approach to landing a software engineer position?</strong></p>
-      <p>“I think that building something really cool would be the best approach. I looked at a lot of bootcamp projects and after they finished it, they just walked away from it. And it’s like, if it’s that cool, why are you walking away from it?”</p>
-      <p><strong>Are recruiters willing to work with bootcamp graduates?</strong></p>
-      <p>“No, because employers aren’t willing to pay that extra money for bootcamp graduates. Employers could probably go directly to those bootcamps if they saw talent there.”</p>
-      <p><strong>You did a lot of recruiting in the Bay Area, what are the ranges for entry, mid, and senior level roles?</strong></p>
-      <p>“I would say, for software engineering titles, the minimum for entry level is 80k and if a candidate asked for less then it would definitely raise red flags because it shows that they are desperate. For senior-level, the sky's the limit but 100k would be the absolute lowest. With people starting out, I would recommend them to look into contracting.”</p>
+      <p>“Before I started coding, I was a teacher. I taught middle school students who were in ESL; ESL stands for English as a Second Language. I did it for five years. I come from a family of teachers so it was a natural fit. But eventually, I felt like it wasn’t what I was meant to do. However, teaching did help me realize that I really liked learning which transitioned to programming.”</p>
+      <p><strong>How were you introduced to coding?</strong></p>
+      <p>“I started coding in college and I fell in love with building websites because I loved seeing the sites live. And even when I was teaching ESL classes, I would teach kids how to code after school. From that, I decided to pursue coding so I applied to General Assembly and I received a full scholarship to go there. I attended General Assembly but after three months, I wasn’t quite ready so I applied to Learners Guild.”</p>
+      <p><strong>Can you tell us a little bit more about General Assembly?</strong></p>
+      <p>“It’s a very big coding school, they are all over the world. They are pretty big, their brand is established, they have money to provide scholarships. They also have a funnel into companies. They mostly taught JavaScript libraries and frameworks but we also worked with Ruby on Rails.”</p>
+      <p><strong>How was your experience looking for jobs after attending General Assembly?</strong></p>
+      <p>“I came into General Assembly with very little coding knowledge, so I didn’t feel like I was prepared after graduation. I feel like I could have gotten jobs if I lived in another state but we are in the Bay Area and Silicon Valley so there’s a lot of great programmers. I felt like GA was too short for me and I wasn’t ready for the technical interviews.”</p>
+      <p><strong>Can you tell us about Learners Guild and how was it different from General Assembly?</strong></p>
+      <p>“Learners Guild has a different learning model. There’s a lot more emphasis on self direction at Learners Guild as opposed to the strict schedule at General Assembly. I had to learn how to be more self-disciplined at Learners Guild.”</p>
+      <p><strong>Can you walk us through what you’re currently doing at Solv Health?</strong></p>
+      <p>“I’m interested in front-end so a lot of the tasks that are assigned to me have high visibility and high user interaction. I worked on the paperless feature for patients to be able to digitally submit intake forms to clinics. I am also working on features that entice clinics to join Solv such as the Clinic Rating Calculator.”</p>
+      <p><strong>Can you tell us about your experience with technical interviews?</strong></p>
+      <p>“It’s different with every company. With the startup that I’m currently at, the first interview was having coffee. I had a phone screen. I had to pair program with them, which is what I really preferred because it allows me to show what I can do and see how I work with the team. However, I had an interview with a big company and they asked me algorithm questions and I had to show my answers and thinking using a whiteboard. I didn’t really like the whiteboarding experience but I’m working on being better at it.”</p>
+      <p><strong>If you could go back in time, would you approach anything differently?</strong></p>
+      <p>“I would go to a more rigorous program. There’s a program called The Grace Hopper Academy in New York and it’s deferred payment. I would have applied and gone there.”</p>
+      <p><strong>What would you advise for people who are trying to become software engineers?</strong></p>
+      <p>“It depends on how you learn. If you have a passion for coding just keep doing it, study hard, and I would advise people to follow their own route and try not to compare themselves to others. There isn’t just one path.”</p>
       <p><strong>Any last advice/ thoughts? </strong></p>
-      <p>“If your goal is to make six figures, learn AWS.”</p>
+      <p>“Use your difference as an advantage. I saw this queer black woman speak at a conference and she completely stood out. The way she was dressed and her demeanor. However, she was confident in that difference. Most people shy away from that, but her talk showed how you can use your difference to set you apart and give you a higher advantage.”</p>
       <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank">facebook</a> and <a href="https://medium.com/@buzzybeeio268" target="_blank">medium</a> page!</em></p>
   </div>
   )
