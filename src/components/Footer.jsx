@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () =>
   (<div className="footer text-center animation-hide">
-    <a href="mailto:thisisrailee@gmail.com">
+    <a href="mailto:info@buzzybee.io">
       <img className="footer-picture" src="email.png" alt="" />
     </a>
     <a href="https://medium.com/@buzzybeeio268" target="_blank">

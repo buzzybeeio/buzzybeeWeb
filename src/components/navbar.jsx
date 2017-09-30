@@ -32,7 +32,7 @@ const Nav = () =>
             <Link data-toggle="collapse" data-target=".navbar-collapse" to="/jobs">Jobs</Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">Story</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">Stories</Link>
           </li>
           <li>
             <Link data-toggle="collapse" data-target=".navbar-collapse" to="/contact">Contact</Link>
