@@ -1,9 +1,12 @@
+require('dotenv').config()
 const express = require('express')
 const router = express.Router()
 const request = require('superagent')
 const mailchimpInstance   = 'us16',
       listUniqueId        = '7a9783e310',
-      mailchimpApiKey     = '2bb14e7558c0a3e20f6adc93063e681c-us16';
+      mailchimpApiKey     = process.env.mailchimpApiKey;
+
+      console.log(mailchimpApiKey)
 
 router.post('/subscribe', (req, res) => {
   request
@@ -19,12 +22,12 @@ router.post('/subscribe', (req, res) => {
           }
         })
         .end(function(err, response) {
-          // if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
+          if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
             res.redirect('/');
-          // } else {
-          //   console.log( "erro =>>>>>>>", err, "response: ", response)
-          //   res.redirect('/');
-          // }
+          } else {
+            console.log( "erro =>>>>>>>", err, "response: ", response)
+            res.redirect('/');
+          }
         });
 })
 
