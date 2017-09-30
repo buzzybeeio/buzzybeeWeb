@@ -1,9 +1,10 @@
 // @flow
 import $ from 'jquery';
 import React, { Component } from 'react';
-import Logo from '../components/logo';
+import Logo from '../components/LandingPageLogo';
 import Textbox from '../components/textbox';
 import Mission from '../components/mission';
+import SubscribeForm from '../components/SubscribeForm'; 
 import '../App.css';
 
 class App extends Component {
@@ -29,8 +30,13 @@ class App extends Component {
         </div>
         <div className="animation-hide logo-container">
           <div className="container">
-            <div>
-              <Logo />
+            <div className="flexbox">
+              <div className="left-side">
+                <Logo />
+              </div>
+              <div className="right-side">
+                <SubscribeForm />
+              </div>
             </div>
             <div>
               <Textbox />
