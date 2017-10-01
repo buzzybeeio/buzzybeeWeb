@@ -2,7 +2,6 @@
 import $ from 'jquery';
 import React, { Component } from 'react';
 import Job from './Job';
-import Footer from './Footer';
 
 class JobsList extends Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class JobsList extends Component {
     this.state = {
       jobs: null,
     };
+
     this.getJobs().then((jobs) => {
       this.props.stopAnimation();
       this.setState({ jobs });
@@ -30,14 +30,17 @@ class JobsList extends Component {
   }
 
   render() {
-    const jobsLis = [];
-    for (const index in this.state.jobs) {
-      jobsLis.push(<Job job={this.state.jobs[index]} key={index} />);
+    const jobsList = [];
+
+    if (Array.isArray(this.state.jobs)) {
+      for (let index = 0; index < this.state.jobs.length; index++) {
+        jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
+      }
     }
 
     return (
       <div className="container joblist">
-        {jobsLis}
+        {jobsList}
       </div>
     );
   }

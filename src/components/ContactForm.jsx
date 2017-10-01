@@ -1,4 +1,5 @@
 // @flow
+/* eslint-env browser */
 import React, { Component } from 'react';
 
 class ContactForm extends Component {
@@ -10,18 +11,14 @@ class ContactForm extends Component {
       email: '',
       message: '',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.submission = this.submission.bind(this);
   }
 
-  handleNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  handleMessageChange(event) {
-    this.setState({ message: event.target.value });
+  handleChange(varName, event) {
+    const value = event.target.value;
+    this.setState({ [varName]: value });
   }
 
   submission() {
@@ -37,7 +34,7 @@ class ContactForm extends Component {
               name="name"
               placeholder="Hey, what's your name?"
               value={this.state.name}
-              onChange={this.handleNameChange.bind(this)}
+              onChange={e => this.handleChange('name', e)}
             />
           </div>
           <div>
@@ -45,19 +42,19 @@ class ContactForm extends Component {
               name="email"
               placeholder="And your email?"
               value={this.state.email}
-              onChange={this.handleEmailChange.bind(this)}
+              onChange={e => this.handleChange('email', e)}
             />
           </div>
           <div>
             <textarea
               value={this.state.message}
-              onChange={this.handleMessageChange.bind(this)}
+              onChange={e => this.handleChange('message', e)}
               name="message"
               id=""
               placeholder="Cool, what's the awesome message that you have for us?"
             />
           </div>
-          <button onClick={this.submission.bind(this)} type="submit" className="btn btn-warning">
+          <button onClick={this.submission} type="submit" className="btn btn-warning">
             Submit
           </button>
         </form>

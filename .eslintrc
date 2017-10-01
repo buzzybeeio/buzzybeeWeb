@@ -4,6 +4,14 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "no-console": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "eqeqeq": 0,
+    "import/newline-after-import": 0,
+    "class-methods-use-this": 0,
+    "no-alert": 0,
+    "react/self-closing-comp": 0,
+    "arrow-parens": 0,
+    "react/no-danger": 0,
+    "no-plusplus": 0
   }
 }

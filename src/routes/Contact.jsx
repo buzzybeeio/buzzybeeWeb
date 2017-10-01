@@ -4,10 +4,11 @@ import ContactForm from '../components/ContactForm';
 import Logo from '../components/logo';
 import '../App.css';
 
-const Contact = () =>
-  (<div>
+const Contact = () => (
+  <div>
     <Logo />
     <ContactForm />
-  </div>);
+  </div>
+);
 
 export default Contact;

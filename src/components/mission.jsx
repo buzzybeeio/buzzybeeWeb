@@ -1,8 +1,9 @@
 // @flow
+/* eslint react/no-unescaped-entities: 0 */
 import React from 'react';
 
-const Mission = () =>
-  (<div className="mission">
+const Mission = () => (
+  <div className="mission">
     <h3>Built by Software Engineers for Software Engineers</h3>
     <p>
       We know that looking for jobs is hard, so we created a platform that congregates a lot of
@@ -28,6 +29,7 @@ const Mission = () =>
         GitHub
       </a>.
     </p>
-  </div>);
+  </div>
+);
 
 export default Mission;
