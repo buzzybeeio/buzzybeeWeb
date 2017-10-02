@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 import Logo from '../components/LandingPageLogo';
 import Textbox from '../components/textbox';
 import Mission from '../components/mission';
-import SubscribeForm from '../components/SubscribeForm';
+import SubscribeForm from '../components/SubscribeForm'; 
+import TeamMember from '../components/Team';
 import '../App.css';
 
 class App extends Component {
@@ -51,6 +52,9 @@ class App extends Component {
 
           <div className="container mission_container">
             <Mission />
+          </div>
+          <div>
+            <TeamMember />
           </div>
         </div>
       </div>
