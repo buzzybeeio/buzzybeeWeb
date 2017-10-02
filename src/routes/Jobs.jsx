@@ -8,7 +8,6 @@ import '../App.css';
 class Jobs extends Component {
   componentDidMount() {
     const $bar = $('#bar');
-
     function playAnimation() {
       $bar.addClass('animated fadeInRight');
       setTimeout(() => {
@@ -19,9 +18,7 @@ class Jobs extends Component {
         }, 700);
       }, 700);
     }
-
     window.barAnimation = setInterval(playAnimation, 1400);
-
     function loadingAnimation() {
       $('#dot1, #dot2, #dot3').css('opacity', '0');
       setTimeout(() => {
@@ -34,7 +31,6 @@ class Jobs extends Component {
         $('#dot3').css('opacity', '1');
       }, 1200);
     }
-
     window.loadingAnimation = setInterval(loadingAnimation, 1600);
   }
 
@@ -43,7 +39,6 @@ class Jobs extends Component {
     clearInterval(window.barAnimation);
     clearInterval(window.loadingAnimation);
   }
-
   render() {
     return (
       <div className="jobs-list">
