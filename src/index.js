@@ -17,6 +17,7 @@ import './css/Jobs.css';
 import './css/Nav.css';
 import './css/Story.css';
 import './css/Subscribe.css';
+import './css/Team.css';
 
 ReactDOM.render(
   <BrowserRouter>
