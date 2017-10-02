@@ -1,4 +1,6 @@
 // @flow
+/* eslint-env browser */
+
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
@@ -8,6 +10,13 @@ import story from './routes/Story';
 import contact from './routes/Contact';
 import Nav from './components/navbar';
 import Footer from './components/Footer';
+import './css/Animations.css';
+import './css/Contact.css';
+import './css/Footer.css';
+import './css/Jobs.css';
+import './css/Nav.css';
+import './css/Story.css';
+import './css/Subscribe.css';
 
 ReactDOM.render(
   <BrowserRouter>

@@ -2,16 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mailRouter = require('./contact/mail');
-const subscribeRouter = require('./contact/subscribe'); 
+const subscribeRouter = require('./contact/subscribe');
 
 const port = process.env.PORT || 3000;
 
-let forceSsl = function (req, res, next) {
+const forceSsl = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https' && port != 3000) {
     return res.redirect(['https://', req.get('Host'), req.url].join(''));
   }
   return next();
-}
+};
 
 app.use(forceSsl);
 
@@ -22,7 +22,7 @@ app.use(subscribeRouter);
 
 app.get(/.*\/$/, (req, res) => {
   res.redirect(req.originalUrl.slice(0, -1));
-})
+});
 
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/build/index.html`);

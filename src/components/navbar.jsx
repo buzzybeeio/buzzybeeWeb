@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = () =>
-  (<nav className="navbar navbar-default navbar-fixed-top animation-hide">
+const Nav = () => (
+  <nav className="navbar navbar-default navbar-fixed-top animation-hide">
     <div className="container">
       <div className="navbar-header">
         <Link to="/" className="">
@@ -12,6 +12,7 @@ const Nav = () =>
         <Link to="/" className="navbar-brand">
           <img className="buzzybee_writing" alt="Brand" src="BuzzyBee_logo.png" />
         </Link>
+
         <button
           type="button"
           className="navbar-toggle"
@@ -23,6 +24,7 @@ const Nav = () =>
           <span className="icon-bar" />
         </button>
       </div>
+
       <div className="collapse navbar-collapse navbar-right">
         <ul className="nav navbar-nav">
           <li>
@@ -40,6 +42,7 @@ const Nav = () =>
         </ul>
       </div>
     </div>
-  </nav>);
+  </nav>
+);
 
 export default Nav;

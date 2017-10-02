@@ -1,38 +1,37 @@
-const express = require('express')
-const router = express.Router()
-const nodemailer = require('nodemailer')
-
+const express = require('express');
+const router = express.Router();
+const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: 'trialguest268@gmail.com', // Your email id
-    pass: 'trial268' // Your password
-  }
-})
+    pass: 'trial268', // Your password
+  },
+});
 
 router.post('/contact', (req, res) => {
-  console.log(req.body)
-  let name = req.body.name
-  let email = req.body.email
-  let message = req.body.message
+  console.log(req.body);
+  const name = req.body.name;
+  const email = req.body.email;
+  const message = req.body.message;
 
   const mailOptions = {
     from: 'trialguest268@gmail.com', // sender address
     to: 'thisisrailee@gmail.com', // list of receivers
     subject: `From ${name} with email ${email}`, // Subject line
-    text: `${message}`
-  }
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if(error){
+    text: `${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
       console.log(error);
       res.redirect('/');
-    }else{
-      console.log('Message sent: ' + info.response);
+    } else {
+      console.log(`Message sent: ${info.response}`);
       res.redirect('/');
-    };
+    }
   });
-})
+});
 
-module.exports = router
+module.exports = router;
