@@ -6,7 +6,6 @@
     "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "jquery": "^3.2.1",
     "nodemailer": "^4.0.1",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",

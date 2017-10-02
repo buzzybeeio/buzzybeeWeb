@@ -27,8 +27,8 @@ const Story = () => (
     <p>“It depends on how you learn. If you have a passion for coding just keep doing it, study hard, and I would advise people to follow their own route and try not to compare themselves to others. There isn’t just one path.”</p>
     <p><strong>Any last advice/ thoughts? </strong></p>
     <p>“Use your difference as an advantage. I saw this queer black woman speak at a conference and she completely stood out. The way she was dressed and her demeanor. However, she was confident in that difference. Most people shy away from that, but her talk showed how you can use your difference to set you apart and give you a higher advantage.”</p>
-    <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank">facebook</a> and <a href="https://medium.com/@buzzybeeio268" target="_blank">medium</a> page!</em></p>
+    <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio268" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
-)
+);
 
 export default Story;

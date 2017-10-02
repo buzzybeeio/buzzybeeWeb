@@ -11,6 +11,7 @@ import contact from './routes/Contact';
 import Nav from './components/navbar';
 import Footer from './components/Footer';
 import './css/Animations.css';
+import './css/Animate.css';
 import './css/Contact.css';
 import './css/Footer.css';
 import './css/Jobs.css';
