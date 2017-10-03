@@ -9,7 +9,8 @@ class SubscribeForm extends Component {
       email: '',
     };
 
-    this.submission = this.submission.bind(this)
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.submission = this.submission.bind(this);
   }
 
   handleEmailChange(event) {
@@ -27,7 +28,7 @@ class SubscribeForm extends Component {
           Get our weekly story sent to your email! Subscribe!
         </div>
         <form method="POST" action="/subscribe">
-          <input id="input_bar" type="email" name="email" placeholder="EMAIL" value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
+          <input id="input_bar" type="email" name="email" placeholder="EMAIL" value={this.state.email} onChange={this.handleEmailChange} />
           <button id="input_button" onClick={this.submission} type="submit" className="btn btn-warning">
             SUBSCRIBE
           </button>

@@ -2,9 +2,8 @@
   border: solid 1px #faaf47;
   width: 60%;
   height: 40px; 
-  display: inline;
+  display: inline-block;
   border-radius: 0; 
-  float: left; 
   background-color: white; 
   color: #222; 
   opacity: .9; 

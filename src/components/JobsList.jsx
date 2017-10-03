@@ -1,8 +1,9 @@
 // @flow
-import $ from 'jquery';
+/* eslint-env browser */
+/* eslint no-restricted-syntax: 0, guard-for-in: 0 */
+
 import React, { Component } from 'react';
 import Job from './Job';
-import Footer from './Footer';
 
 class JobsList extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class JobsList extends Component {
     this.state = {
       jobs: null,
     };
-    this.getJobs().then((jobs) => {
+
+    this.getJobs().then(jobs => {
       this.props.stopAnimation();
       this.setState({ jobs });
     });
@@ -19,7 +21,7 @@ class JobsList extends Component {
   getJobs() {
     const url = 'https://buzzybeeapi.herokuapp.com';
     return new Promise((resolve, reject) => {
-      $.ajax({
+      window.$.ajax({
         type: 'GET',
         url,
         dataType: 'json',
@@ -30,14 +32,15 @@ class JobsList extends Component {
   }
 
   render() {
-    const jobsLis = [];
+    const jobsList = [];
+
     for (const index in this.state.jobs) {
-      jobsLis.push(<Job job={this.state.jobs[index]} key={index} />);
+      jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
     }
 
     return (
       <div className="container joblist">
-        {jobsLis}
+        {jobsList}
       </div>
     );
   }

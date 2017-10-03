@@ -1,16 +1,18 @@
 // @flow
 /* eslint-env browser */
-import $ from 'jquery';
+
 import React, { Component } from 'react';
 import Logo from '../components/LandingPageLogo';
 import Textbox from '../components/textbox';
 import Mission from '../components/mission';
-import SubscribeForm from '../components/SubscribeForm'; 
+import SubscribeForm from '../components/SubscribeForm';
 import TeamMember from '../components/Team';
 import '../App.css';
 
 class App extends Component {
   componentDidMount() {
+    const $ = window.$;
+
     const $animation = $('.animation');
 
     const timeout = setTimeout(() => {

@@ -12,6 +12,9 @@
     "react/self-closing-comp": 0,
     "arrow-parens": 0,
     "react/no-danger": 0,
-    "no-plusplus": 0
+    "no-plusplus": 0,
+    "linebreak-style": 0,
+    "react/no-unescaped-entities": 0,
+    "react/prop-types": 0
   }
 }

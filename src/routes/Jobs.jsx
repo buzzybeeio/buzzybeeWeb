@@ -1,12 +1,12 @@
 // @flow
 /* eslint-env browser */
-import $ from 'jquery';
+
 import React, { Component } from 'react';
 import JobsList from '../components/JobsList';
-import '../App.css';
 
 class Jobs extends Component {
   componentDidMount() {
+    const $ = window.$;
     const $bar = $('#bar');
     function playAnimation() {
       $bar.addClass('animated fadeInRight');
@@ -35,7 +35,7 @@ class Jobs extends Component {
   }
 
   componentWillUnmount() {
-    $('.jobs-loading-animation').css('display', 'none');
+    window.$('.jobs-loading-animation').css('display', 'none');
     clearInterval(window.barAnimation);
     clearInterval(window.loadingAnimation);
   }
@@ -53,7 +53,7 @@ class Jobs extends Component {
         </div>
         <JobsList
           stopAnimation={() => {
-            $('.jobs-loading-animation').css('display', 'none');
+            window.$('.jobs-loading-animation').css('display', 'none');
             clearInterval(window.barAnimation);
             clearInterval(window.loadingAnimation);
           }}
