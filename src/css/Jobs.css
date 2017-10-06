@@ -37,3 +37,24 @@ ul {
 .joblist {
   margin-bottom: 20px; 
 }
+
+.spinner {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  animation: rotate 1.5s ease-in-out infinite;
+}
+
+.jobs-loading-animation {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}

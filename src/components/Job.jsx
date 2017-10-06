@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Job = props => {
-  const job = props.job;
+  const { job } = props;
 
   return (
     <div className="job row">

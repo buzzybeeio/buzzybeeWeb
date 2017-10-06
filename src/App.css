@@ -107,8 +107,11 @@ h3, p {
   display : inline-flex;
 }
 
-@media (max-width: 500px) {
+input {
+  padding: 4px;
+}
 
+@media (max-width: 500px) {
   .mission {
       padding: 0.7em;
   }

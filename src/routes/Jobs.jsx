@@ -6,19 +6,7 @@ import JobsList from '../components/JobsList';
 
 class Jobs extends Component {
   componentDidMount() {
-    const $ = window.$;
-    const $bar = $('#bar');
-    function playAnimation() {
-      $bar.addClass('animated fadeInRight');
-      setTimeout(() => {
-        $bar.removeClass('fadeInRight');
-        $bar.addClass('fadeOutLeft');
-        setTimeout(() => {
-          $bar.removeClass('fadeOutLeft');
-        }, 700);
-      }, 700);
-    }
-    window.barAnimation = setInterval(playAnimation, 1400);
+    const { $ } = window;
     function loadingAnimation() {
       $('#dot1, #dot2, #dot3').css('opacity', '0');
       setTimeout(() => {
@@ -35,15 +23,19 @@ class Jobs extends Component {
   }
 
   componentWillUnmount() {
+    this.clearAnimation();
+  }
+
+  clearAnimation() {
     window.$('.jobs-loading-animation').css('display', 'none');
-    clearInterval(window.barAnimation);
     clearInterval(window.loadingAnimation);
   }
+
   render() {
     return (
       <div className="jobs-list">
         <div className="jobs-loading-animation">
-          <div id="bar" />
+          <img src="spinner.svg" alt="spinner" className="spinner" />
           <p>
             Loading
             <span id="dot1">.</span>
@@ -51,13 +43,7 @@ class Jobs extends Component {
             <span id="dot3">.</span>
           </p>
         </div>
-        <JobsList
-          stopAnimation={() => {
-            window.$('.jobs-loading-animation').css('display', 'none');
-            clearInterval(window.barAnimation);
-            clearInterval(window.loadingAnimation);
-          }}
-        />
+        <JobsList stopAnimation={this.clearAnimation} />
       </div>
     );
   }

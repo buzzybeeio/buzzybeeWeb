@@ -18,32 +18,10 @@ class Story extends Component {
     this.getStories();
   }
 
-  componentDidMount() {
-    let height;
-    const $ = window.$;
-    const $aside = $('.aside');
-
-    function f() {
-      if (window.innerWidth >= 768) {
-        height = $('.story-wrapper').height();
-        $aside.css('height', `${height - 40}px`);
-
-        if ($('.aside > div').height() > height) {
-          $aside.css('overflow-y', 'scroll');
-        } else {
-          $aside.css('overflow-y', 'hidden');
-        }
-      }
-    }
-
-    f();
-    window.addEventListener('resize', f);
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.stories.length) {
       const component = this;
-      const $ = window.$;
+      const { $ } = window;
 
       // Don't change the functions to Arrow functions
       // Because when you use arrow functions "this" won't be binded
