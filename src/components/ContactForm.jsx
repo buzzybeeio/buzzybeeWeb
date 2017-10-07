@@ -17,7 +17,7 @@ class ContactForm extends Component {
   }
 
   handleChange(varName, event) {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({ [varName]: value });
   }
 
@@ -27,14 +27,15 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className="wrapper text-center">
-        <form method="POST" action="/contact">
+      <div className="wrapper text-center contact">
+        <form method="POST" action="/contact" className="contact">
           <div>
             <input
               name="name"
               placeholder="Hey, what's your name?"
               value={this.state.name}
               onChange={e => this.handleChange('name', e)}
+              className="form-control contact"
             />
           </div>
           <div>
@@ -43,6 +44,7 @@ class ContactForm extends Component {
               placeholder="And your email?"
               value={this.state.email}
               onChange={e => this.handleChange('email', e)}
+              className="form-control contact"
             />
           </div>
           <div>
@@ -52,11 +54,10 @@ class ContactForm extends Component {
               name="message"
               id=""
               placeholder="Cool, what's the awesome message that you have for us?"
+              className="form-control contact"
             />
           </div>
-          <button onClick={this.submission} type="submit" className="btn btn-warning">
-            Submit
-          </button>
+          <button onClick={this.submission} type="submit" className="btn btn-warning">Submit</button>
         </form>
       </div>
     );

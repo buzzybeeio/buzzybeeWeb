@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Selected from './Selected';
 
 const Nav = () => (
   <nav className="navbar navbar-default navbar-fixed-top animation-hide">
@@ -28,16 +29,24 @@ const Nav = () => (
       <div className="collapse navbar-collapse navbar-right">
         <ul className="nav navbar-nav">
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/">Home</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/">
+              <Selected path="/" /> Home
+            </Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/jobs">Jobs</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/jobs">
+              <Selected path="/jobs" /> Jobs
+            </Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">Stories</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">
+              <Selected path="/story" /> Stories
+            </Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/contact">Contact</Link>
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/contact">
+              <Selected path="/contact" /> Contact
+            </Link>
           </li>
         </ul>
       </div>

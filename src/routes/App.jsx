@@ -11,7 +11,7 @@ import '../App.css';
 
 class App extends Component {
   componentDidMount() {
-    const $ = window.$;
+    const { $ } = window;
 
     const $animation = $('.animation');
 
