@@ -12,8 +12,11 @@ class Story extends Component {
     this.state = {
       story: renderToStaticMarkup(<DefaultStory />),
       stories: [],
+      listBarStories: [],
+      listBar: ''
     };
 
+    this.findStory = this.findStory.bind(this);
     this.getStories = this.getStories.bind(this);
     this.getStories();
   }
@@ -37,20 +40,7 @@ class Story extends Component {
 
         $('.story-wrapper')
           .hide(750, () => component.setState({ story: data.component }))
-          .slideDown(750, () => {
-            const $aside = $('.aside');
-
-            if (window.innerWidth >= 768) {
-              const height = $('.story-wrapper').height();
-              $aside.css('height', `${height - 40}px`);
-
-              if ($('.sidebar-grid').height() > height) {
-                $aside.css('overflow-y', 'scroll');
-              } else {
-                $aside.css('overflow-y', 'hidden');
-              }
-            }
-          });
+          .slideDown(750);
 
         $($('.sidebar-grid').children()).each(function () {
           if ($(this).css('display') !== 'block') $(this).slideDown(750);
@@ -71,19 +61,76 @@ class Story extends Component {
     });
   }
 
+  findStory(e) {
+    const str = e.target.value;
+    if (window.request) {
+      window.request.abort();
+      window.request = null;
+    }
+
+    this.setState({ listBar: str, listBarStories: [] });
+    if (!str) return null;
+
+    window.request = window.$.ajax({
+      type: 'GET',
+      url: `https://buzzybeeapi.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
+      dataType: 'json',
+      success: data => {
+        window.request = null;
+        this.setState({ listBarStories: data })
+      }
+    })
+
+  }
+
   render() {
     return (
-      <div className="story-flex-wrapper container">
-        <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
-        <div className="aside">
-          <h3>Stories</h3>
-          <div className="sidebar-grid">
+      <div className="container" style={{ marginTop: '80px' }}>
+        <input className="form-control listBar" onChange={this.findStory}
+          value={this.state.listBar} placeholder="find a story"></input>
+        <div className="listBarDiv">
+          <div className="listBarStories">
             {
-              this.state.stories.map(info => {
-                const infostr = JSON.stringify(info);
-                return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
-              })
+              this.state.listBarStories.map(data => (
+                <div onClick={() => {
+                  this.setState({ listBar: '' })
+                  window.$.ajax({
+                    type: 'GET',
+                    url: `https://buzzybeeapi.herokuapp.com/story/${data._id}`,
+                    dataType: 'json',
+                    success: data => {
+                      const { $ } = window;
+                      this.setState({ listBar: '', listBarStories: [] });
+
+                      $($('.sidebar-grid').children()).each(function () {
+                        const story = JSON.parse($(this).attr('data'));
+                        if (story.component === data.component) $(this).hide(750);
+                        else if ($(this).css('display') !== 'block') $(this).slideDown(750);
+                      });
+
+                      $('.story-wrapper')
+                        .hide(750, () => this.setState({ story: data.component }))
+                        .slideDown(750);
+                    }
+                  })
+                }} key={data.name} className='listBarStory'><img src={`profilepics/${data.name}.jpg`} alt={data.name} className='mini-image' /> {data.name}</div>
+              ))
             }
+
+          </div>
+        </div>
+        <div className="story-flex-wrapper">
+          <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
+          <div className="aside">
+            <h3>Stories</h3>
+            <div className="sidebar-grid">
+              {
+                this.state.stories.map(info => {
+                  const infostr = JSON.stringify(info);
+                  return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
+                })
+              }
+            </div>
           </div>
         </div>
       </div>
