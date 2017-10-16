@@ -4,9 +4,13 @@ import React from 'react';
 const Job = props => {
   const { job } = props;
 
+  if(job.location === 'sanfrancisco'){
+    job.location = "San Francisco"
+  }
+
   return (
     <div className="job row">
-      <a href={job.url} target="_blank" rel="noopener noreferrer">
+      <a href={job.URL} target="_blank" rel="noopener noreferrer">
         <div className="col-md-2 col-sm-2">
           {new Date(job.datepost).toDateString().slice(4)}
         </div>
