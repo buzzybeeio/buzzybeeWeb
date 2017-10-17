@@ -6,7 +6,17 @@ import JobsList from '../components/JobsList';
 
 class Jobs extends Component {
   componentDidMount() {
+    this.setAnimation();
+  }
+
+  componentWillUnmount() {
+    this.clearAnimation();
+  }
+
+  setAnimation() {
     const { $ } = window;
+    $('.jobs-loading-animation').css('display', 'block');
+
     function loadingAnimation() {
       $('#dot1, #dot2, #dot3').css('opacity', '0');
       setTimeout(() => {
@@ -19,11 +29,8 @@ class Jobs extends Component {
         $('#dot3').css('opacity', '1');
       }, 1200);
     }
-    window.loadingAnimation = setInterval(loadingAnimation, 1600);
-  }
 
-  componentWillUnmount() {
-    this.clearAnimation();
+    window.loadingAnimation = setInterval(loadingAnimation, 1600);
   }
 
   clearAnimation() {
@@ -43,7 +50,7 @@ class Jobs extends Component {
             <span id="dot3">.</span>
           </p>
         </div>
-        <JobsList stopAnimation={this.clearAnimation} />
+        <JobsList stopAnimation={this.clearAnimation} startAnimation={this.setAnimation} />
       </div>
     );
   }
