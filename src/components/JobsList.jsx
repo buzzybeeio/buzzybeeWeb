@@ -58,7 +58,7 @@ class JobsList extends Component {
 
     window.$.ajax({
       type: 'POST',
-      url: 'http://localhost:4000',
+      url: 'https://buzzybeeapi.herokuapp.com',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
