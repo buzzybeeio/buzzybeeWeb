@@ -13,11 +13,12 @@ class Story extends Component {
       story: renderToStaticMarkup(<DefaultStory />),
       stories: [],
       listBarStories: [],
-      listBar: ''
+      listBar: '',
     };
 
     this.findStory = this.findStory.bind(this);
     this.getStories = this.getStories.bind(this);
+    this.listbarComponentChoosed = this.listbarComponentChoosed.bind(this);
     this.getStories();
   }
 
@@ -69,51 +70,64 @@ class Story extends Component {
     }
 
     this.setState({ listBar: str, listBarStories: [] });
-    if (!str) return null;
+    if (str) {
+      window.request = window.$.ajax({
+        type: 'GET',
+        url: `https://buzzybeeapi.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
+        dataType: 'json',
+        success: data => {
+          window.request = null;
+          this.setState({ listBarStories: data });
+        },
+      });
+    }
+  }
 
-    window.request = window.$.ajax({
+  listbarComponentChoosed(id) {
+    this.setState({ listBar: '' });
+    window.$.ajax({
       type: 'GET',
-      url: `https://buzzybeeapi.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
+      url: `https://buzzybeeapi.herokuapp.com/story/${id}`,
       dataType: 'json',
       success: data => {
-        window.request = null;
-        this.setState({ listBarStories: data })
-      }
-    })
+        const { $ } = window;
+        this.setState({ listBar: '', listBarStories: [] });
 
+        $($('.sidebar-grid').children()).each(function () {
+          const story = JSON.parse($(this).attr('data'));
+          if (story.component === data.component) $(this).hide(750);
+          else if ($(this).css('display') !== 'block') $(this).slideDown(750);
+        });
+
+        $('.story-wrapper')
+          .hide(750, () => this.setState({ story: data.component }))
+          .slideDown(750);
+      },
+    });
   }
+
 
   render() {
     return (
       <div className="container" style={{ marginTop: '80px' }}>
-        <input className="form-control listBar" onChange={this.findStory}
-          value={this.state.listBar} placeholder="find a story"></input>
+        <input
+          className="form-control listBar"
+          onChange={this.findStory}
+          value={this.state.listBar}
+          placeholder="find a story"
+        />
         <div className="listBarDiv">
           <div className="listBarStories">
             {
               this.state.listBarStories.map(data => (
-                <div onClick={() => {
-                  this.setState({ listBar: '' })
-                  window.$.ajax({
-                    type: 'GET',
-                    url: `https://buzzybeeapi.herokuapp.com/story/${data._id}`,
-                    dataType: 'json',
-                    success: data => {
-                      const { $ } = window;
-                      this.setState({ listBar: '', listBarStories: [] });
-
-                      $($('.sidebar-grid').children()).each(function () {
-                        const story = JSON.parse($(this).attr('data'));
-                        if (story.component === data.component) $(this).hide(750);
-                        else if ($(this).css('display') !== 'block') $(this).slideDown(750);
-                      });
-
-                      $('.story-wrapper')
-                        .hide(750, () => this.setState({ story: data.component }))
-                        .slideDown(750);
-                    }
-                  })
-                }} key={data.name} className='listBarStory'><img src={`profilepics/${data.name}.jpg`} alt={data.name} className='mini-image' /> {data.name}</div>
+                <div
+                  onClick={() => this.listbarComponentChoosed(data._id)}
+                  key={data.name}
+                  className="listBarStory"
+                >
+                  <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
+                  <span>{data.name}</span>
+                </div>
               ))
             }
 

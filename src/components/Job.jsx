@@ -4,9 +4,7 @@ import React from 'react';
 const Job = props => {
   const { job } = props;
 
-  if(job.location === 'sanfrancisco'){
-    job.location = "San Francisco"
-  }
+  if (job.location === 'sanfrancisco') job.location = 'San Francisco';
 
   return (
     <div className="job row">
