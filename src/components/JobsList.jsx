@@ -42,6 +42,24 @@ class JobsList extends Component {
       case 'San Francisco':
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
         break;
+        case 'Los Angeles':
+        this.setState({ place: { city: 'Los Angeles', state: 'CA' } });
+        break;
+        case 'San Jose':
+        this.setState({ place: { city: 'San Jose', state: 'CA' } });
+        break;
+        case 'New York City':
+        this.setState({ place: { city: 'New York City', state: 'NY' } });
+        break;
+        case 'Houston':
+        this.setState({ place: { city: 'Houston', state: 'TX' } });
+        break;
+        case 'Philadelphia':
+        this.setState({ place: { city: 'Philadelphia', state: 'PA' } });
+        break;
+        case 'Chicago':
+        this.setState({ place: { city: 'San Francisco', state: 'IL' } });
+        break;
       default:
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
     }
@@ -89,6 +107,12 @@ class JobsList extends Component {
             />
             <select value={this.state.place.city} onChange={e => this.changedPlace(e)} className="form-control">
               <option value="San Francisco">San Francisco</option>
+              <option value="San Jose">San Jose</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Houston">Houston</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="New York City">New York City</option>
             </select>
           </div>
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>
