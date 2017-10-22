@@ -58,7 +58,7 @@ class JobsList extends Component {
         this.setState({ place: { city: 'Philadelphia', state: 'PA' } });
         break;
         case 'Chicago':
-        this.setState({ place: { city: 'San Francisco', state: 'IL' } });
+        this.setState({ place: { city: 'Chicago', state: 'IL' } });
         break;
       default:
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
