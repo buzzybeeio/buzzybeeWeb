@@ -24,7 +24,7 @@ class JobsList extends Component {
   }
 
   getDefaultJobs() {
-    const url = 'https://buzzybeeapi.herokuapp.com';
+    const url = 'https://buzzybee-api.herokuapp.com';
     return new Promise((resolve, reject) => {
       window.$.ajax({
         type: 'GET',
@@ -76,7 +76,7 @@ class JobsList extends Component {
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com',
+      url: 'https://buzzybee-api.herokuapp.com',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
