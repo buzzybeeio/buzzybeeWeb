@@ -10,17 +10,21 @@ class JobsList extends Component {
     super(props);
     this.state = {
       jobs: [],
+      length: 0,
+      page: 1,
       place: { city: 'San Francisco', state: 'CA' },
       keywords: '',
+      prevKeywords: 'developer javascript react python django software engineer web startup full-stack front-end',
     };
 
-    this.getDefaultJobs().then(jobs => {
+    this.getDefaultJobs().then(data => {
       this.props.stopAnimation();
-      this.setState({ jobs });
+      this.setState({ ...data });
     });
 
     this.changedPlace = this.changedPlace.bind(this);
     this.call = this.call.bind(this);
+    this.paginatedCall = this.paginatedCall.bind(this);
   }
 
   getDefaultJobs() {
@@ -48,7 +52,7 @@ class JobsList extends Component {
   }
 
   call() {
-    this.setState({ jobs: [] });
+    this.setState({ results: [], length: 0, page: 1 });
     this.props.startAnimation();
 
     const data = {
@@ -62,9 +66,32 @@ class JobsList extends Component {
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
+      success: jobsData => {
+        this.props.stopAnimation();
+        this.setState({ ...jobsData, prevKeywords: data.keywords });
+      },
+      error: () => alert('Sorry!, There was an error'),
+    });
+  }
+
+  paginatedCall(page) {
+    this.props.startAnimation();
+    this.setState({ jobs: [], length: 0, page });
+    const data = {
+      place: this.state.place,
+      keywords: this.state.prevKeywords.split(' '),
+      page,
+    };
+
+    window.$.ajax({
+      type: 'POST',
+      url: 'https://buzzybeeapi.herokuapp.com/paginated',
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      dataType: 'json',
       success: jobs => {
         this.props.stopAnimation();
-        this.setState({ jobs });
+        this.setState({ ...jobs });
       },
       error: () => alert('Sorry!, There was an error'),
     });
@@ -76,6 +103,12 @@ class JobsList extends Component {
     for (const index in this.state.jobs) {
       jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
     }
+
+    const amountOfPages = Math.ceil(this.state.length / 75);
+    const pages = [];
+    for (let i = 1; i <= amountOfPages; i++) pages.push(i);
+
+    if (pages.length === 1) pages.pop();
 
     return (
       <div className="container joblist">
@@ -94,6 +127,18 @@ class JobsList extends Component {
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>
         </div>
         {jobsList}
+        <div className="pages">
+          {
+            pages.map(page => (
+              <button
+                onClick={() => this.paginatedCall(page)}
+                style={{ backgroundColor: page === this.state.page ? '#FFB605' : '#171e27' }}
+              >
+                {page}
+              </button>
+            ))
+          }
+        </div>
       </div>
     );
   }
