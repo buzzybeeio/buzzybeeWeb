@@ -103,7 +103,7 @@ class JobsList extends Component {
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com/paginated',
+      url: 'https://buzzybee-api.herokuapp.com/paginated',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
