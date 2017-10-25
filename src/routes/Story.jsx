@@ -55,7 +55,7 @@ class Story extends Component {
   getStories() {
     window.$.ajax({
       type: 'GET',
-      url: 'https://buzzybeeapi.herokuapp.com/stories',
+      url: 'https://buzzybee-api.herokuapp.com/stories',
       dataType: 'json',
       success: data => this.setState({ stories: data }),
       error: err => console.error(err),
