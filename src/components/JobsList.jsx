@@ -46,22 +46,22 @@ class JobsList extends Component {
       case 'San Francisco':
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
         break;
-        case 'Los Angeles':
+      case 'Los Angeles':
         this.setState({ place: { city: 'Los Angeles', state: 'CA' } });
         break;
-        case 'San Jose':
+      case 'San Jose':
         this.setState({ place: { city: 'San Jose', state: 'CA' } });
         break;
-        case 'New York City':
+      case 'New York City':
         this.setState({ place: { city: 'New York City', state: 'NY' } });
         break;
-        case 'Houston':
+      case 'Houston':
         this.setState({ place: { city: 'Houston', state: 'TX' } });
         break;
-        case 'Philadelphia':
+      case 'Philadelphia':
         this.setState({ place: { city: 'Philadelphia', state: 'PA' } });
         break;
-        case 'Chicago':
+      case 'Chicago':
         this.setState({ place: { city: 'Chicago', state: 'IL' } });
         break;
       default:
