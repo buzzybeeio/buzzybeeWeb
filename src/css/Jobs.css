@@ -1,5 +1,11 @@
 .jobs-list {
   margin-top: 80px;
+  margin-bottom: 20px;
+  /* vh - margin-top - margin-bottom - the height of the footer */
+  min-height: calc(100vh - 80px - 20px - 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .job:nth-child(2n+1) {
@@ -34,10 +40,6 @@ ul {
     background-color:#FFB605;
 }
 
-.joblist {
-  margin-bottom: 20px; 
-}
-
 .spinner {
   max-width: 250px;
   display: block;
@@ -46,8 +48,10 @@ ul {
 }
 
 .jobs-loading-animation {
+  padding: 10px 0;
   font-size: 1.4em;
   font-weight: 600;
+  overflow: hidden;
 }
 
 .pages {

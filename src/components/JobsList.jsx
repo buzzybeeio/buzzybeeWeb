@@ -129,7 +129,7 @@ class JobsList extends Component {
     if (pages.length === 1) pages.pop();
 
     return (
-      <div className="container joblist">
+      <div className="container">
         <div style={{ display: jobsList.length ? 'block' : 'none' }}>
           <div>
             <input

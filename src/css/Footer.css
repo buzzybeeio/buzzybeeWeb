@@ -6,4 +6,6 @@
 .footer {
   color: white;
   padding: 20px;
+  font-size: 14px;
+  min-height: 110px;
 }
