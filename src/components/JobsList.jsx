@@ -122,7 +122,7 @@ class JobsList extends Component {
       jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
     }
 
-    const amountOfPages = Math.ceil(this.state.length / 75);
+    const amountOfPages = Math.ceil(this.state.length / 50);
     const pages = [];
     for (let i = 1; i <= amountOfPages; i++) pages.push(i);
 
