@@ -70,7 +70,7 @@ class JobsList extends Component {
   }
 
   call() {
-    this.setState({ results: [], length: 0, page: 1 });
+    this.setState({ jobs: [], length: 0, page: 1 });
     this.props.startAnimation();
 
     const data = {
@@ -93,8 +93,8 @@ class JobsList extends Component {
   }
 
   paginatedCall(page) {
-    this.props.startAnimation();
     this.setState({ jobs: [], length: 0, page });
+    this.props.startAnimation();
     const data = {
       place: this.state.place,
       keywords: this.state.prevKeywords.split(' '),
