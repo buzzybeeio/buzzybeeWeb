@@ -50,6 +50,19 @@ ul {
   font-weight: 600;
 }
 
+.pages {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.pages > button {
+  margin: 3px;
+  padding: 2px 5px;
+  font-size: 1.2em;
+  border: 0;
+  color: white;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg)
