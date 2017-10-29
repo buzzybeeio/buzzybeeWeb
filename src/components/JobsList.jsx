@@ -28,7 +28,7 @@ class JobsList extends Component {
   }
 
   getDefaultJobs() {
-    const url = 'https://buzzybee-api.herokuapp.com';
+    const url = 'https://buzzybeeapi.herokuapp.com';
     return new Promise((resolve, reject) => {
       window.$.ajax({
         type: 'GET',
@@ -80,7 +80,7 @@ class JobsList extends Component {
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybee-api.herokuapp.com',
+      url: 'https://buzzybeeapi.herokuapp.com',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
@@ -103,7 +103,7 @@ class JobsList extends Component {
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybee-api.herokuapp.com/paginated',
+      url: 'https://buzzybeeapi.herokuapp.com/paginated',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
@@ -122,7 +122,7 @@ class JobsList extends Component {
       jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
     }
 
-    const amountOfPages = Math.ceil(this.state.length / 75);
+    const amountOfPages = Math.ceil(this.state.length / 50);
     const pages = [];
     for (let i = 1; i <= amountOfPages; i++) pages.push(i);
 
