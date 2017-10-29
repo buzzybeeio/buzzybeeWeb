@@ -55,7 +55,7 @@ class Story extends Component {
   getStories() {
     window.$.ajax({
       type: 'GET',
-      url: 'https://buzzybee-api.herokuapp.com/stories',
+      url: 'https://buzzybeeapi.herokuapp.com/stories',
       dataType: 'json',
       success: data => this.setState({ stories: data }),
       error: err => console.error(err),
@@ -73,7 +73,7 @@ class Story extends Component {
     if (str) {
       window.request = window.$.ajax({
         type: 'GET',
-        url: `https://buzzybee-api.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
+        url: `https://buzzybeeapi.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
         dataType: 'json',
         success: data => {
           window.request = null;
@@ -87,7 +87,7 @@ class Story extends Component {
     this.setState({ listBar: '' });
     window.$.ajax({
       type: 'GET',
-      url: `https://buzzybee-api.herokuapp.com/story/${id}`,
+      url: `https://buzzybeeapi.herokuapp.com/story/${id}`,
       dataType: 'json',
       success: data => {
         const { $ } = window;
