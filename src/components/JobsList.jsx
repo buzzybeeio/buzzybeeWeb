@@ -116,12 +116,6 @@ class JobsList extends Component {
   }
 
   render() {
-    const jobsList = [];
-
-    for (const index in this.state.jobs) {
-      jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
-    }
-
     const amountOfPages = Math.ceil(this.state.length / 50);
     const pages = [];
     for (let i = 1; i <= amountOfPages; i++) pages.push(i);
@@ -130,7 +124,7 @@ class JobsList extends Component {
 
     return (
       <div className="container">
-        <div style={{ display: jobsList.length ? 'block' : 'none' }}>
+        <div style={{ display: this.state.jobs.length ? 'block' : 'none' }}>
           <div>
             <input
               placeholder="Type the keywords (each keyword has to be 1 space apart from each other)"
@@ -150,7 +144,13 @@ class JobsList extends Component {
           </div>
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>
         </div>
-        {jobsList}
+        {
+          this.state.jobs.map((job, i) => {
+            const key = `${i} job`;
+            setTimeout(() => window.$(`.${i}-job`).removeClass('invisible').addClass('animated fadeInUp'), i * 50);
+            return (<Job job={job} key={key} classes={`${i}-job`} />);
+          })
+        }
         <div className="pages">
           {
             pages.map(page => (
