@@ -139,9 +139,6 @@ const Team = () => (
     </div>
     <div className="row">
       <div className="col-md-4 col-sm-4">
-
-      </div>
-      <div className="col-md-4 col-sm-4">
         <div className="team-member">
           <div className="team-img">
             <img src="teampics/rai.jpg" alt="team member" className="img-responsive" />
@@ -159,6 +156,29 @@ const Team = () => (
         <div className="team-title">
           <h5>Rai Lee</h5>
           <span>Founder</span>
+        </div>
+      </div>
+      <div className="col-md-4 col-sm-4">
+
+      </div>
+      <div className="col-md-4 col-sm-4">
+        <div className="team-member">
+          <div className="team-img">
+            <img src="teampics/wayne.jpg" alt="team member" className="img-responsive" />
+          </div>
+          <div className="team-hover">
+            <div className="desk">
+              <h4>What's good?</h4>
+              <p>'No matter how good the team… if we’re not solving the right problem, the project fails. – Woody Williams'</p>
+            </div>
+            <div className="s-link">
+              <a target="blank" href="https://www.linkedin.com/in/waynebanksii/"><i className="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div className="team-title">
+          <h5>Wayne Banks</h5>
+          <span>Product Manager</span>
         </div>
       </div>
     </div>
