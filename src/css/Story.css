@@ -59,6 +59,8 @@
   text-align: center;
   border: #aaa 1px solid;
   text-transform: capitalize;
+  display: block;
+  color: black;
 }
 
 .sidebar-grid > .story-box > img{
