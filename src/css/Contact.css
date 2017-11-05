@@ -1,5 +1,7 @@
 div.wrapper.contact {
   margin: 0;
+  padding-bottom: 60px;
+  margin-bottom: calc(100% - 85%);
 }
 
 div.wrapper.contact > div {
