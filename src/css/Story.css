@@ -1,3 +1,8 @@
+.stories {
+  min-height: 100vh;
+  margin-top: 80px;
+}
+
 .narrator-pic {
   height: 70%;
   width: 70%;
@@ -19,6 +24,7 @@
 
 .story-wrapper {
   text-align: justify;
+  transition: width 1s;
 }
 
 .story-wrapper > div > p {
@@ -34,11 +40,11 @@
   flex: 1;
 }
 
-.story-flex-wrapper>.aside{
+.story-flex-wrapper > .aside{
   width: 150px;
   opacity: 0;
   padding: 10px;
-  transition: opacity 1s linear;
+  transition: all 1s linear;
 }
 
 .sidebar-grid{
@@ -83,6 +89,27 @@
   width: 100%;
 }
 
+.Reading-Mode {
+  width: 100%;
+  color: white;
+  border: 0;
+  border-radius: 0;
+  background-color: #F58C54;
+  font-size: 17px;
+  text-align: center;
+  padding: 10px 0;
+  transition: all 1s;
+  margin-bottom: 5px;
+}
+
+.Reading-Mode.active {
+  color: black;
+  font-size: 16px;
+  padding: 3px 0;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
 .listBarStory {
   width: 100%;
   font-size: 25px;
@@ -103,6 +130,7 @@
   }
 
   .story-flex-wrapper>.story-wrapper{
+    transition: width 0s;
     flex: 1;
     width: 100%;
   }
@@ -116,6 +144,15 @@
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
   }
+  
+  .Reading-Mode{
+    display: none;
+  }
+
+  .Reading-Mode.active{
+    display: block;
+  }
+
 }
 
 @media (max-width: 500px){
