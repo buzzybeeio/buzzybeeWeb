@@ -90,6 +90,7 @@
 }
 
 .Reading-Mode {
+  margin: 0 auto;
   width: 100%;
   color: white;
   border: 0;
@@ -100,13 +101,13 @@
   padding: 10px 0;
   transition: all 1s;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .Reading-Mode.active {
-  color: black;
+  width: 40%;
   font-size: 16px;
   padding: 3px 0;
-  background-color: white;
   margin-bottom: 8px;
 }
 
@@ -150,6 +151,7 @@
   }
 
   .Reading-Mode.active{
+    width: 100%;
     display: block;
   }
 
