@@ -10,7 +10,7 @@ class JobsList extends Component {
     super(props);
     this.state = {
       jobs: [],
-      length: 0,
+      pages: 0,
       page: 1,
       place: { city: 'San Francisco', state: 'CA' },
       keywords: '',
@@ -70,7 +70,7 @@ class JobsList extends Component {
   }
 
   call() {
-    this.setState({ jobs: [], length: 0, page: 1 });
+    this.setState({ jobs: [], page: 1, pages: 0 });
     this.props.startAnimation();
 
     const data = {
@@ -86,14 +86,14 @@ class JobsList extends Component {
       dataType: 'json',
       success: jobsData => {
         this.props.stopAnimation();
-        this.setState({ ...jobsData, prevKeywords: data.keywords });
+        this.setState({ ...jobsData, prevKeywords: this.state.keywords });
       },
       error: () => alert('Sorry!, There was an error'),
     });
   }
 
   paginatedCall(page) {
-    this.setState({ jobs: [], length: 0, page });
+    this.setState({ jobs: [], pages: 0, page });
     this.props.startAnimation();
     const data = {
       place: this.state.place,
@@ -116,21 +116,14 @@ class JobsList extends Component {
   }
 
   render() {
-    const jobsList = [];
-
-    for (const index in this.state.jobs) {
-      jobsList.push(<Job job={this.state.jobs[index]} key={index} />);
-    }
-
-    const amountOfPages = Math.ceil(this.state.length / 50);
     const pages = [];
-    for (let i = 1; i <= amountOfPages; i++) pages.push(i);
+    for (let i = 1; i <= this.state.pages; i++) pages.push(i);
 
     if (pages.length === 1) pages.pop();
 
     return (
       <div className="container">
-        <div style={{ display: jobsList.length ? 'block' : 'none' }}>
+        <div style={{ display: this.state.jobs.length ? 'block' : 'none' }}>
           <div>
             <input
               placeholder="Type the keywords (each keyword has to be 1 space apart from each other)"
@@ -150,11 +143,18 @@ class JobsList extends Component {
           </div>
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>
         </div>
-        {jobsList}
+        {
+          this.state.jobs.map((job, i) => {
+            const key = `${i} job`;
+            setTimeout(() => window.$(`.${i}-job`).removeClass('invisible').addClass('animated fadeInUp'), i * 35);
+            return (<Job job={job} key={key} classes={`${i}-job`} />);
+          })
+        }
         <div className="pages">
           {
             pages.map(page => (
               <button
+                key={page}
                 onClick={() => this.paginatedCall(page)}
                 style={{ backgroundColor: page === this.state.page ? '#FFB605' : '#171e27' }}
               >

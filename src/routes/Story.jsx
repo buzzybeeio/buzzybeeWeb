@@ -14,8 +14,10 @@ class Story extends Component {
       stories: [],
       listBarStories: [],
       listBar: '',
+      reading: false,
     };
 
+    this.readingMode = this.readingMode.bind(this);
     this.findStory = this.findStory.bind(this);
     this.getStories = this.getStories.bind(this);
     this.listbarComponentChoosed = this.listbarComponentChoosed.bind(this);
@@ -30,10 +32,17 @@ class Story extends Component {
         type: 'GET',
         url: `https://buzzybeeapi.herokuapp.com/story/${path}`,
         dataType: 'json',
-        success: data => { this.setState({ story: data.component }); },
+        success: data => {
+          try {
+            if (data.component) this.setState({ story: data.component });
+            else window.history.pushState(null, null, '/story');
+          } catch (e) {
+            window.history.pushState(null, null, '/story');
+          }
+        },
         error: err => {
           console.log(err);
-          window.history.pushState(null, null, '');
+          window.history.pushState(null, null, '/story');
         },
       });
     }
@@ -55,7 +64,6 @@ class Story extends Component {
       $('.story-box').click(function () {
         const data = JSON.parse($(this).attr('data'));
         window.history.pushState(null, null, `/story/${data.name}`);
-
         $(this).hide(750);
 
         $('.story-wrapper')
@@ -78,6 +86,19 @@ class Story extends Component {
       dataType: 'json',
       success: data => this.setState({ stories: data }),
       error: err => console.error(err),
+    });
+  }
+
+  readingMode() {
+    const { $ } = window;
+    const reading = !this.state.reading;
+    this.setState({ reading });
+
+    $('.listBarDiv').toggle(1000);
+    $('.listBar').toggle(1000);
+    $('.story-flex-wrapper').slideToggle(1000, () => {
+      $('.aside').toggle(0);
+      $('.story-flex-wrapper').slideToggle(1000);
     });
   }
 
@@ -127,10 +148,12 @@ class Story extends Component {
     });
   }
 
-
   render() {
     return (
-      <div className="container" style={{ marginTop: '80px' }}>
+      <div className="container stories">
+        <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
+          <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
+        </div>
         <input
           className="form-control listBar"
           onChange={this.findStory}
@@ -154,6 +177,7 @@ class Story extends Component {
 
           </div>
         </div>
+
         <div className="story-flex-wrapper">
           <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
           <div className="aside">
