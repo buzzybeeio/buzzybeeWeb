@@ -22,6 +22,23 @@ class Story extends Component {
     this.getStories();
   }
 
+  componentDidMount() {
+    const path = window.location.pathname.slice(7);
+
+    if (path.length) {
+      window.$.ajax({
+        type: 'GET',
+        url: `https://buzzybeeapi.herokuapp.com/story/${path}`,
+        dataType: 'json',
+        success: data => { this.setState({ story: data.component }); },
+        error: err => {
+          console.log(err);
+          window.history.pushState(null, null, '');
+        },
+      });
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.stories.length) {
       const component = this;
@@ -37,6 +54,8 @@ class Story extends Component {
 
       $('.story-box').click(function () {
         const data = JSON.parse($(this).attr('data'));
+        window.history.pushState(null, null, `/story/${data.name}`);
+
         $(this).hide(750);
 
         $('.story-wrapper')
@@ -83,11 +102,13 @@ class Story extends Component {
     }
   }
 
-  listbarComponentChoosed(id) {
+  listbarComponentChoosed(name) {
+    window.history.pushState(null, null, `/story/${name}`);
+
     this.setState({ listBar: '' });
     window.$.ajax({
       type: 'GET',
-      url: `https://buzzybeeapi.herokuapp.com/story/${id}`,
+      url: `https://buzzybeeapi.herokuapp.com/story/${name}`,
       dataType: 'json',
       success: data => {
         const { $ } = window;
@@ -121,7 +142,7 @@ class Story extends Component {
             {
               this.state.listBarStories.map(data => (
                 <div
-                  onClick={() => this.listbarComponentChoosed(data._id)}
+                  onClick={() => this.listbarComponentChoosed(data.name)}
                   key={data.name}
                   className="listBarStory"
                 >

@@ -11,11 +11,11 @@
   border: none;
 }
 
-.navbar-brand>img {
+.navbar-brand img {
   height: 280%;
   width: auto;
 }
 
 .buzzybee_writing {
-  max-height: 50px; 
+  max-height: 50px;
 }
