@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Story = () => (
+export default () => (
   <div>
     <img className="narrator-pic" src="profilepics/wayne.jpg" alt="" />
     <h4 className="story-title"><em>Wayne, Site Reliability Specialist at Facebook</em></h4>
@@ -25,11 +25,9 @@ const Story = () => (
     <p><strong>Can you tell us about your support group and how they kept you going during tough times?</strong></p>
     <p>“My best resource were fellow developers who I had studied or worked with; I would lean on them and share our experiences. Prayer - prayer is my best friend.”</p>
     <p><strong>Are you currently working on any side projects?</strong></p>
-    <p>“I am working on <a href = "https://tllis.net" target="_blank" rel="noopener noreferrer">The Limelight</a> app, a SAAS artist development platform - coming soon, and I am working on a mentorship application called The Mentor app - coming soon.”</p>
+    <p>“I am working on <a href="https://tllis.net" target="_blank" rel="noopener noreferrer">The Limelight</a> app, a SAAS artist development platform - coming soon, and I am working on a mentorship application called The Mentor app - coming soon.”</p>
     <p><strong>Do you have any last thoughts/advice?</strong></p>
     <p>“Never give up. Never stop learning, even on the job. This is a competitive field that requires you to know a lot. Don’t forget that just because you got a job. Keep growing. A rolling stone catches no moss. Remaining stagnant can make you a dinosaur. Don’t be a dinosaur. You see how that worked out for them.”</p>
     <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
 );
-
-export default Story;

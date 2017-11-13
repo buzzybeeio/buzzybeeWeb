@@ -1,6 +1,7 @@
+/* eslint max-len: 0 */
 import React from 'react';
 
-const Team = () => (
+export default () => (
   <div className="container teamMember">
     <div className="row">
       <div className="heading-title text-center">
@@ -185,5 +186,3 @@ const Team = () => (
 
   </div>
 );
-
-export default Team;

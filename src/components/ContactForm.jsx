@@ -2,7 +2,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 
-class ContactForm extends Component {
+export default class ContactForm extends Component {
   constructor(props) {
     super(props);
 
@@ -63,5 +63,3 @@ class ContactForm extends Component {
     );
   }
 }
-
-export default ContactForm;

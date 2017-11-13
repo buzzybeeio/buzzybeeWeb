@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import Job from './Job';
 
-class JobsList extends Component {
+export default class JobsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -167,5 +167,3 @@ class JobsList extends Component {
     );
   }
 }
-
-export default JobsList;

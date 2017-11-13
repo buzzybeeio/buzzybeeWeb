@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import React, { Component } from 'react';
 import DefaultStory from '../components/DefaultStory';
 
-class Story extends Component {
+export default class Story extends Component {
   constructor() {
     super();
 
@@ -196,5 +196,3 @@ class Story extends Component {
     );
   }
 }
-
-export default Story;

@@ -1,4 +1,3 @@
-// @flow
 /* eslint-env browser */
 
 import React, { Component } from 'react';
@@ -9,7 +8,7 @@ import SubscribeForm from '../components/SubscribeForm';
 import TeamMember from '../components/Team';
 import '../App.css';
 
-class App extends Component {
+export default class App extends Component {
   componentDidMount() {
     const { $ } = window;
 
@@ -63,5 +62,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Selected from './Selected';
 
-const Nav = () => (
+export default () => (
   <nav className="navbar navbar-default navbar-fixed-top animation-hide">
     <div className="container">
       <div className="navbar-header">
@@ -53,5 +53,3 @@ const Nav = () => (
     </div>
   </nav>
 );
-
-export default Nav;

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-const Job = props => {
+export default props => {
   const { job } = props;
 
   if (job.location === 'sanfrancisco') job.location = 'San Francisco';
@@ -25,5 +25,3 @@ const Job = props => {
     </div>
   );
 };
-
-export default Job;
