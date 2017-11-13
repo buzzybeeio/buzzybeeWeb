@@ -161,20 +161,19 @@ export default class Story extends Component {
           placeholder="find a story"
         />
         <div className="listBarDiv">
-          <div className="listBarStories">
+          <div className="LBstories">
             {
               this.state.listBarStories.map(data => (
                 <div
                   onClick={() => this.listbarComponentChoosed(data.name)}
                   key={data.name}
-                  className="listBarStory"
+                  className="story"
                 >
                   <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
                   <span>{data.name}</span>
                 </div>
               ))
             }
-
           </div>
         </div>
 
