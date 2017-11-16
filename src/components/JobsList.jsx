@@ -64,6 +64,9 @@ export default class JobsList extends Component {
       case 'Chicago':
         this.setState({ place: { city: 'Chicago', state: 'IL' } });
         break;
+      case 'Undefined':
+        this.setState({ place: { city: 'Undefined' } });
+        break;
       default:
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
     }
@@ -74,13 +77,13 @@ export default class JobsList extends Component {
     this.props.startAnimation();
 
     const data = {
-      place: this.state.place,
       keywords: this.state.keywords.split(' '),
     };
+    if (this.state.place.state) data.place = this.state.place;
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com',
+      url: data.place ? 'https://buzzybeeapi.herokuapp.com' : 'http://localhost:4000/NoLoc',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
@@ -96,14 +99,14 @@ export default class JobsList extends Component {
     this.setState({ jobs: [], pages: 0, page });
     this.props.startAnimation();
     const data = {
-      place: this.state.place,
       keywords: this.state.prevKeywords.split(' '),
       page,
     };
+    if (this.state.place.state) data.place = this.state.place;
 
     window.$.ajax({
       type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com/paginated',
+      url: data.place ? 'https://buzzybeeapi.herokuapp.com/paginated' : 'http://localhost:4000/NoLocPaginated',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
@@ -139,6 +142,7 @@ export default class JobsList extends Component {
               <option value="Chicago">Chicago</option>
               <option value="Philadelphia">Philadelphia</option>
               <option value="New York City">New York City</option>
+              <option value="Undefined">Undefined</option>
             </select>
           </div>
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>
