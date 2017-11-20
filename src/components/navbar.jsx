@@ -39,8 +39,8 @@ const Nav = () => (
             </Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/story">
-              <Selected path="/story" /> Stories
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/about">
+              <Selected path="/about" /> About
             </Link>
           </li>
           <li>

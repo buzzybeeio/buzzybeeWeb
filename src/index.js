@@ -26,9 +26,9 @@ ReactDOM.render(
       <Nav />
       <Switch>
         <Route path="/jobs" component={jobs} />
-        <Route path="/story" component={story} />
+        <Route path="/about" component={App} />
         <Route path="/contact" component={contact} />
-        <Route path="/" component={App} />
+        <Route path="/" component={story} />
       </Switch>
       <Footer />
     </div>

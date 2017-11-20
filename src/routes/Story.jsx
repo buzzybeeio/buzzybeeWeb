@@ -4,6 +4,7 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import React, { Component } from 'react';
 import DefaultStory from '../components/DefaultStory';
+import '../App.css';
 
 class Story extends Component {
   constructor() {
@@ -25,6 +26,24 @@ class Story extends Component {
   }
 
   componentDidMount() {
+    const { $ } = window;
+
+    const $animation = $('.animation');
+
+    const timeout = setTimeout(() => {
+      $animation.css('display', 'none');
+      $('.animation-hide').fadeIn(750);
+    }, 2000);
+
+    if (sessionStorage.getItem('buzzybee-already-logged')) {
+      clearTimeout(timeout);
+      $animation.css('display', 'none');
+    } else {
+      $('.animation-hide').css('display', 'none');
+    }
+
+    sessionStorage.setItem('buzzybee-already-logged', true);
+
     const path = window.location.pathname.slice(7);
 
     if (path.length) {
@@ -150,45 +169,51 @@ class Story extends Component {
 
   render() {
     return (
-      <div className="container stories">
-        <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
-          <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
+      <div>
+        <div className="animation">
+          <div className="cube" />
         </div>
-        <input
-          className="form-control listBar"
-          onChange={this.findStory}
-          value={this.state.listBar}
-          placeholder="find a story"
-        />
-        <div className="listBarDiv">
-          <div className="listBarStories">
-            {
-              this.state.listBarStories.map(data => (
-                <div
-                  onClick={() => this.listbarComponentChoosed(data.name)}
-                  key={data.name}
-                  className="listBarStory"
-                >
-                  <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
-                  <span>{data.name}</span>
-                </div>
-              ))
-            }
 
+        <div className="container stories">
+          <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
+            <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
           </div>
-        </div>
-
-        <div className="story-flex-wrapper">
-          <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
-          <div className="aside">
-            <h3>Stories</h3>
-            <div className="sidebar-grid">
+          <input
+            className="form-control listBar"
+            onChange={this.findStory}
+            value={this.state.listBar}
+            placeholder="find a story"
+          />
+          <div className="listBarDiv">
+            <div className="listBarStories">
               {
-                this.state.stories.map(info => {
-                  const infostr = JSON.stringify(info);
-                  return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
-                })
+                this.state.listBarStories.map(data => (
+                  <div
+                    onClick={() => this.listbarComponentChoosed(data.name)}
+                    key={data.name}
+                    className="listBarStory"
+                  >
+                    <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
+                    <span>{data.name}</span>
+                  </div>
+                ))
               }
+
+            </div>
+          </div>
+
+          <div className="story-flex-wrapper">
+            <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
+            <div className="aside">
+              <h3>Stories</h3>
+              <div className="sidebar-grid">
+                {
+                  this.state.stories.map(info => {
+                    const infostr = JSON.stringify(info);
+                    return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>
