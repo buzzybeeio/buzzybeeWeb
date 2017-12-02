@@ -25,10 +25,10 @@ ReactDOM.render(
     <div>
       <Nav />
       <Switch>
+        <Route exact path="/" component={story} />
         <Route path="/jobs" component={jobs} />
-        <Route path="/story" component={story} />
+        <Route path="/about" component={App} />
         <Route path="/contact" component={contact} />
-        <Route path="/" component={App} />
       </Switch>
       <Footer />
     </div>
