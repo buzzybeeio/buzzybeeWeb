@@ -174,7 +174,7 @@ export default class Story extends Component {
           <div className="cube" />
         </div>
 
-        <div className="container stories">
+        <div className="animation-hide container stories">
           <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
             <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
           </div>
@@ -184,14 +184,14 @@ export default class Story extends Component {
             value={this.state.listBar}
             placeholder="find a story"
           />
-          <div className="listBarDiv">
-            <div className="listBarStories">
+          <div className="LBDiv">
+            <div className="LBStories">
               {
                 this.state.listBarStories.map(data => (
                   <div
                     onClick={() => this.listbarComponentChoosed(data.name)}
                     key={data.name}
-                    className="listBarStory"
+                    className="LBStory"
                   >
                     <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
                     <span>{data.name}</span>

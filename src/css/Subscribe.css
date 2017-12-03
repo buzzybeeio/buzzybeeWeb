@@ -6,7 +6,8 @@
   border-radius: 0;
   background-color: white;
   color: #222;
-  opacity: .9; }
+  opacity: .9;
+}
 
 #input_button {
   border: solid 1px #faaf47;
@@ -15,7 +16,8 @@
   margin-top: 0;
   border-radius: 0;
   float: left;
-  min-width: 20px; }
+  min-width: 20px;
+}
 
 #subcribeSentence {
   margin-top: 20px;
@@ -23,4 +25,5 @@
   color: white;
   font-size: 20px;
   text-shadow: 2px 2px 4px #333;
-  text-shadow: 2px 2px 3px rgba(10, 10, 10, 0.5); }
+  text-shadow: 2px 2px 3px rgba(10, 10, 10, 0.5);
+}

@@ -4,7 +4,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import App from './routes/App';
+import about from './routes/About';
 import jobs from './routes/Jobs';
 import story from './routes/Story';
 import contact from './routes/Contact';
@@ -26,8 +26,9 @@ ReactDOM.render(
       <Nav />
       <Switch>
         <Route exact path="/" component={story} />
+        <Route path="/story/:name" component={story} />
         <Route path="/jobs" component={jobs} />
-        <Route path="/about" component={App} />
+        <Route path="/about" component={about} />
         <Route path="/contact" component={contact} />
       </Switch>
       <Footer />

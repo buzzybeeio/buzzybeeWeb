@@ -9,6 +9,7 @@ export default class JobsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      status: 'searching',
       jobs: [],
       pages: 0,
       page: 1,
@@ -19,8 +20,12 @@ export default class JobsList extends Component {
 
     this.getDefaultJobs().then(data => {
       this.props.stopAnimation();
-      this.setState({ ...data });
-    });
+      this.setState({ ...data, status: 'done' });
+    })
+      .catch(() => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
+      });
 
     this.changedPlace = this.changedPlace.bind(this);
     this.call = this.call.bind(this);
@@ -73,7 +78,12 @@ export default class JobsList extends Component {
   }
 
   call() {
-    this.setState({ jobs: [], page: 1, pages: 0 });
+    this.setState({
+      jobs: [],
+      page: 1,
+      pages: 0,
+      status: 'searching',
+    });
     this.props.startAnimation();
 
     const data = {
@@ -89,14 +99,23 @@ export default class JobsList extends Component {
       dataType: 'json',
       success: jobsData => {
         this.props.stopAnimation();
-        this.setState({ ...jobsData, prevKeywords: this.state.keywords });
+        this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
       },
-      error: () => alert('Sorry!, There was an error'),
+      error: () => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
+        alert('Sorry!, there was an error loading the jobs');
+      },
     });
   }
 
   paginatedCall(page) {
-    this.setState({ jobs: [], pages: 0, page });
+    this.setState({
+      jobs: [],
+      pages: 0,
+      page,
+      status: 'searching',
+    });
     this.props.startAnimation();
     const data = {
       keywords: this.state.prevKeywords.split(' '),
@@ -112,9 +131,13 @@ export default class JobsList extends Component {
       dataType: 'json',
       success: jobs => {
         this.props.stopAnimation();
-        this.setState({ ...jobs });
+        this.setState({ ...jobs, status: 'done' });
       },
-      error: () => alert('Sorry!, There was an error'),
+      error: () => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
+        alert('Sorry!, there was an error loading the jobs');
+      },
     });
   }
 
@@ -125,8 +148,8 @@ export default class JobsList extends Component {
     if (pages.length === 1) pages.pop();
 
     return (
-      <div className="container">
-        <div style={{ display: this.state.jobs.length ? 'block' : 'none' }}>
+      <div style={{ display: this.state.status !== 'searching' ? 'block' : 'none' }} className="container">
+        <div>
           <div>
             <input
               placeholder="Type the keywords (each keyword has to be 1 space apart from each other)"
@@ -142,7 +165,6 @@ export default class JobsList extends Component {
               <option value="Chicago">Chicago</option>
               <option value="Philadelphia">Philadelphia</option>
               <option value="New York City">New York City</option>
-              <option value="Undefined">Undefined</option>
             </select>
           </div>
           <button onClick={this.call} className="btn btn-block btn-success">Find those Jobs!</button>

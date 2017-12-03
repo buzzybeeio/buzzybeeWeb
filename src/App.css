@@ -6,6 +6,10 @@ body {
   background-color: #171e27;
 }
 
+.text-center {
+  text-align: center;
+}
+
 a {
   line-height: 1.2;
 }
