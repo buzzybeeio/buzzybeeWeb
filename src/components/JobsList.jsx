@@ -69,9 +69,6 @@ export default class JobsList extends Component {
       case 'Chicago':
         this.setState({ place: { city: 'Chicago', state: 'IL' } });
         break;
-      case 'Undefined':
-        this.setState({ place: { city: 'Undefined' } });
-        break;
       default:
         this.setState({ place: { city: 'San Francisco', state: 'CA' } });
     }
@@ -88,12 +85,12 @@ export default class JobsList extends Component {
 
     const data = {
       keywords: this.state.keywords.split(' '),
+      place: this.state.place,
     };
-    if (this.state.place.state) data.place = this.state.place;
 
     window.$.ajax({
       type: 'POST',
-      url: data.place ? 'https://buzzybeeapi.herokuapp.com' : 'http://localhost:4000/NoLoc',
+      url: 'https://buzzybeeapi.herokuapp.com',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
@@ -117,15 +114,16 @@ export default class JobsList extends Component {
       status: 'searching',
     });
     this.props.startAnimation();
+
     const data = {
       keywords: this.state.prevKeywords.split(' '),
       page,
+      place: this.state.place,
     };
-    if (this.state.place.state) data.place = this.state.place;
 
     window.$.ajax({
       type: 'POST',
-      url: data.place ? 'https://buzzybeeapi.herokuapp.com/paginated' : 'http://localhost:4000/NoLocPaginated',
+      url: 'https://buzzybeeapi.herokuapp.com/paginated',
       data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
