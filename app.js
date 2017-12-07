@@ -20,12 +20,8 @@ app.use(express.static('build'));
 app.use(mailRouter);
 app.use(subscribeRouter);
 
-// app.get(/.*\/$/, (req, res) => {
-//   res.redirect(req.originalUrl.slice(0, -1));
-// });
-
-app.get('/.well-known/acme-challenge/_GyRakjNOQ6txnb8j_pxJ-YvTfBO-_GQ5S39fnnElUw', (req, res) => {
-  res.send("_GyRakjNOQ6txnb8j_pxJ-YvTfBO-_GQ5S39fnnElUw.Sh6Vb9MeILvkeyM3wlDw2OkFFGTY04I7DX6HoBGb2ss");
+app.get(/.*\/$/, (req, res) => {
+  res.redirect(req.originalUrl.slice(0, -1));
 });
 
 app.get('*', (req, res) => {
