@@ -7,7 +7,7 @@ export default props => {
   if (job.location === 'sanfrancisco') job.location = 'San Francisco';
 
   return (
-    <div className={`job row invisible ${props.classes}`}>
+    <div className={`job row ${props.classes}`}>
       <a href={job.URL} target="_blank" rel="noopener noreferrer">
         <div className="col-md-2 col-sm-2">
           {new Date(job.datepost).toDateString().slice(4)}

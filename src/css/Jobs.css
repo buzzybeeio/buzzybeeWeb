@@ -13,6 +13,8 @@ ul {
 
 .job {
   padding: 10px 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; 
 }
 
 .job:nth-child(2n+1) {

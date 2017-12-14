@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const mailRouter = require('./contact/mail');
 const subscribeRouter = require('./contact/subscribe');
 
 const port = process.env.PORT || 3000;
@@ -17,7 +16,6 @@ app.use(forceSsl);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
-app.use(mailRouter);
 app.use(subscribeRouter);
 
 app.get(/.*\/$/, (req, res) => {

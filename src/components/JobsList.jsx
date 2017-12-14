@@ -170,7 +170,7 @@ export default class JobsList extends Component {
         {
           this.state.jobs.map((job, i) => {
             const key = `${i} job`;
-            setTimeout(() => window.$(`.${i}-job`).removeClass('invisible').addClass('animated fadeInUp'), i * 35);
+            setTimeout(() => window.$(`.${i}-job`).css('opacity', 1), i * 35);
             return (<Job job={job} key={key} classes={`${i}-job`} />);
           })
         }

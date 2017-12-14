@@ -44,24 +44,23 @@ export default class Story extends Component {
 
     sessionStorage.setItem('buzzybee-already-logged', true);
 
-    const path = window.location.pathname.slice(7);
-
-    if (path.length) {
+    if (this.props.match.params) {
+      const { name } = this.props.match.params;
       window.$.ajax({
         type: 'GET',
-        url: `https://buzzybeeapi.herokuapp.com/story/${path}`,
+        url: `https://buzzybeeapi.herokuapp.com/story/${name}`,
         dataType: 'json',
         success: data => {
           try {
             if (data.component) this.setState({ story: data.component });
-            else window.history.pushState(null, null, '/story');
+            else this.props.history.push('/');
           } catch (e) {
-            window.history.pushState(null, null, '/story');
+            this.props.history.push('/');
           }
         },
         error: err => {
           console.log(err);
-          window.history.pushState(null, null, '/story');
+          this.props.history.push('/');
         },
       });
     }
@@ -82,7 +81,7 @@ export default class Story extends Component {
 
       $('.story-box').click(function () {
         const data = JSON.parse($(this).attr('data'));
-        window.history.pushState(null, null, `/story/${data.name}`);
+        component.props.history.push(`/story/${data.name}`);
         $(this).hide(750);
 
         $('.story-wrapper')
@@ -143,7 +142,7 @@ export default class Story extends Component {
   }
 
   listbarComponentChoosed(name) {
-    window.history.pushState(null, null, `/story/${name}`);
+    this.props.history.push(`/story/${name}`);
 
     this.setState({ listBar: '' });
     window.$.ajax({
@@ -163,6 +162,10 @@ export default class Story extends Component {
         $('.story-wrapper')
           .hide(750, () => this.setState({ story: data.component }))
           .slideDown(750);
+      },
+      error: () => {
+        alert('failed to load history');
+        this.props.history.push('/');
       },
     });
   }
