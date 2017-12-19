@@ -119,6 +119,23 @@ input {
   opacity: 0;
 }
 
+.spinner {
+  max-width: 250px;
+  display: block;
+  margin: 0 auto;
+  animation: rotate 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media (max-width: 500px) {
   .mission {
       padding: 0.7em;

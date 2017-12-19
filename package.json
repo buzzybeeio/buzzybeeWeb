@@ -14,7 +14,9 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "superagent": "^3.6.3"
+    "redux-promise-middleware": "^5.0.0",
+    "superagent": "^3.6.3",
+    "validator": "^9.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",

@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import about from './routes/About';
 import jobs from './routes/Jobs';
@@ -19,18 +19,42 @@ import './css/Story.css';
 import './css/Subscribe.css';
 import './css/Team.css';
 
-export default () => (
-  <div>
-    <Nav />
-    <Switch>
-      <Route exact path="/" component={story} />
-      <Route exact path="/jobs" component={jobs} />
-      <Route exact path="/about" component={about} />
-      <Route path="/story/:name" component={story} />
-      <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
-      <Route path="/profile" component={profile} />
-      <Route path="*" component={error404} />
-    </Switch>
-    <Footer />
-  </div>
-);
+export default class App extends Component {
+  componentDidMount() {
+    this.animation();
+  }
+
+  animation() {
+    const { $ } = window;
+    const $hide = $('.animation-hide');
+    $hide.css('display', 'none');
+    setTimeout(() => {
+      $('.animation').css('display', 'none');
+      $hide.fadeIn(750);
+    }, 2000);
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="animation">
+          <div className="cube" />
+        </div>
+        <div className="animation-hide">
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={story} />
+            <Route exact path="/jobs" component={jobs} />
+            <Route exact path="/about" component={about} />
+            <Route path="/story/:name" component={story} />
+            <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
+            <Route path="/profile" component={profile} />
+            <Route path="*" component={error404} />
+          </Switch>
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
+

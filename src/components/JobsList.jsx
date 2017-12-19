@@ -3,6 +3,7 @@
 /* eslint no-restricted-syntax: 0, guard-for-in: 0 */
 
 import React, { Component } from 'react';
+import { GET, POST } from '../requests';
 import Job from './Job';
 
 export default class JobsList extends Component {
@@ -18,31 +19,22 @@ export default class JobsList extends Component {
       prevKeywords: 'developer javascript react python django software engineer web startup full-stack front-end',
     };
 
-    this.getDefaultJobs().then(data => {
-      this.props.stopAnimation();
-      this.setState({ ...data, status: 'done' });
-    })
-      .catch(() => {
-        this.props.stopAnimation();
-        this.setState({ status: 'error' });
-      });
-
     this.changedPlace = this.changedPlace.bind(this);
     this.call = this.call.bind(this);
     this.paginatedCall = this.paginatedCall.bind(this);
+    this.getDefaultJobs = this.getDefaultJobs.bind(this);
+    this.getDefaultJobs();
   }
 
   getDefaultJobs() {
-    const url = 'https://buzzybeeapi.herokuapp.com';
-    return new Promise((resolve, reject) => {
-      window.$.ajax({
-        type: 'GET',
-        url,
-        dataType: 'json',
-        success: resolve,
-        error: reject,
+    GET('https://buzzybeeapi.herokuapp.com')
+      .then(data => {
+        this.props.stopAnimation();
+        this.setState({ ...data, status: 'done' });
+      }).catch(() => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
       });
-    });
   }
 
   changedPlace(event) {
@@ -83,27 +75,24 @@ export default class JobsList extends Component {
     });
     this.props.startAnimation();
 
-    const data = {
-      keywords: this.state.keywords.split(' '),
-      place: this.state.place,
-    };
+    if (!this.state.keywords) {
+      this.getDefaultJobs();
+    } else {
+      const data = {
+        keywords: this.state.keywords.split(' '),
+        place: this.state.place,
+      };
 
-    window.$.ajax({
-      type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: jobsData => {
-        this.props.stopAnimation();
-        this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
-      },
-      error: () => {
-        this.props.stopAnimation();
-        this.setState({ status: 'error' });
-        alert('Sorry!, there was an error loading the jobs');
-      },
-    });
+      POST({ url: 'https://buzzybeeapi.herokuapp.com', data })
+        .then(jobsData => {
+          this.props.stopAnimation();
+          this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
+        }).catch(() => {
+          this.props.stopAnimation();
+          this.setState({ status: 'error' });
+          alert('Sorry!, there was an error loading the jobs');
+        });
+    }
   }
 
   paginatedCall(page) {
@@ -121,22 +110,15 @@ export default class JobsList extends Component {
       place: this.state.place,
     };
 
-    window.$.ajax({
-      type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com/paginated',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: jobs => {
+    POST({ url: 'https://buzzybeeapi.herokuapp.com/paginated', data })
+      .then(jobs => {
         this.props.stopAnimation();
         this.setState({ ...jobs, status: 'done' });
-      },
-      error: () => {
+      }).catch(() => {
         this.props.stopAnimation();
         this.setState({ status: 'error' });
         alert('Sorry!, there was an error loading the jobs');
-      },
-    });
+      });
   }
 
   render() {

@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default () => (
-  <div className="footer text-center animation-hide">
+  <div className="footer text-center">
     <a href="mailto:info@buzzybee.io">
       <img className="footer-picture" src="email.png" alt="" />
     </a>

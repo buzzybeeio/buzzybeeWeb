@@ -3,6 +3,7 @@
 
 import { renderToStaticMarkup } from 'react-dom/server';
 import React, { Component } from 'react';
+import { GET } from '../requests';
 import DefaultStory from '../components/DefaultStory';
 import '../App.css';
 
@@ -22,63 +23,40 @@ export default class Story extends Component {
     this.findStory = this.findStory.bind(this);
     this.getStories = this.getStories.bind(this);
     this.listbarComponentChoosed = this.listbarComponentChoosed.bind(this);
-    this.getStories();
   }
 
   componentDidMount() {
-    const { $ } = window;
-
-    const $animation = $('.animation');
-
-    const timeout = setTimeout(() => {
-      $animation.css('display', 'none');
-      $('.animation-hide').fadeIn(750);
-    }, 2000);
-
-    if (sessionStorage.getItem('buzzybee-already-logged')) {
-      clearTimeout(timeout);
-      $animation.css('display', 'none');
-    } else {
-      $('.animation-hide').css('display', 'none');
-    }
-
-    sessionStorage.setItem('buzzybee-already-logged', true);
-
+    this.getStories();
     if (this.props.match.params) {
       const { name } = this.props.match.params;
-      window.$.ajax({
-        type: 'GET',
-        url: `https://buzzybeeapi.herokuapp.com/story/${name}`,
-        dataType: 'json',
-        success: data => {
+      GET(`https://buzzybeeapi.herokuapp.com/story/${name}`)
+        .then(data => {
           try {
             if (data.component) this.setState({ story: data.component });
             else this.props.history.push('/');
           } catch (e) {
             this.props.history.push('/');
           }
-        },
-        error: err => {
-          console.log(err);
-          this.props.history.push('/');
-        },
-      });
+        }).catch(() => this.props.history.push('/'));
     }
   }
 
+  // ComponentDidUpdate is only used for making the sidebar
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.stories.length) {
       const component = this;
       const { $ } = window;
-
+      const $children = $('.sidebar-grid').children();
       // Don't change the functions to Arrow functions
       // Because when you use arrow functions "this" won't be binded
 
-      $($('.sidebar-grid').children()).each(function () {
+      // Hides the child if the default story is the same that the children has passed as data
+      $($children).each(function () {
         const data = JSON.parse($(this).attr('data'));
         if (data.component === component.state.story) $(this).hide(0);
       });
 
+      // Code for the transition between stories
       $('.story-box').click(function () {
         const data = JSON.parse($(this).attr('data'));
         component.props.history.push(`/story/${data.name}`);
@@ -88,23 +66,25 @@ export default class Story extends Component {
           .hide(750, () => component.setState({ story: data.component }))
           .slideDown(750);
 
-        $($('.sidebar-grid').children()).each(function () {
+        $($children).each(function () {
           if ($(this).css('display') !== 'block') $(this).slideDown(750);
         });
       });
+      // End of Code
 
       document.getElementsByClassName('aside')[0].style.opacity = '1';
     }
   }
 
+  componentWillUnmount() { if (window.storiesTimeout) clearTimeout(window.storiesTimeout); }
+
   getStories() {
-    window.$.ajax({
-      type: 'GET',
-      url: 'https://buzzybeeapi.herokuapp.com/stories',
-      dataType: 'json',
-      success: data => this.setState({ stories: data }),
-      error: err => console.error(err),
-    });
+    window.storiesTimeout = undefined;
+    GET('https://buzzybeeapi.herokuapp.com/stories')
+      .then(data => this.setState({ stories: data }))
+      .catch(() => {
+        window.storiesTimeout = setTimeout(this.getStories, 30000);
+      });
   }
 
   readingMode() {
@@ -145,39 +125,32 @@ export default class Story extends Component {
     this.props.history.push(`/story/${name}`);
 
     this.setState({ listBar: '' });
-    window.$.ajax({
-      type: 'GET',
-      url: `https://buzzybeeapi.herokuapp.com/story/${name}`,
-      dataType: 'json',
-      success: data => {
+    GET(`https://buzzybeeapi.herokuapp.com/story/${name}`)
+      .then(data => {
         const { $ } = window;
         this.setState({ listBar: '', listBarStories: [] });
 
+        // Code for transition between stories
         $($('.sidebar-grid').children()).each(function () {
-          const story = JSON.parse($(this).attr('data'));
-          if (story.component === data.component) $(this).hide(750);
+          const box = JSON.parse($(this).attr('data'));
+          if (box.component === data.component) $(this).hide(750);
           else if ($(this).css('display') !== 'block') $(this).slideDown(750);
         });
 
         $('.story-wrapper')
           .hide(750, () => this.setState({ story: data.component }))
           .slideDown(750);
-      },
-      error: () => {
+        // End of Code
+      }).catch(() => {
         alert('failed to load history');
         this.props.history.push('/');
-      },
-    });
+      });
   }
 
   render() {
     return (
       <div>
-        <div className="animation">
-          <div className="cube" />
-        </div>
-
-        <div className="animation-hide container stories">
+        <div className="container stories">
           <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
             <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
           </div>

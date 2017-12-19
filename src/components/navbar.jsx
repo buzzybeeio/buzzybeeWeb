@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Selected from './Selected';
 
 export default () => (
-  <nav className="navbar navbar-default navbar-fixed-top animation-hide">
+  <nav className="navbar navbar-default navbar-fixed-top">
     <div className="container">
       <div className="navbar-header">
         <Link to="/" className="">
@@ -44,8 +44,8 @@ export default () => (
             </Link>
           </li>
           <li>
-            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/contact">
-              <Selected path="/contact" /> Contact
+            <Link data-toggle="collapse" data-target=".navbar-collapse" to="/profile">
+              <Selected path="/profile" /> Profile
             </Link>
           </li>
         </ul>
