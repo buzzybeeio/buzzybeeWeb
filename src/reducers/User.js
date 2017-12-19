@@ -5,13 +5,16 @@ const defaultUserData = {
   username: '',
   email: '',
   errorsLogin: [],
-  errorsRegister: [],
 };
 
 const login = (state, payload) => {
   let newState = null;
   if (Array.isArray(payload)) {
-    newState = { ...state, errorsLogin: payload, status: 'notLoggedIn' };
+    newState = {
+      ...state,
+      errorsLogin: payload,
+      status: 'notLoggedIn',
+    };
   } else {
     newState = {
       ...state,
@@ -38,6 +41,9 @@ export default (state = defaultUserData, action) => {
         errorsLogin: ['There was an error, try again later! \n Error: INTERNAL'],
         status: 'notLoggedIn',
       };
+
+    case 'LOGOUT':
+      return defaultUserData;
 
     default:
       return state;

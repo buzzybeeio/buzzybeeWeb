@@ -18,6 +18,7 @@ import './css/Nav.css';
 import './css/Story.css';
 import './css/Subscribe.css';
 import './css/Team.css';
+import './css/Profile.css';
 
 export default class App extends Component {
   componentDidMount() {

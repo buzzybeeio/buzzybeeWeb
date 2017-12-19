@@ -18,10 +18,7 @@ class Login extends Component {
     this.changeShow = this.changeShow.bind(this);
   }
 
-  handleChange(key, e) {
-    const { value } = e.target;
-    this.setState({ [key]: value });
-  }
+  handleChange(key, e) { const { value } = e.target; this.setState({ [key]: value }); }
 
   submit() {
     login({
@@ -30,18 +27,15 @@ class Login extends Component {
     });
   }
 
-  changeShow() {
-    this.setState({ show: !this.state.show });
-  }
+  changeShow() { this.setState({ show: !this.state.show }); }
 
   render() {
-    let toReturn;
     if (this.props.status === 'notLoggedIn') {
-      toReturn = (
+      return (
         <div>
+          <h2>Login</h2>
           <ErrorList messages={this.props.errors} />
           <form onSubmit={e => e.preventDefault()}>
-            <h2>Login</h2>
             Username or Email: <br />
             <input value={this.state.string} onChange={e => this.handleChange('string', e)} /> <br />
             Password: <br />
@@ -58,16 +52,15 @@ class Login extends Component {
         </div>
       );
     } else if (this.props.status === 'loggingIn') {
-      toReturn = <img src="spinner.svg" alt="spinner" className="spinner" />;
-    } else {
-      toReturn = (
-        <div>
-          You are logged in! <Link to="/profile">Click here to go to your profile</Link>
-        </div>
-      );
+      return <img src="spinner.svg" alt="spinner" className="spinner" />;
     }
 
-    return toReturn;
+    return (
+      <div>
+        <h2>Login</h2>
+        You are logged in! <Link to="/profile">Click here to go to your profile</Link>
+      </div>
+    );
   }
 }
 

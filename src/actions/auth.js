@@ -9,7 +9,9 @@ const login = data => {
 };
 
 const logOut = () => {
-
+  dispatch({
+    type: 'LOGOUT',
+  });
 };
 
 export { login, logOut };
