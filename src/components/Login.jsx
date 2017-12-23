@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
 import ErrorList from './ErrorList';
+import ForgotPassword from './ForgotPassword';
 
 class Login extends Component {
   constructor() {
@@ -32,23 +33,35 @@ class Login extends Component {
   render() {
     if (this.props.status === 'notLoggedIn') {
       return (
-        <div>
+        <div className="well">
           <h2>Login</h2>
           <ErrorList messages={this.props.errors} />
           <form onSubmit={e => e.preventDefault()}>
             Username or Email: <br />
-            <input value={this.state.string} onChange={e => this.handleChange('string', e)} /> <br />
+            <input
+              value={this.state.string}
+              onChange={e => this.handleChange('string', e)}
+              className="form-control"
+            /> <br />
             Password: <br />
-            <div>
+            <div style={{ display: 'flex' }}>
               <input
                 value={this.state.password}
                 onChange={e => this.handleChange('password', e)}
                 type={this.state.show ? '' : 'password'}
+                className="form-control"
               />
-              <button onClick={this.changeShow}>{this.state.show ? 'Hide' : 'Show'}</button>
+              <button
+                onClick={this.changeShow}
+                style={{ margin: '0', marginLeft: '20px', height: '2.5em' }}
+                className="btn"
+              >
+                {this.state.show ? 'Hide' : 'Show'}
+              </button>
             </div>
-            <button onClick={this.submit}>Submit</button>
+            <button onClick={this.submit} className="btn btn-block">Submit</button>
           </form>
+          <ForgotPassword />
         </div>
       );
     } else if (this.props.status === 'loggingIn') {

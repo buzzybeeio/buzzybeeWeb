@@ -5,6 +5,8 @@ import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
 import { POST } from '../requests';
 import ErrorList from './ErrorList';
 import ErrorInput from './ErrorInput';
+import ToS from './ToS';
+import ResendVerificationEmail from './ResendVerificationEmail';
 
 class Register extends Component {
   constructor() {
@@ -171,8 +173,10 @@ class Register extends Component {
                   )
                 }
               </div>
-              <button onClick={this.submit} disabled={this.checkForError()} className="btn btn-warning btn-block">submit</button>
+              <ToS />
+              <button onClick={this.submit} disabled={this.checkForError()} className="btn btn-block">submit</button>
             </form>
+            <ResendVerificationEmail />
           </div>
         );
       } else if (this.state.registerStatus === 'waiting') {
