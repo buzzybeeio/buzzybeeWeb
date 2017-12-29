@@ -15,7 +15,7 @@ export default class RVE extends Component {
   }
 
   submit() {
-    this.setState({ status: 'waiting ' });
+    this.setState({ status: 'waiting' });
     POST({
       url: 'http://localhost:4000/resendVerificationEmail',
       data: { string: this.state.string },
@@ -50,7 +50,8 @@ export default class RVE extends Component {
         <div>
           <h3>Resend verification Email</h3>
           <div className="alert alert-danger">{this.state.msg}</div>
-        </div>
+          <button onClick={() => this.setState({ string: '', status: 'opened', msg: '' })} className="btn">Retry</button>
+        </div >
       );
     } else if (this.state.status === 'opened') {
       return (

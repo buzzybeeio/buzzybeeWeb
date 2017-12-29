@@ -29,26 +29,26 @@ export default class VerifyAccount extends Component {
   render() {
     if (this.state.status === 'verified') {
       return (
-        <div style={{ marginTop: '80px' }} className="container">
+        <div className="container">
           <div className="alert alert-success">{this.state.msg}</div>
         </div>
       );
     } else if (this.state.status === 'sending') {
       return (
-        <div style={{ marginTop: '80px' }} className="container">
+        <div className="container">
           <h3 className="text-center">We are verifying your account</h3>
           <img src="spinner.svg" alt="spinner" className="spinner" />
         </div>
       );
     } else if (this.state.status === 'failed') {
       return (
-        <div style={{ marginTop: '80px' }} className="container">
+        <div className="container">
           <div className="alert alert-danger">{this.state.msg}</div>
         </div>
       );
     }
     return (
-      <div style={{ marginTop: '80px' }} className="container">
+      <div className="container">
         <h2 className="text-center">What?</h2>
         <p>There's nothing we can do for you right now</p>
       </div >

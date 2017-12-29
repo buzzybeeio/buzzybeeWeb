@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default () => (
-  <div style={{ height: '150px' }}>
+  <div style={{ height: '150px', overflowY: 'scroll' }}>
     <h3>TERMS OF SERVICE</h3>
     ----
 <h4>OVERVIEW</h4>

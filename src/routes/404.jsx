@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div style={{ marginTop: '80px' }}>
+  <div>
     <p>Error 404</p>
   </div>
 );

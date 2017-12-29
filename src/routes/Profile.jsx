@@ -17,7 +17,7 @@ const Profile = props => {
   }
 
   return (
-    <div style={{ marginTop: '80px' }} className="container">
+    <div className="container">
       <Switch>
         <Route path="/profile/login" component={Login} />
         <Route path="/profile/register" component={Register} />

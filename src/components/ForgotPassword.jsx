@@ -50,6 +50,7 @@ export default class RVE extends Component {
         <div>
           <h3>Get new password</h3>
           <div className="alert alert-danger">{this.state.msg}</div>
+          <button onClick={() => this.setState({ string: '', status: 'opened', msg: '' })} className="btn">Retry</button>
         </div>
       );
     } else if (this.state.status === 'opened') {
