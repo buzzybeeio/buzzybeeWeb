@@ -8,7 +8,7 @@ const Logged = ({ name, username }) => (
     <h3>Welcome to the hive {name}!</h3>
     <p>Right now there isn't much you can make here, but look forward for our new features!</p>
     <ChangePassword username={username} />
-    <button onClick={() => logOut()}>Log out</button>
+    <button onClick={() => logOut()} className="btn btn-danger">Log out</button>
   </div>
 );
 

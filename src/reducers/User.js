@@ -1,3 +1,5 @@
+import { setD } from '../actions/auth';
+
 const defaultUserData = {
   status: 'notLoggedIn',
   firstName: '',
@@ -9,16 +11,17 @@ const defaultUserData = {
 
 const login = (state, payload) => {
   let newState = null;
-  if (Array.isArray(payload)) {
+  if (payload.err) {
     newState = {
       ...state,
-      errorsLogin: payload,
+      errorsLogin: payload.response,
       status: 'notLoggedIn',
     };
   } else {
+    setD(payload.data);
     newState = {
       ...state,
-      ...payload,
+      ...payload.response,
       errorsLogin: [],
       status: 'loggedIn',
     };
