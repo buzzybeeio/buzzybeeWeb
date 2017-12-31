@@ -2,7 +2,8 @@
 import { isEmail, normalizeEmail } from 'validator';
 import { dispatch } from '../Store';
 
-const login = data => {
+const login = d => {
+  const data = Object.assign({}, d);
   if (isEmail(data.string)) {
     data.string = normalizeEmail(data.string, {
       gmail_lowercase: true,
