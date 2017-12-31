@@ -10,14 +10,16 @@ export default class StoriesListBar extends Component {
       listBarStories: [],
       listBar: '',
     };
+
+    this.listbarComponentChoosed = this.listbarComponentChoosed.bind(this);
+    this.findStory = this.findStory.bind(this);
   }
 
   listbarComponentChoosed(name) {
-    this.setState({ listBar: '' });
     GET(`https://buzzybeeapi.herokuapp.com/story/${name}`)
       .then(data => {
         this.setState({ listBar: '', listBarStories: [] });
-        this.props.setStory(data.name, data.component);
+        this.props.setStory(name, data.component);
       }).catch(() => alert('failed to load history'));
   }
 
