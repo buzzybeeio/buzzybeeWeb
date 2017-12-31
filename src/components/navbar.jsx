@@ -2,12 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Selected from './Selected';
 
 const Nav = props => {
   let str;
   if (props.status === 'notLoggedIn') {
-    str = 'Profile';
+    str = 'Login';
   } else if (props.status === 'loggingIn') {
     str = 'Logging in...';
   } else {
@@ -40,22 +39,22 @@ const Nav = props => {
           <ul className="nav navbar-nav">
             <li>
               <Link data-toggle="collapse" data-target=".navbar-collapse" to="/">
-                <Selected path="/" /> Home
+                Home
               </Link>
             </li>
             <li>
               <Link data-toggle="collapse" data-target=".navbar-collapse" to="/jobs">
-                <Selected path="/jobs" /> Jobs
+                Jobs
               </Link>
             </li>
             <li>
               <Link data-toggle="collapse" data-target=".navbar-collapse" to="/about">
-                <Selected path="/about" /> About
+                About
               </Link>
             </li>
             <li>
               <Link data-toggle="collapse" data-target=".navbar-collapse" to="/profile">
-                <Selected path="/profile" /> {str}
+                {str}
               </Link>
             </li>
           </ul>

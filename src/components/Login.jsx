@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { isEmail, normalizeEmail } from 'validator';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
 import ErrorList from './ErrorList';
 import ForgotPassword from './ForgotPassword';
+
 
 class Login extends Component {
   constructor() {
@@ -22,8 +24,17 @@ class Login extends Component {
   handleChange(key, e) { const { value } = e.target; this.setState({ [key]: value }); }
 
   submit() {
+    let { string } = this.state;
+    if (isEmail(string)) {
+      string = normalizeEmail(string, {
+        gmail_lowercase: true,
+        yahoo_lowercase: true,
+        icloud_lowercase: true,
+      });
+    }
+
     login({
-      string: this.state.string,
+      string,
       password: this.state.password,
     });
   }

@@ -1,11 +1,11 @@
 /* eslint-env browser */
 
-const POST = options => (
+const POST = (url, data) => (
   new Promise((resolve, reject) => {
     window.$.ajax({
       type: 'POST',
-      url: options.url,
-      data: JSON.stringify(options.data),
+      url,
+      data: JSON.stringify(data),
       contentType: 'application/json',
       dataType: 'json',
       success: resolve,

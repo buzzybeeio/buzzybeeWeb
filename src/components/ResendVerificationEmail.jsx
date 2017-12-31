@@ -16,18 +16,16 @@ export default class RVE extends Component {
 
   submit() {
     this.setState({ status: 'waiting' });
-    POST({
-      url: 'http://localhost:4000/resendVerificationEmail',
-      data: { string: this.state.string },
-    }).then(response => {
-      if (Array.isArray(response)) {
-        this.setState({ status: 'error', msg: response[0] });
-      } else {
-        this.setState({ status: 'success', msg: response.success });
-      }
-    }).catch(() => {
-      this.setState({ status: 'error', msg: 'There was an error, try again later! \n Error: INTERNAL' });
-    });
+    POST('http://localhost:4000/resendVerificationEmail', { string: this.state.string })
+      .then(response => {
+        if (Array.isArray(response)) {
+          this.setState({ status: 'error', msg: response[0] });
+        } else {
+          this.setState({ status: 'success', msg: response.success });
+        }
+      }).catch(() => {
+        this.setState({ status: 'error', msg: 'There was an error, try again later! \n Error: INTERNAL' });
+      });
   }
 
   render() {

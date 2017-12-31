@@ -83,7 +83,7 @@ export default class JobsList extends Component {
         place: this.state.place,
       };
 
-      POST({ url: 'https://buzzybeeapi.herokuapp.com', data })
+      POST('https://buzzybeeapi.herokuapp.com', data)
         .then(jobsData => {
           this.props.stopAnimation();
           this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
@@ -110,7 +110,7 @@ export default class JobsList extends Component {
       place: this.state.place,
     };
 
-    POST({ url: 'https://buzzybeeapi.herokuapp.com/paginated', data })
+    POST('https://buzzybeeapi.herokuapp.com/paginated', data)
       .then(jobs => {
         this.props.stopAnimation();
         this.setState({ ...jobs, status: 'done' });

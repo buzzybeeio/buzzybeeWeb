@@ -96,24 +96,22 @@ class Register extends Component {
       data.email2 = email;
 
       this.setState({ registerStatus: 'waiting', errors: [] });
-      POST({
-        url: 'http://localhost:4000/register',
-        data,
-      }).then(response => {
-        if (Array.isArray(response)) {
+      POST('http://localhost:4000/register', data)
+        .then(response => {
+          if (Array.isArray(response)) {
+            this.setState({
+              errors: response,
+              registerStatus: 'notRegistered',
+            });
+          } else {
+            this.setState({ registerStatus: 'success', errors: [], success: response.success });
+          }
+        }).catch(() => {
           this.setState({
-            errors: response,
+            errors: ['There was an error, try again later! \n Error: INTERNAL'],
             registerStatus: 'notRegistered',
           });
-        } else {
-          this.setState({ registerStatus: 'success', errors: [], success: response.success });
-        }
-      }).catch(() => {
-        this.setState({
-          errors: ['There was an error, try again later! \n Error: INTERNAL'],
-          registerStatus: 'notRegistered',
         });
-      });
     }
   }
 
