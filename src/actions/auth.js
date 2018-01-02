@@ -47,4 +47,8 @@ const setD = data => {
 
 const getD = () => JSON.parse(localStorage.getItem('d'));
 
-export { login, logOut, setD, getD };
+const deleteD = () => {
+  if (localStorage.getItem('d')) localStorage.removeItem('d');
+};
+
+export { login, logOut, setD, getD, deleteD };

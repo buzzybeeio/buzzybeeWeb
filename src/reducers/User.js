@@ -1,4 +1,4 @@
-import { setD } from '../actions/auth';
+import { setD, deleteD } from '../actions/auth';
 
 const defaultUserData = {
   status: 'notLoggedIn',
@@ -12,6 +12,7 @@ const defaultUserData = {
 const login = (state, payload) => {
   let newState = null;
   if (payload.err) {
+    deleteD();
     newState = {
       ...state,
       errorsLogin: payload.response,
@@ -39,6 +40,7 @@ export default (state = defaultUserData, action) => {
       return login(state, action.payload);
 
     case 'LOGIN_REJECTED':
+      deleteD();
       return {
         ...state,
         errorsLogin: ['There was an error, try again later! \n Error: INTERNAL'],

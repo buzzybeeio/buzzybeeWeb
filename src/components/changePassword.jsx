@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { isLength } from 'validator';
+import { Handler, Waiting, Default, Success, Open, Closed } from './StatusHandler';
 import { POST } from '../requests';
 import ErrorList from './ErrorList';
 import ErrorInput from './ErrorInput';
@@ -9,7 +10,7 @@ export default class changePassword extends Component {
     super();
     this.state = {
       open: false,
-      status: 'nothing',
+      status: 'default',
       errors: [],
       success: '',
       fields: {
@@ -39,13 +40,16 @@ export default class changePassword extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.checkForError = this.checkForError.bind(this);
     this.close = this.close.bind(this);
+    this.renderOpen = this.renderOpen.bind(this);
+    this.renderInputs = this.renderInputs.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   checkForError() {
     let error = false;
     Object.keys(this.state.fields).forEach(key => {
       const field = this.state.fields[key];
-      field.validation.forEach(({ func }) => { if (!func(field.value)) error = true; });
+      field.validation.forEach(({ func }) => { if (typeof func === 'function') if (!func(field.value)) error = true; });
     });
     return error;
   }
@@ -67,7 +71,8 @@ export default class changePassword extends Component {
     });
   }
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
     const data = JSON.parse(JSON.stringify(this.state.fields));
     Object.keys(data).forEach(key => {
       data[key] = data[key].value;
@@ -81,7 +86,7 @@ export default class changePassword extends Component {
           if (Array.isArray(response)) {
             this.setState({
               errors: response,
-              status: 'nothing',
+              status: 'default',
             });
           } else {
             this.setState({ status: 'success', errors: [], success: response.success });
@@ -89,63 +94,71 @@ export default class changePassword extends Component {
         }).catch(() => {
           this.setState({
             errors: ['There was an error, try again later! \n Error: INTERNAL'],
-            status: 'nothing',
+            status: 'default',
           });
         });
     }
   }
 
   close() {
-    const fields = JSON.parse(JSON.stringify(this.state.fields));
+    const { fields } = this.state;
     Object.keys(fields).forEach(key => {
       fields[key].value = '';
     });
     this.setState({ fields, open: false });
   }
 
-  render() {
-    if (this.state.open) {
-      if (this.state.status === 'nothing') {
+  renderInputs() {
+    return Object.keys(this.state.fields).map(
+      key => {
+        const { value, validation, name } = this.state.fields[key];
         return (
-          <div className="well">
+          <ErrorInput
+            key={name}
+            type="password"
+            name={name}
+            value={value}
+            validation={validation}
+            onChange={e => this.handleChange(key, e)}
+            className="form-control"
+          />
+        );
+      },
+    );
+  }
+
+  renderOpen() {
+    return (
+      <div className="well">
+        <h2>ChangePassword</h2>
+        <Handler status={this.state.status}>
+          <Default>
             <ErrorList messages={this.state.errors} />
-            <form onSubmit={e => e.preventDefault()}>
-              {
-                Object.keys(this.state.fields).map(
-                  key => {
-                    const { value, validation, name } = this.state.fields[key];
-                    return (
-                      <ErrorInput
-                        key={name}
-                        type="password"
-                        name={name}
-                        value={value}
-                        validation={validation}
-                        onChange={e => this.handleChange(key, e)}
-                        className="form-control"
-                      />
-                    );
-                  },
-                )
-              }
-              <button onClick={() => this.submit()} className="btn">Submit</button>
+            <form onSubmit={this.submit}>
+              {this.renderInputs()}
+              <input type="submit" className="btn" value="Change" disabled={this.checkForError()} />
             </form>
             <button onClick={() => this.close()} className="btn btn-danger">Cancel</button>
-          </div>
-        );
-      } else if (this.state.status === 'waiting') {
-        return <img src="spinner.svg" alt="spinner" className="spinner" />;
-      }
+          </Default>
+          <Success
+            msg={this.state.success}
+            returnAction={() => this.close()}
+            returnMessage="Close"
+          />
+          <Waiting />
+        </Handler>
+      </div>
+    );
+  }
 
-      return (
-        <div>
-          <h2>ChangePassword</h2>
-          <div className="alert alert-success">{this.state.success}</div>
-          <button onClick={() => this.close()} className="btn btn-danger">Close</button>
-        </div>
-      );
-    }
-
-    return <button onClick={() => this.setState({ open: true })} className="btn btn-success">Change Password</button>;
+  render() {
+    return (
+      <Handler status={this.state.open}>
+        <Open>{this.renderOpen()}</Open>
+        <Closed>
+          <button onClick={() => this.setState({ open: true })} className="btn btn-success">Change Password</button>
+        </Closed>
+      </Handler>
+    );
   }
 }

@@ -1,20 +1,25 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import { POST } from '../requests';
+import { Handler, Waiting, Default, Error, Success, Open, Closed } from './StatusHandler';
 
-export default class RVE extends Component {
+export default class ForgotPassword extends Component {
   constructor() {
     super();
-    this.state = {
+    this.defaultState = {
       string: '',
-      status: 'closed',
+      open: false,
+      status: 'default',
       msg: '',
     };
+    this.state = { ...this.defaultState };
 
     this.submit = this.submit.bind(this);
+    this.renderOpen = this.renderOpen.bind(this);
   }
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
     this.setState({ status: 'waiting' });
     POST('http://localhost:4000/forgotPassword', { string: this.state.string })
       .then(response => {
@@ -28,45 +33,45 @@ export default class RVE extends Component {
       });
   }
 
-  render() {
-    if (this.state.status === 'waiting') {
-      return (
-        <div>
-          <h3>Get new password</h3>
-          <img src="spinner.svg" alt="spinner" className="spinner" />
-        </div>
-      );
-    } else if (this.state.status === 'success') {
-      return (
-        <div>
-          <h3>Get new password</h3>
-          <div className="alert alert-success">{this.state.msg}</div>
-        </div>
-      );
-    } else if (this.state.status === 'error') {
-      return (
-        <div>
-          <h3>Get new password</h3>
-          <div className="alert alert-danger">{this.state.msg}</div>
-          <button onClick={() => this.setState({ string: '', status: 'opened', msg: '' })} className="btn">Retry</button>
-        </div>
-      );
-    } else if (this.state.status === 'opened') {
-      return (
-        <div>
-          <h3>Get new password</h3>
-          <input
-            value={this.state.string}
-            onChange={e => this.setState({ string: e.target.value })}
-            className="form-control"
-            placeholder="Username or email"
-          />
-          <button onClick={() => this.submit()} className="btn">Get new password</button>
-          <button onClick={() => this.setState({ status: 'closed' })} className="btn btn-danger">Close</button>
-        </div>
-      );
-    }
+  renderOpen() {
+    return (
+      <Handler status={this.state.status}>
+        <Default>
+          <form onSubmit={this.submit}>
+            <h3>Get new password</h3>
+            <input
+              value={this.state.string}
+              onChange={e => this.setState({ string: e.target.value })}
+              className="form-control"
+              placeholder="Username or email"
+            />
+            <input type="submit" className="btn" value="Get new password" />
+            <button onClick={() => this.setState({ open: false })} className="btn btn-danger">Close</button>
+          </form>
+        </Default>
+        <Error
+          msg={this.state.msg}
+          returnAction={() => this.setState({ ...this.defaultState, open: true })}
+          returnMessage="Retry"
+        />
+        <Success
+          msg={this.state.msg}
+          returnAction={() => this.setState({ ...this.defaultState })}
+          returnMessage="Close"
+        />
+        <Waiting />
+      </Handler>
+    );
+  }
 
-    return <button onClick={() => this.setState({ status: 'opened' })} className="btn">I forgot My password</button>;
+  render() {
+    return (
+      <Handler status={this.state.open}>
+        <Open>{this.renderOpen()}</Open>
+        <Closed>
+          <button onClick={() => this.setState({ open: true })} className="btn">I forgot My password</button>
+        </Closed>
+      </Handler>
+    );
   }
 }

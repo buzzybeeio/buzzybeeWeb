@@ -22,7 +22,8 @@ class Login extends Component {
 
   handleChange(key, e) { const { value } = e.target; this.setState({ [key]: value }); }
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
     login({
       string: this.state.string,
       password: this.state.password,
@@ -37,7 +38,7 @@ class Login extends Component {
         <div className="well">
           <h2>Login</h2>
           <ErrorList messages={this.props.errors} />
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={this.submit}>
             Username or Email: <br />
             <input
               value={this.state.string}
@@ -53,14 +54,14 @@ class Login extends Component {
                 className="form-control"
               />
               <button
-                onClick={this.changeShow}
+                onClick={e => { e.preventDefault(); this.changeShow(); }}
                 style={{ margin: '0', marginLeft: '20px', height: '2.5em' }}
                 className="btn"
               >
                 {this.state.show ? 'Hide' : 'Show'}
               </button>
             </div>
-            <button onClick={this.submit} className="btn btn-block">Submit</button>
+            <input type="submit" className="btn btn-block" value="Submit" />
           </form>
           <ForgotPassword />
         </div>

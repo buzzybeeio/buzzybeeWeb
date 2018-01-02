@@ -1,13 +1,7 @@
 import React from 'react';
 
 export default props => (
-  <div>
-    {
-      props.messages.map(msg => (
-        <div className="alert alert-danger">
-          <p>{msg}</p>
-        </div>
-      ))
-    }
-  </div>
+  props.messages.map((msg, i) => (
+    <div className="alert alert-danger" key={((new Date()).getTime() + i).toString()}>{msg}</div>
+  ))
 );
