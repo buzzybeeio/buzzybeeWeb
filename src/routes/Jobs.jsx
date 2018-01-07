@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import JobsList from '../components/JobsList';
 
-class Jobs extends Component {
+export default class Jobs extends Component {
   componentDidMount() {
     this.setAnimation();
   }
@@ -55,5 +55,3 @@ class Jobs extends Component {
     );
   }
 }
-
-export default Jobs;

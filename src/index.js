@@ -2,36 +2,17 @@
 /* eslint-env browser */
 
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import App from './routes/App';
-import jobs from './routes/Jobs';
-import story from './routes/Story';
-import contact from './routes/Contact';
-import Nav from './components/navbar';
-import Footer from './components/Footer';
-import './css/Animations.css';
-import './css/Animate.css';
-import './css/Contact.css';
-import './css/Footer.css';
-import './css/Jobs.css';
-import './css/Nav.css';
-import './css/Story.css';
-import './css/Subscribe.css';
-import './css/Team.css';
+import { BrowserRouter } from 'react-router-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './Store';
+import App from './App';
 
-ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <Nav />
-      <Switch>
-        <Route path="/jobs" component={jobs} />
-        <Route path="/about" component={App} />
-        <Route path="/contact" component={contact} />
-        <Route path="/" component={story} />
-      </Switch>
-      <Footer />
-    </div>
-  </BrowserRouter>,
+render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root'),
 );

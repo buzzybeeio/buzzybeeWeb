@@ -1,11 +1,19 @@
 .jobs-list {
-  margin-top: 80px;
   margin-bottom: 20px;
-  /* vh - margin-top - margin-bottom - the height of the footer */
   min-height: calc(100vh - 80px - 20px - 110px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.job {
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; 
 }
 
 .job:nth-child(2n+1) {
@@ -24,27 +32,12 @@
   color: #FFB605;
 }
 
+.job:hover {
+  background-color: #FFB605;
+}
+
 .job:hover a:visited {
   color: white;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.job {
-  padding: 10px 0;
-}
-
-.job:hover {
-    background-color:#FFB605;
-}
-
-.spinner {
-  max-width: 250px;
-  display: block;
-  margin: 0 auto;
-  animation: rotate 1.5s ease-in-out infinite;
 }
 
 .jobs-loading-animation {
@@ -59,19 +52,10 @@ ul {
   text-align: center;
 }
 
-.pages > button {
+.pages button {
   margin: 3px;
   padding: 2px 5px;
   font-size: 1.2em;
   border: 0;
   color: white;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg)
-  }
-  to {
-    transform: rotate(360deg)
-  }
 }

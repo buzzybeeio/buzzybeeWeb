@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Story = () => (
+export default () => (
   <div>
     <img className="narrator-pic" src="profilepics/zeze.jpg" alt="" />
     <h4 className="story-title"><em>José, Software Engineer at Inbenta</em></h4>
@@ -30,5 +30,3 @@ const Story = () => (
     <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
 );
-
-export default Story;

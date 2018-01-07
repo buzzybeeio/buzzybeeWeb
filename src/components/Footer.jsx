@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 
-const Footer = () => (
-  <div className="footer text-center animation-hide">
+export default () => (
+  <div className="footer text-center">
     <a href="mailto:info@buzzybee.io">
       <img className="footer-picture" src="email.png" alt="" />
     </a>
@@ -15,5 +15,3 @@ const Footer = () => (
     <div className="copyright">Copyright &#9400; 2017 BuzzyBee. All Rights Reserved.</div>
   </div>
 );
-
-export default Footer;

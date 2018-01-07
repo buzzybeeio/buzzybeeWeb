@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 
-class SubscribeForm extends Component {
+export default class SubscribeForm extends Component {
   constructor() {
     super();
 
@@ -37,5 +37,3 @@ class SubscribeForm extends Component {
     );
   }
 }
-
-export default SubscribeForm;

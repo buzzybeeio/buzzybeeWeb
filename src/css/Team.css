@@ -1,7 +1,6 @@
 .teamMember {
   width: 100%;
   background-color: white;
-  /* font-family: 'Source Sans Pro', sans-serif; */
   color: #323232;
   font-size: 15px;
   font-weight: 400;
@@ -18,10 +17,6 @@
   margin-bottom: 0;
   letter-spacing: 2px;
   font-weight: normal;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .p-top-30 {
@@ -47,7 +42,7 @@
   position: inherit;
 }
 
-.team-member .team-hover {
+.team-hover {
   text-align: center;
   color: #222;
   position: absolute;
@@ -62,7 +57,7 @@
   transition: all 0.3s;
 }
 
-.team-member .team-hover .desk {
+.desk {
   position: absolute;
   top: 0%;
   width: 100%;
@@ -72,7 +67,7 @@
   padding: 0 20px;
 }
 
-.team-member .team-hover .s-link {
+.s-link {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -83,25 +78,21 @@
   font-size: 35px;
 }
 
-.team-member .team-hover .s-link a {
+.s-link a {
   margin: 0 10px;
   color: #333;
   font-size: 16px;
 }
 
-.team-member:hover .team-hover {
+.team-member:hover .team-hover, .team-member:hover .desk, .team-member:hover .desk {
   opacity: 1;
 }
 
-.team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link {
-  opacity: 1;
-}
-
-.team-member:hover .team-hover .desk {
+.team-member:hover .desk {
   top: 35%;
 }
 
-.team-member:hover .team-hover .s-link {
+.team-member:hover .s-link {
   bottom: 10%;
 }
 

@@ -1,8 +1,7 @@
-// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Textbox = () => (
+export default () => (
   <div className="textBox">
 
     <Link to="/story">
@@ -22,5 +21,3 @@ const Textbox = () => (
     <div className="more">Be inspired to do what you love.</div>
   </div>
 );
-
-export default Textbox;

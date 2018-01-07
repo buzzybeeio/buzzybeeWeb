@@ -2,7 +2,7 @@
 /* eslint react/no-unescaped-entities: 0 */
 import React from 'react';
 
-const Mission = () => (
+export default () => (
   <div className="mission">
     <h3>Built by Software Engineers for Software Engineers</h3>
     <p>
@@ -31,5 +31,3 @@ const Mission = () => (
     </p>
   </div>
 );
-
-export default Mission;

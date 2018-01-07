@@ -3,12 +3,14 @@
 /* eslint no-restricted-syntax: 0, guard-for-in: 0 */
 
 import React, { Component } from 'react';
+import { GET, POST } from '../requests';
 import Job from './Job';
 
-class JobsList extends Component {
+export default class JobsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      status: 'searching',
       jobs: [],
       pages: 0,
       page: 1,
@@ -17,27 +19,22 @@ class JobsList extends Component {
       prevKeywords: 'developer javascript react python django software engineer web startup full-stack front-end',
     };
 
-    this.getDefaultJobs().then(data => {
-      this.props.stopAnimation();
-      this.setState({ ...data });
-    });
-
     this.changedPlace = this.changedPlace.bind(this);
     this.call = this.call.bind(this);
     this.paginatedCall = this.paginatedCall.bind(this);
+    this.getDefaultJobs = this.getDefaultJobs.bind(this);
+    this.getDefaultJobs();
   }
 
   getDefaultJobs() {
-    const url = 'https://buzzybeeapi.herokuapp.com';
-    return new Promise((resolve, reject) => {
-      window.$.ajax({
-        type: 'GET',
-        url,
-        dataType: 'json',
-        success: resolve,
-        error: reject,
+    GET('https://buzzybeeapi.herokuapp.com')
+      .then(data => {
+        this.props.stopAnimation();
+        this.setState({ ...data, status: 'done' });
+      }).catch(() => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
       });
-    });
   }
 
   changedPlace(event) {
@@ -70,49 +67,58 @@ class JobsList extends Component {
   }
 
   call() {
-    this.setState({ jobs: [], page: 1, pages: 0 });
+    this.setState({
+      jobs: [],
+      page: 1,
+      pages: 0,
+      status: 'searching',
+    });
     this.props.startAnimation();
 
-    const data = {
-      place: this.state.place,
-      keywords: this.state.keywords.split(' '),
-    };
+    if (!this.state.keywords) {
+      this.getDefaultJobs();
+    } else {
+      const data = {
+        keywords: this.state.keywords.split(' '),
+        place: this.state.place,
+      };
 
-    window.$.ajax({
-      type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: jobsData => {
-        this.props.stopAnimation();
-        this.setState({ ...jobsData, prevKeywords: this.state.keywords });
-      },
-      error: () => alert('Sorry!, There was an error'),
-    });
+      POST('https://buzzybeeapi.herokuapp.com', data)
+        .then(jobsData => {
+          this.props.stopAnimation();
+          this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
+        }).catch(() => {
+          this.props.stopAnimation();
+          this.setState({ status: 'error' });
+          alert('Sorry!, there was an error loading the jobs');
+        });
+    }
   }
 
   paginatedCall(page) {
-    this.setState({ jobs: [], pages: 0, page });
+    this.setState({
+      jobs: [],
+      pages: 0,
+      page,
+      status: 'searching',
+    });
     this.props.startAnimation();
+
     const data = {
-      place: this.state.place,
       keywords: this.state.prevKeywords.split(' '),
       page,
+      place: this.state.place,
     };
 
-    window.$.ajax({
-      type: 'POST',
-      url: 'https://buzzybeeapi.herokuapp.com/paginated',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: jobs => {
+    POST('https://buzzybeeapi.herokuapp.com/paginated', data)
+      .then(jobs => {
         this.props.stopAnimation();
-        this.setState({ ...jobs });
-      },
-      error: () => alert('Sorry!, There was an error'),
-    });
+        this.setState({ ...jobs, status: 'done' });
+      }).catch(() => {
+        this.props.stopAnimation();
+        this.setState({ status: 'error' });
+        alert('Sorry!, there was an error loading the jobs');
+      });
   }
 
   render() {
@@ -122,8 +128,8 @@ class JobsList extends Component {
     if (pages.length === 1) pages.pop();
 
     return (
-      <div className="container">
-        <div style={{ display: this.state.jobs.length ? 'block' : 'none' }}>
+      <div style={{ display: this.state.status !== 'searching' ? 'block' : 'none' }} className="container">
+        <div>
           <div>
             <input
               placeholder="Type the keywords (each keyword has to be 1 space apart from each other)"
@@ -146,7 +152,7 @@ class JobsList extends Component {
         {
           this.state.jobs.map((job, i) => {
             const key = `${i} job`;
-            setTimeout(() => window.$(`.${i}-job`).removeClass('invisible').addClass('animated fadeInUp'), i * 35);
+            setTimeout(() => window.$(`.${i}-job`).css('opacity', 1), i * 35);
             return (<Job job={job} key={key} classes={`${i}-job`} />);
           })
         }
@@ -167,5 +173,3 @@ class JobsList extends Component {
     );
   }
 }
-
-export default JobsList;
