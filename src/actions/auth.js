@@ -1,8 +1,9 @@
 /* eslint-env browser */
+/* eslint object-curly-newline: 0 */
 import { isEmail, normalizeEmail } from 'validator';
 import { dispatch } from '../Store';
 
-const login = d => {
+const login = (d, pushToHistory) => {
   const data = Object.assign({}, d);
   if (isEmail(data.string)) {
     data.string = normalizeEmail(data.string, {
@@ -25,7 +26,7 @@ const login = d => {
           if (Array.isArray(response)) {
             resolve({ err: true, response });
           } else {
-            resolve({ err: false, response, data });
+            resolve({ err: false, response, data, pushToHistory });
           }
         },
         error: reject,

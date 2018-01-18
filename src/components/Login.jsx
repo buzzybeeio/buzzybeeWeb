@@ -27,7 +27,7 @@ class Login extends Component {
     login({
       string: this.state.string,
       password: this.state.password,
-    });
+    }, this.props.history.push);
   }
 
   changeShow() { this.setState({ show: !this.state.show }); }

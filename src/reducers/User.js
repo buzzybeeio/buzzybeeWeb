@@ -1,4 +1,4 @@
-import { setD, deleteD } from '../actions/auth';
+import { setD, deleteD, getD } from '../actions/auth';
 
 const defaultUserData = {
   status: 'notLoggedIn',
@@ -19,6 +19,7 @@ const login = (state, payload) => {
       status: 'notLoggedIn',
     };
   } else {
+    if (!getD()) payload.pushToHistory('/profile');
     setD(payload.data);
     newState = {
       ...state,
