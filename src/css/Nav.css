@@ -1,7 +1,71 @@
-.nav {
-  display: flex;
+.navbar {
+  color: #263238;
 }
 
-.buzzybee_writing {
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-small {
+  display: none;
+}
+
+.icon {
+  transform: scale(1.65)
+}
+
+/* amber 500: #FFC107 */
+.join-the-hive {
+  padding: 3px 6px;
+  text-transform: none;
+  color: #FFC107;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.nav-link {
+  padding: 7px;
+  font-size: 1.1em;
+  color: #9E9E9E;
+  text-decoration: none;
+  transition: 0.1s transform ease-out;
+}
+
+.nav-link:hover {
+  color: #757575;
+  transform: scale(1.05);
+}
+
+.nav-link-small {
+  font-size: 18px;
+  font-weight: 300;
+  width: 50vw;
+  color: #9E9E9E;
+  padding: 0 4px;
+}
+
+.nav-link-small:hover {
+  color: #757575;
+}
+
+.nav-link:visited, .nav-link:active, .nav-link-small:visited, .nav-link-small:active  {
+  color: #9E9E9E;
+  text-decoration: none;
+}
+
+.nav-image {
   max-height: 50px;
+}
+
+@media (max-width: 550px) {
+  .nav {
+    display: none
+  }
+  .nav-small {
+    display: block
+  }
+  .nav-image {
+    display: none
+  }
 }
