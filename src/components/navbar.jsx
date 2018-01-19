@@ -1,42 +1,51 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import { yellow } from 'material-ui/colors';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Nav = props => {
-  let str;
-  if (props.status === 'notLoggedIn') {
-    str = 'Login';
-  } else if (props.status === 'loggingIn') {
-    str = 'Logging in...';
-  } else {
-    str = props.name;
+// Yellow span
+const YS = ({ children }) => <span style={{ color: yellow[800] }}>{children}</span>
+
+class Nav extends Component {
+  constructor() {
+    super();
+    this.state = { anchorEl: null };
+
+    this.handleMenu = this.handleMenu.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
-  return (
-    <nav className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
-        <div className="navbar-header">
-          <Link to="/" className="">
-            <img className="buzzybee_writing" alt="Brand" src="buzzybee-logo.jpg" />
-          </Link>
-          <Link to="/" className="navbar-brand">
-            <img className="buzzybee_writing" alt="Brand" src="BuzzyBee_logo.png" />
-          </Link>
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
-          <button
-            type="button"
-            className="navbar-toggle"
-            data-toggle="collapse"
-            data-target=".navbar-collapse"
-          >
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-        </div>
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
 
-        <div className="collapse navbar-collapse navbar-right">
-          <ul className="nav navbar-nav">
+  render() {
+    const { name, status } = this.props;
+    let str;
+    if (status === 'notLoggedIn') {
+      str = 'Login';
+    } else if (status === 'loggingIn') {
+      str = 'Logging in...';
+    } else {
+      str = name;
+    }
+    return (
+      <AppBar style={{ backgroundColor: 'white', border: 'none' }}>
+        <Toolbar className="container">
+          <img className="buzzybee_writing" alt="Brand" src="buzzybee-logo.jpg" />
+          <Typography style={{ flex: 1, fontSize: '2em', fontWeight: 700 }}>
+            Buzzy<YS>bee</YS>.i<YS>o</YS>
+          </Typography>
+
+
+          <ul className="nav">
             <li>
               <Link data-toggle="collapse" data-target=".navbar-collapse" to="/">
                 Home
@@ -58,10 +67,10 @@ const Nav = props => {
               </Link>
             </li>
           </ul>
-        </div>
-      </div>
-    </nav>
-  );
+        </Toolbar>
+      </AppBar>
+    );
+  }
 };
 
 function mapStateToProps(state) {
