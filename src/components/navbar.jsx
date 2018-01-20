@@ -79,7 +79,7 @@ class Nav extends Component {
               <SNB to="/" exact text="Home" closeFN={this.handleClose} />
               <SNB to="/jobs" text="Jobs" closeFN={this.handleClose} />
               <SNB to="/about" text="About" closeFN={this.handleClose} />
-              <SNB to="/profile" text={profile} closeFN={this.handleClose} />
+              <SNB to="/profile" text={profile === 'J' ? 'Join the HIVE' : profile} closeFN={this.handleClose} />
             </Menu>
           </div>
           <div className="nav">
