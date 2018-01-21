@@ -22,14 +22,14 @@ router.post('/subscribe', (req, res) => {
     })
     .end((err, response) => {
       if (err) {
-        res.status(500).json({ error: 'There was an unexpected error!' });
+        res.json({ error: 'There was an unexpected error!' });
         console.error(err);
       } else if (response.status < 300) {
         res.json({ message: 'Thanks for subscribing' });
       } else if (response.body.title === 'Member Exists') {
         res.json({ message: 'You were already subscribed' });
       } else {
-        res.status(500).json({ error: 'There was an error!' });
+        res.json({ error: 'There was an error!' });
       }
     });
 });
