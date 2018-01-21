@@ -1,10 +1,9 @@
-require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const request = require('superagent');
 const mailchimpInstance = 'us16';
 const listUniqueId = '7a9783e310';
-const mailchimpApiKey = process.env.mailchimpApiKey;
+const { mailchimpApiKey } = process.env;
 
 console.log(mailchimpApiKey);
 
@@ -12,7 +11,7 @@ router.post('/subscribe', (req, res) => {
   request
     .post(`https://${mailchimpInstance}.api.mailchimp.com/3.0/lists/${listUniqueId}/members/`)
     .set('Content-Type', 'application/json;charset=utf-8')
-    .set('Authorization', `Basic ${new Buffer(`any:${mailchimpApiKey}`).toString('base64')}`)
+    .set('Authorization', `Basic any:${mailchimpApiKey}`)
     .send({
       email_address: req.body.email,
       status: 'subscribed',
@@ -22,11 +21,15 @@ router.post('/subscribe', (req, res) => {
       },
     })
     .end((err, response) => {
-      if (response.status < 300 || (response.status === 400 && response.body.title === 'Member Exists')) {
-        res.redirect('/');
+      if (err) {
+        res.status(500).json({ error: 'There was an unexpected error!' });
+        console.error(err);
+      } else if (response.status < 300) {
+        res.json({ message: 'Thanks for subscribing' });
+      } else if (response.body.title === 'Member Exists') {
+        res.json({ message: 'You were already subscribed' });
       } else {
-        console.log('erro =>>>>>>>', err, 'response: ', response);
-        res.redirect('/');
+        res.status(500).json({ error: 'There was an error!' });
       }
     });
 });

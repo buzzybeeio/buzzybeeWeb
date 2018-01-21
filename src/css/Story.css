@@ -14,7 +14,7 @@
 .LBStory {
   width: 100%;
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: 300;
   background-color: white;
   text-transform: capitalize;
 }

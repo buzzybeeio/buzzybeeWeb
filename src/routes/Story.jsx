@@ -67,7 +67,7 @@ export default class Story extends Component {
       <div>
         <div className="container stories">
           <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
-            <i className="fa fa-book"></i> Reading Mode <i className="fa fa-book"></i>
+            Reading Mode
           </div>
           <StoriesListBar setStory={this.setStory} />
           <div className="story-flex-wrapper">

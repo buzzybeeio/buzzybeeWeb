@@ -1,4 +1,6 @@
 import React from 'react';
+import { CircularProgress } from 'material-ui/Progress';
+import { amber } from 'material-ui/colors';
 
 const create = (showOn, children) => ({ showOn, children });
 
@@ -10,9 +12,13 @@ export const Error = props => {
   const child = (
     <div>
       <div className="alert alert-danger">{props.msg}</div>
-      <button className="btn btn-danger" onClick={props.returnAction}>
-        {props.returnMessage ? props.returnMessage : 'Return'}
-      </button>
+      {
+        props.returnAction ? (
+          <button className="btn btn-danger" onClick={props.returnAction}>
+            {props.returnMessage ? props.returnMessage : 'Return'}
+          </button>
+        ) : ''
+      }
     </div>
   );
   return create('error', child);
@@ -24,9 +30,13 @@ export const Success = props => {
   const child = (
     <div>
       <div className="alert alert-success">{props.msg}</div>
-      <button className="btn btn-success" onClick={props.returnAction}>
-        {props.returnMessage ? props.returnMessage : 'Return'}
-      </button>
+      {
+        props.returnAction ? (
+          <button className="btn btn-success" onClick={props.returnAction}>
+            {props.returnMessage ? props.returnMessage : 'Return'}
+          </button>
+        ) : ''
+      }
     </div>
   );
   return create('success', child);
@@ -35,10 +45,13 @@ export const Success = props => {
 export const Waiting = ({ children }) => {
   if (children) return create('waiting', children);
 
+  const color = Math.floor(Math.random() * 2) ? '#222' : amber[500];
   const child = (
     <div>
       <h3>We are processing your request</h3>
-      <img src="spinner.svg" alt="spinner" className="spinner" />
+      <div className="flex-center">
+        <CircularProgress style={{ color }} size={175} />
+      </div>
     </div>
   );
   return create('waiting', child);

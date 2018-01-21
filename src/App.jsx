@@ -12,14 +12,13 @@ import verifyAccount from './routes/verifyAccount';
 import Nav from './components/navbar';
 import Footer from './components/Footer';
 import './css/Animations.css';
-import './css/Contact.css';
 import './css/Footer.css';
 import './css/Jobs.css';
 import './css/Nav.css';
 import './css/Story.css';
-import './css/Subscribe.css';
 import './css/Team.css';
 import './css/Profile.css';
+import './css/About.css';
 
 export default class App extends Component {
   componentDidMount() {
@@ -44,19 +43,17 @@ export default class App extends Component {
         <div className="animation">
           <div className="cube" />
         </div>
-        <div className="animation-hide">
+        <div className="animation-hide" style={{ marginTop: '80px' }}>
           <Nav />
-          <div style={{ marginTop: '80px' }}>
-            <Switch>
-              <Route exact path="/" component={story} />
-              <Route exact path="/jobs" component={jobs} />
-              <Route exact path="/about" component={about} />
-              <Route path="/story/:name" component={story} />
-              <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
-              <Route path="/profile" component={profile} />
-              <Route path="*" component={error404} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" component={story} />
+            <Route exact path="/jobs" component={jobs} />
+            <Route exact path="/about" component={about} />
+            <Route path="/story/:name" component={story} />
+            <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
+            <Route path="/profile" component={profile} />
+            <Route path="*" component={error404} />
+          </Switch>
           <Footer />
         </div>
       </div>

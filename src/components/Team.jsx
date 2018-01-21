@@ -1,25 +1,13 @@
 /* eslint max-len: 0, object-curly-newline: 0 */
 import React from 'react';
 
-const TeamMember = ({ name, fullName, msg, msg2, occupation, linkedIn }) => (
-  <div className="col-md-4 col-sm-4">
-    <div className="team-member">
-      <div className="team-img">
-        <img src={`teampics/${name}.jpg`} alt="team member" className="img-responsive" />
-      </div>
-      <div className="team-hover">
-        <div className="desk">
-          <h4>{msg}</h4>
-          <p>{msg2}</p>
-        </div>
-        <div className="s-link">
-          <a target="blank" href={linkedIn}><i className="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
+const TeamMember = ({ name, fullName, occupation, linkedIn }) => (
+  <div className="team-member">
+    <img src={`teampics/${name}.jpg`} className="team-member-image" alt="team member" />
     <div className="team-title">
-      <h5>{fullName}</h5>
+      <h4>{fullName}</h4>
       <span>{occupation}</span>
+      <a target="blank" href={linkedIn}>in</a>
     </div>
   </div>
 );
@@ -94,17 +82,15 @@ for (let i = 0; i < teamArray.length; i += 3) {
 }
 
 export default () => (
-  <div className="container teamMember">
-    <div className="heading-title text-center">
-      <h3 className="text-uppercase">Our team</h3>
-      <p className="p-top-30 half-txt">We love doing great work, it's what we are all truly passionate about. We strive to provide the best interviews to inspire and motivate because we understand that this journey is challenging, but we also want to show that it's possible to become a Software Engineer without a Computer Science Degree.</p>
+  <div style={{ backgroundColor: 'white', padding: '20px 0' }}>
+    <div className="container">
+      <h3>Meet the Team</h3>
+      <p className="team-text indented">We love doing great work, it's what we are all truly passionate about. We strive to provide the best interviews to inspire and motivate because we understand that this journey is challenging, but we also want to show that it's possible to become a Software Engineer without a Computer Science Degree.</p>
+      <div className="team-members">
+        {
+          teamArray.map(name => <TeamMember name={name} {...team[name]} key={name} />)
+        }
+      </div>
     </div>
-    {
-      inRows.map((row, i) => (
-        <div className="row" key={i.toString()}>
-          {row.map(name => <TeamMember name={name} {...team[name]} key={name} />)}
-        </div>
-      ))
-    }
   </div>
 );

@@ -17,7 +17,7 @@ ul {
 }
 
 .job:nth-child(2n+1) {
-  background-color: #171e27;
+  background-color: #222;
 }
 
 .job:nth-child(2n+1) a {
@@ -43,7 +43,7 @@ ul {
 .jobs-loading-animation {
   padding: 10px 0;
   font-size: 1.4em;
-  font-weight: 600;
+  font-weight: 700;
   overflow: hidden;
 }
 

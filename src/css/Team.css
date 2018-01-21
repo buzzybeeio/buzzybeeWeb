@@ -1,118 +1,47 @@
-.teamMember {
-  width: 100%;
-  background-color: white;
-  color: #323232;
-  font-size: 15px;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-}
-
-.heading-title {
-  margin-bottom: 50px;
-}
-
-.heading-title h3 {
-  margin-bottom: 0;
-  letter-spacing: 2px;
-  font-weight: normal;
-}
-
-.p-top-30 {
-  padding-top: 30px;
-}
-
-.half-txt {
-  width: 60%;
-  margin: 0 auto;
-  display: inline-block;
-  line-height: 25px;
-  color: #7e7e7e;
-}
-
-.text-uppercase {
-  margin-top: 20px;
-  text-transform: uppercase;
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .team-member {
-  position: relative;
-  overflow: hidden;
-  position: inherit;
+  width: 350px;
+  flex-shrink: 1;
 }
 
-.team-hover {
-  text-align: center;
-  color: #222;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: 0;
-  border: 20px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transition: all 0.3s;
+.team-member-image {
+  display: block;
+  border-radius: 50%;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
 }
 
-.desk {
-  position: absolute;
-  top: 0%;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(-55%);
-  transition: all 0.3s 0.2s;
-  padding: 0 20px;
-}
-
-.s-link {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  opacity: 0;
-  text-align: center;
-  transform: translateY(45%);
-  transition: all 0.3s 0.2s;
-  font-size: 35px;
-}
-
-.s-link a {
-  margin: 0 10px;
-  color: #333;
-  font-size: 16px;
-}
-
-.team-member:hover .team-hover, .team-member:hover .desk, .team-member:hover .desk {
-  opacity: 1;
-}
-
-.team-member:hover .desk {
-  top: 35%;
-}
-
-.team-member:hover .s-link {
-  bottom: 10%;
+.team-text {
+  margin-bottom: 30px;
+  margin-left: 5px;
 }
 
 .team-title {
-  position: static;
   padding: 20px 0;
-  display: inline-block;
-  letter-spacing: 2px;
   width: 100%;
+  text-align: center;
 }
 
-.team-title h5 {
+.team-title h4 {
+  font-size: 17px;
   margin-bottom: 0px;
   display: block;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .team-title span {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #a5a5a5;
-  letter-spacing: 1px;
+  font-size: 14px;
+  margin-right: 5px;
+  font-weight: 300;
+}
+
+.team-title a {
+  color: #33b
 }

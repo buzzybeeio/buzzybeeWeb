@@ -162,7 +162,7 @@ export default class JobsList extends Component {
               <button
                 key={page}
                 onClick={() => this.paginatedCall(page)}
-                style={{ backgroundColor: page === this.state.page ? '#FFB605' : '#171e27' }}
+                style={{ backgroundColor: page === this.state.page ? '#FFB605' : '#222' }}
               >
                 {page}
               </button>

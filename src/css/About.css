@@ -1,0 +1,116 @@
+.mission {
+  padding: 1.2em;
+  color: #222;
+}
+
+.indented {
+  margin-left: 10px;
+}
+
+.about-container {
+  background-color: #222;
+  margin-top: -80px;
+  padding-top: 110px;
+}
+
+.landing-row {
+  display: flex;
+  margin-bottom: 50px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.comb-container {
+  flex: 1;
+  height: 300px;
+}
+
+.comb {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.textbox {
+  flex: 1;
+}
+
+.Landing-JTH {
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+
+.Landing-P {
+  font-size: 16px;
+  color: #bbb;
+  font-weight: 300;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.Landing-Button {
+  font-size: 12px;
+  width: 120px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.Landing-Button:selected, .Landing-Button:hover, .Landing-Button:visited {
+  text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .landing-row {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .flex-row {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .textbox {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .landing-row {
+    flex-direction: column;
+  }
+  .comb {
+    margin: 0 auto;
+    height: 300px;
+  }
+  .flex-row {
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .textbox {
+    width: 85%;
+  }
+} 
+@media (max-width: 460px) {
+  .textbox {
+    width: 100%;
+  }
+  .flex-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex-row > span {
+    opacity: 0;
+    display: block;
+  }
+  .Landing-Button {
+    width: 250px;
+  }
+}

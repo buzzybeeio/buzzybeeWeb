@@ -4,30 +4,38 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-// import { Menu, ChevronRight } from 'material-ui-icons';
+import { ChevronRight } from 'material-ui-icons';
 import MenuIcon from 'material-ui-icons/Menu';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
-import { yellow, blueGrey, amber } from 'material-ui/colors';
-// import { Link, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { yellow, grey, amber } from 'material-ui/colors';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-/*
-const Selected = ({ path, exact }) => (
-  <Route exact={exact} path={path} render={() => <ChevronRight style={{ display: 'inline' }} />} />
-)
-*/
+const Selected = withRouter(({ path, location: { pathname }, exact }) => {
+  let opacity = 0;
+  if (exact && path === pathname) opacity = 1;
+  else if (!exact && pathname.substr(0, path.length) === path) opacity = 1;
+  return <ChevronRight style={{ marginRight: '-5px', opacity }} />;
+});
 
 // Small Nav Button
-const SNB = ({ to, closeFN, text }) => (
+const SNB = ({ to, closeFN, text, exact }) => (
   <MenuItem
     component={Link}
     onClick={closeFN}
     to={to}
   >
-    <span className="nav-link-small">{text}</span>
+    <span className="nav-link-small">
+      <Selected path={to} exact={exact} /> {text}
+    </span>
   </MenuItem>
+);
+// Nav Button
+const NB = ({ to, text, exact }) => (
+  <Link to={to} className="nav-link">
+    <Selected path={to} exact={exact} /> {text}
+  </Link>
 );
 
 // Yellow span
@@ -55,7 +63,7 @@ class Nav extends Component {
       <AppBar style={{ backgroundColor: 'white', border: 'none' }}>
         <Toolbar className="container">
           <img alt="Brand" src="buzzybee-logo.jpg" className="nav-image" />
-          <Typography style={{ fontWeight: 700, fontSize: '2em', flex: 1, color: blueGrey[700], paddingLeft: 0 }}>
+          <Typography style={{ fontWeight: 700, fontSize: '2em', flex: 1, color: grey[700], paddingLeft: 0 }}>
             Buzzy<YS>bee</YS>.i<YS>o</YS>
           </Typography>
 
@@ -83,9 +91,9 @@ class Nav extends Component {
             </Menu>
           </div>
           <div className="nav">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/jobs" className="nav-link">Jobs</Link>
-            <Link to="/about" className="nav-link">About</Link>
+            <NB to="/" exact text="Home" />
+            <NB to="/jobs" text="Jobs" />
+            <NB to="/about" text="About" />
             <Link to="/profile" className="nav-link">
               {
                 profile === 'J' ? (
@@ -94,11 +102,12 @@ class Nav extends Component {
                       border: `3px ${amber[500]} solid`,
                       transform: 'scale(0.8)',
                       borderRadius: '8px',
+                      color: amber[500],
                     }}
                   >
                     <span className="join-the-hive">Join the HIVE</span>
                   </Button>
-                ) : profile
+                ) : <span><Selected path="/profile" /> {profile}</span>
               }
             </Link>
           </div>
@@ -112,4 +121,4 @@ function mapStateToProps(state) {
   return { status: state.user.status, name: state.user.firstName };
 }
 
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));
