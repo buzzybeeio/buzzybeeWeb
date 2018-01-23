@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import { POST } from '../requests';
+import { POST, BackendUrl } from '../requests';
 import { Handler, Waiting, Default, Error, Success, Open, Closed } from './StatusHandler';
 
 export default class ForgotPassword extends Component {
@@ -21,7 +21,7 @@ export default class ForgotPassword extends Component {
   submit(e) {
     e.preventDefault();
     this.setState({ status: 'waiting' });
-    POST('http://localhost:4000/forgotPassword', { string: this.state.string })
+    POST(`${BackendUrl}/forgotPassword`, { string: this.state.string })
       .then(response => {
         if (Array.isArray(response)) {
           this.setState({ status: 'error', msg: response[0] });

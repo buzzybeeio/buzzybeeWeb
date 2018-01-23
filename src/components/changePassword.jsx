@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { isLength } from 'validator';
 import { Handler, Waiting, Default, Success, Open, Closed } from './StatusHandler';
-import { POST } from '../requests';
+import { POST, BackendUrl } from '../requests';
 import ErrorList from './ErrorList';
 import ErrorInput from './ErrorInput';
 
@@ -81,7 +81,7 @@ export default class changePassword extends Component {
 
     if (!this.checkForError()) {
       this.setState({ status: 'waiting', errors: [] });
-      POST('http://localhost:4000/changePassword', data)
+      POST(`${BackendUrl}/changePassword`, data)
         .then(response => {
           if (Array.isArray(response)) {
             this.setState({

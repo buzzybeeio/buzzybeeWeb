@@ -1,26 +1,33 @@
 /* eslint-env browser */
 /* eslint func-names: 0 */
 import React, { Component } from 'react';
-import { GET } from '../requests';
+import Paper from 'material-ui/Paper';
+import { GET, BackendUrl } from '../requests';
 
 export default class StoriesSideBar extends Component {
   constructor() {
     super();
     this.state = { stories: [] };
-    this.getStories = this.getStories.bind(this);
   }
 
-  componentDidMount() { this.getStories(); }
+  componentDidMount() {
+    window.storiesTimeout = undefined;
+    GET(`${BackendUrl}/stories`)
+      .then(data => this.setState({ stories: data }))
+      .catch(() => {
+        window.storiesTimeout = setTimeout(this.getStories, 30000);
+      });
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { $ } = window;
     const $children = $($('.sidebar-grid').children());
-    const { currentStory, nextStory, setStory } = this.props;
+    const { currentIntroducction, nextIntroducction, setStory } = this.props;
 
-    if (prevProps.currentStory !== currentStory || prevProps.nextStory === nextStory) {
+    if (prevProps.currentIntroducction !== currentIntroducction || prevProps.nextIntroducction === nextIntroducction) {
       $children.each(function () {
         const data = JSON.parse($(this).attr('data'));
-        if (data.component === currentStory || data.component === nextStory) $(this).hide(750);
+        if (data.introducction === currentIntroducction || data.introducction === nextIntroducction) $(this).hide(750);
         else $(this).slideDown(750);
       });
     }
@@ -32,40 +39,33 @@ export default class StoriesSideBar extends Component {
       // Hides the child if the default story is the same that the children has passed as data
       $children.each(function () {
         const data = JSON.parse($(this).attr('data'));
-        if (data.component === currentStory) $(this).hide(0);
+        if (data.introducction === currentIntroducction) $(this).hide(0);
       });
 
       $('.story-box').click(function () {
         const data = JSON.parse($(this).attr('data'));
         $(this).hide(750);
-        setStory(data.name, data.component);
+        setStory(data.name, { introducction: data.introducction, interview: data.interview });
       });
 
       document.getElementsByClassName('aside')[0].style.opacity = '1';
     }
   }
 
-  getStories() {
-    window.storiesTimeout = undefined;
-    GET('https://buzzybeeapi.herokuapp.com/stories')
-      .then(data => this.setState({ stories: data }))
-      .catch(() => {
-        window.storiesTimeout = setTimeout(this.getStories, 30000);
-      });
-  }
-
   render() {
     return (
       <div className="aside">
-        <h3>Stories</h3>
-        <div className="sidebar-grid">
-          {
-            this.state.stories.map(info => {
-              const infostr = JSON.stringify(info);
-              return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
-            })
-          }
-        </div>
+        <Paper elevation={4} style={{ padding: '10px', borderRadius: '10px' }}>
+          <span className="thing">INTERVIEWEES</span>
+          <div className="sidebar-grid">
+            {
+              this.state.stories.map(info => {
+                const infostr = JSON.stringify(info);
+                return (<div className="story-box" key={infostr} data={infostr}><img src={`profilepics/${info.name}.jpg`} alt={`${info.name}img`} /><span>{info.name}</span></div>);
+              })
+            }
+          </div>
+        </Paper>
       </div>
     );
   }

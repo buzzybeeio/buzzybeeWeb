@@ -26,4 +26,6 @@ const GET = url => (
   })
 );
 
-export { GET, POST };
+const BackendUrl = 'https://buzzybeeapi.herokuapp.com';
+
+export { GET, POST, BackendUrl };

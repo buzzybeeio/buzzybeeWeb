@@ -8,7 +8,6 @@ import Dialog, {
   DialogContent,
   DialogTitle,
 } from 'material-ui/Dialog';
-import { FormHelperText } from 'material-ui/Form';
 import { amber } from 'material-ui/colors';
 import { POST } from '../requests';
 import { Handler, Default, Waiting, Success } from './StatusHandler';
@@ -48,12 +47,13 @@ export default class SubscribeForm extends Component {
             <Default>
               <form onSubmit={this.submit} style={{ color: amber[500], fontSize: '16px' }}>
                 <TextField
+                  error={this.state.message}
                   value={this.state.email}
                   onChange={this.handleEmailChange}
                   label="Email Address"
                   fullWidth
+                  helperText={this.state.message}
                 />
-                {this.state.message ? <FormHelperText>{this.state.message}</FormHelperText> : ''}
               </form>
             </Default>
             <Waiting />

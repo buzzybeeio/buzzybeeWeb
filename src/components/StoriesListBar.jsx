@@ -1,7 +1,7 @@
 /* eslint-env browser */
 /* eslint func-names: 0 */
 import React, { Component } from 'react';
-import { GET } from '../requests';
+import { GET, BackendUrl } from '../requests';
 
 export default class StoriesListBar extends Component {
   constructor() {
@@ -16,10 +16,10 @@ export default class StoriesListBar extends Component {
   }
 
   listbarComponentChoosed(name) {
-    GET(`https://buzzybeeapi.herokuapp.com/story/${name}`)
-      .then(data => {
+    GET(`${BackendUrl}/story/${name}`)
+      .then(({ introducction, interview }) => {
         this.setState({ listBar: '', listBarStories: [] });
-        this.props.setStory(name, data.component);
+        this.props.setStory(name, { introducction, interview });
       }).catch(() => alert('failed to load history'));
   }
 
@@ -34,7 +34,7 @@ export default class StoriesListBar extends Component {
     if (str) {
       window.request = window.$.ajax({
         type: 'GET',
-        url: `https://buzzybeeapi.herokuapp.com/findStory/${str.replace(' ', '%20')}`,
+        url: `${BackendUrl}/findStory/${str.replace(' ', '%20')}`,
         dataType: 'json',
         success: data => {
           window.request = null;
@@ -46,15 +46,15 @@ export default class StoriesListBar extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ position: 'relative' }}>
         <input
           className="form-control listBar"
           onChange={this.findStory}
           value={this.state.listBar}
-          placeholder="find a story"
+          placeholder="Find a story"
         />
         <div className="LBDiv">
-          <div className="LBStories">
+          <div className="LBStories" style={this.state.listBarStories.length ? { padding: '20px', backgroundColor: 'white' } : {}}>
             {
               this.state.listBarStories.map(data => (
                 <div

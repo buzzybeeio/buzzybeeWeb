@@ -3,7 +3,7 @@
 /* eslint no-restricted-syntax: 0, guard-for-in: 0 */
 
 import React, { Component } from 'react';
-import { GET, POST } from '../requests';
+import { GET, POST, BackendUrl } from '../requests';
 import Job from './Job';
 
 export default class JobsList extends Component {
@@ -27,7 +27,7 @@ export default class JobsList extends Component {
   }
 
   getDefaultJobs() {
-    GET('https://buzzybeeapi.herokuapp.com')
+    GET(BackendUrl)
       .then(data => {
         this.props.stopAnimation();
         this.setState({ ...data, status: 'done' });
@@ -83,7 +83,7 @@ export default class JobsList extends Component {
         place: this.state.place,
       };
 
-      POST('https://buzzybeeapi.herokuapp.com', data)
+      POST(BackendUrl, data)
         .then(jobsData => {
           this.props.stopAnimation();
           this.setState({ ...jobsData, prevKeywords: this.state.keywords, status: 'done' });
@@ -110,7 +110,7 @@ export default class JobsList extends Component {
       place: this.state.place,
     };
 
-    POST('https://buzzybeeapi.herokuapp.com/paginated', data)
+    POST(`${BackendUrl}/paginated`, data)
       .then(jobs => {
         this.props.stopAnimation();
         this.setState({ ...jobs, status: 'done' });

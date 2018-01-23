@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { POST } from '../requests';
+import { POST, BackendUrl } from '../requests';
 
 export default class VerifyAccount extends Component {
   constructor() {
@@ -12,7 +12,7 @@ export default class VerifyAccount extends Component {
   componentDidMount() {
     if (this.props.match.params.verifyId) {
       this.setState({ status: 'sending' });
-      POST('http://localhost:4000/verifyAccount', { string: this.props.match.params.verifyId })
+      POST(`${BackendUrl}/verifyAccount`, { string: this.props.match.params.verifyId })
         .then(response => {
           if (Array.isArray(response)) {
             this.setState({ status: 'failed', msg: response[0] });

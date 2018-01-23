@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import { POST } from '../requests';
+import { POST, BackendUrl } from '../requests';
 import { Handler, Waiting, Default, Success, Open, Closed, Error } from './StatusHandler';
 
 export default class RVE extends Component {
@@ -20,7 +20,7 @@ export default class RVE extends Component {
 
   submit() {
     this.setState({ status: 'waiting' });
-    POST('http://localhost:4000/resendVerificationEmail', { string: this.state.string })
+    POST(`${BackendUrl}/resendVerificationEmail`, { string: this.state.string })
       .then(response => {
         if (Array.isArray(response)) {
           this.setState({ status: 'error', msg: response[0] });

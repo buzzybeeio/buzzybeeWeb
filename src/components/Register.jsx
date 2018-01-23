@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
-import { POST } from '../requests';
+import { POST, BackendUrl } from '../requests';
 import ErrorList from './ErrorList';
 import ErrorInput from './ErrorInput';
 import ToS from './ToS';
@@ -96,7 +96,7 @@ class Register extends Component {
       data.email2 = email;
 
       this.setState({ registerStatus: 'waiting', errors: [] });
-      POST('http://localhost:4000/register', data)
+      POST(`${BackendUrl}/register`, data)
         .then(response => {
           if (Array.isArray(response)) {
             this.setState({

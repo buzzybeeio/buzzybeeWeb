@@ -2,11 +2,16 @@
 
 import React from 'react';
 
-export default () => (
+const introducction = () => (
   <div>
     <img className="narrator-pic" src="profilepics/lisa.jpg" alt="" />
     <h4 className="story-title"><em>Lisa, Freelancer</em></h4>
-    <p><em>This week we got a chance to interview Lisa Bronwyn. Lisa is a Freelance Software Developer. She’s getting quite knowledgeable in PHP and JavaScript and has worked in WordPress for almost a decade. Here is the interview:</em></p>
+    <p><em>This week we got a chance to interview Lisa Bronwyn. Lisa is a Freelance Software Developer. She’s getting quite knowledgeable in PHP and JavaScript and has worked in WordPress for almost a decade.</em></p>
+  </div>
+);
+
+const interview = () => (
+  <div>
     <p><strong>Can you tell us a little bit about your background?</strong></p>
     <p>“I grew up in L.A., and was born into fashion and the entertainment industry. If you watched TV and movies during 2007-2008, you probably saw me and didn’t realize it. I’ve already had several careers, but it’s easier than you think to become very good at something you eventually dislike. I think I stuck around longer because of some good people and the life lessons I needed to learn."</p>
     <p><strong>What inspired you to become a software engineer?</strong></p>
@@ -28,3 +33,5 @@ export default () => (
     <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
 );
+
+export default { introducction, interview };

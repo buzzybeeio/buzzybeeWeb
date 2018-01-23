@@ -2,6 +2,7 @@
 /* eslint object-curly-newline: 0 */
 import { isEmail, normalizeEmail } from 'validator';
 import { dispatch } from '../Store';
+import { BackendUrl } from '../requests';
 
 const login = (d, pushToHistory) => {
   const data = Object.assign({}, d);
@@ -18,7 +19,7 @@ const login = (d, pushToHistory) => {
     payload: new Promise((resolve, reject) => {
       window.$.ajax({
         type: 'POST',
-        url: 'http://localhost:4000/login',
+        url: `${BackendUrl}/login`,
         data: JSON.stringify(data),
         contentType: 'application/json',
         dataType: 'json',

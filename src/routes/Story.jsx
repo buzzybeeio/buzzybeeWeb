@@ -1,19 +1,21 @@
 /* eslint-env browser */
 
-import { renderToStaticMarkup } from 'react-dom/server';
 import React, { Component } from 'react';
-import { GET } from '../requests';
+import Paper from 'material-ui/Paper';
+import { GET, BackendUrl } from '../requests';
 import DefaultStory from '../components/DefaultStory';
 import StoriesSideBar from '../components/StoriesSideBar';
 import StoriesListBar from '../components/StoriesListBar';
+import StoryWrapper from '../components/StoryWrapper';
 import '../App.css';
 
 export default class Story extends Component {
   constructor() {
     super();
     this.state = {
-      story: renderToStaticMarkup(<DefaultStory />),
-      nextStory: '',
+      introducction: <DefaultStory.introducction />,
+      interview: <DefaultStory.interview />,
+      nextIntroducction: '',
       reading: false,
     };
 
@@ -24,7 +26,7 @@ export default class Story extends Component {
   componentDidMount() {
     if (this.props.match.params) {
       const { name } = this.props.match.params;
-      GET(`https://buzzybeeapi.herokuapp.com/story/${name}`)
+      GET(`${BackendUrl}/story/${name}`)
         .then(data => {
           try {
             if (data.component) this.setState({ story: data.component });
@@ -39,12 +41,12 @@ export default class Story extends Component {
   componentWillUnmount() { if (window.storiesTimeout) clearTimeout(window.storiesTimeout); }
 
   setStory(name, story) {
-    this.setState({ nextStory: story });
-    const $wrapper = window.$('.story-wrapper');
+    this.setState({ nextIntroducction: story.introducction });
+    const $wrapper = window.$('.story-UpperWrapper');
 
     $wrapper.hide(750, () => {
       this.props.history.push(`/story/${name}`);
-      this.setState({ story, nextStory: '' });
+      this.setState({ ...story, nextIntroducction: '' });
       $wrapper.slideDown(750);
     });
   }
@@ -64,19 +66,34 @@ export default class Story extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container stories">
-          <div className={`Reading-Mode ${this.state.reading ? 'active' : ''}`} onClick={this.readingMode}>
-            Reading Mode
-          </div>
+      <div className="stories">
+        <div className="blackBG"></div>
+        <div className="greyBG"></div>
+        <div className="container">
           <StoriesListBar setStory={this.setStory} />
           <div className="story-flex-wrapper">
-            <div dangerouslySetInnerHTML={{ __html: this.state.story }} className="story-wrapper"></div>
+            <div className="story-UpperWrapper">
+              <Paper elevation={4} style={{ borderRadius: '30px', padding: '20px', position: 'relative' }}>
+                <StoryWrapper component={this.state.introducction} />
+              </Paper>
+              <Paper
+                elevation={4}
+                style={{
+                  borderRadius: '30px',
+                  padding: '20px',
+                  paddingTop: '40px',
+                  marginTop: '50px',
+                  position: 'relative',
+                }}
+              >
+                <div className="interview"><span className="thing">The Interview</span></div>
+                <StoryWrapper component={this.state.interview} />
+              </Paper>
+            </div>
             <StoriesSideBar
-              currentStory={this.state.story}
-              nextStory={this.state.nextStory}
+              currentIntroducction={this.state.introducction}
+              nextIntroducction={this.state.nextIntroducction}
               setStory={this.setStory}
-              stories={this.state.stories}
             />
           </div>
         </div>
