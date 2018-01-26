@@ -35,8 +35,6 @@
     "start": "node app.js",
     "withoutbuild": "react-scripts start",
     "build": "react-scripts build",
-    "build-css": "node-sass-chokidar src/sass/ -o src/css/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/sass/ -o src/css/ --watch",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",

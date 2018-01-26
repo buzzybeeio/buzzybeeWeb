@@ -25,7 +25,7 @@ export default class SubscribeForm extends Component {
     POST('/subscribe')
       .then(response => {
         if (response.error) {
-          this.setState({ status: 'error', message: response.error });
+          this.setState({ status: 'default', message: response.error });
         } else {
           this.setState({ status: 'success', message: response.success });
         }

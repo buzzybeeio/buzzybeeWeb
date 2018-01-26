@@ -30,13 +30,9 @@ export const Success = props => {
   const child = (
     <div>
       <div className="alert alert-success">{props.msg}</div>
-      {
-        props.returnAction ? (
-          <button className="btn btn-success" onClick={props.returnAction}>
-            {props.returnMessage ? props.returnMessage : 'Return'}
-          </button>
-        ) : ''
-      }
+      <button className="btn btn-success" onClick={props.returnAction}>
+        {props.returnMessage ? props.returnMessage : 'Return'}
+      </button>
     </div>
   );
   return create('success', child);
