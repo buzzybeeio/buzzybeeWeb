@@ -12,6 +12,6 @@ export default () => (
     <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">
       <img className="footer-picture" src="facebook.png" alt="" />
     </a>
-    <div className="copyright">Copyright &#9400; 2017 BuzzyBee. All Rights Reserved.</div>
+    <div className="copyright">Copyright &#9400; {(new Date()).getFullYear()} BuzzyBee. All Rights Reserved.</div>
   </div>
 );
