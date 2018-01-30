@@ -47,9 +47,10 @@ export default class SubscribeForm extends Component {
             <Default>
               <form onSubmit={this.submit} style={{ color: amber[500], fontSize: '16px' }}>
                 <TextField
-                  error={this.state.message}
-                  value={this.state.email}
-                  onChange={this.handleEmailChange}
+                  InputProps={{
+                    value: this.state.email,
+                    onChange: this.handleEmailChange,
+                  }}
                   label="Email Address"
                   fullWidth
                   helperText={this.state.message}
