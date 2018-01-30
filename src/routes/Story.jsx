@@ -29,7 +29,7 @@ export default class Story extends Component {
       GET(`${BackendUrl}/story/${name}`)
         .then(data => {
           try {
-            if (data.component) this.setState({ story: data.component });
+            if (data.introducction) this.setState({ introducction: data.introducction, interview: data.interview });
             else this.props.history.push('/');
           } catch (e) {
             this.props.history.push('/');
