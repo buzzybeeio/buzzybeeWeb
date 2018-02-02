@@ -16,6 +16,7 @@ export default class SubscribeForm extends Component {
     super();
     this.state = { email: '', status: 'default', message: '' };
     this.submit = this.submit.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
   }
   handleEmailChange = e => this.setState({ email: e.target.value })
   submit(e) {
@@ -50,6 +51,7 @@ export default class SubscribeForm extends Component {
                   onChange={this.handleEmailChange}
                   className="form-control"
                   placeholder="Email Address"
+                  type="email"
                 />
                 <p>{this.state.message}</p>
               </form>
