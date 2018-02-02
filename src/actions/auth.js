@@ -1,5 +1,6 @@
 /* eslint-env browser */
 /* eslint object-curly-newline: 0 */
+import axios from 'axios';
 import { isEmail, normalizeEmail } from 'validator';
 import { dispatch } from '../Store';
 import { BackendUrl } from '../requests';
@@ -27,7 +28,7 @@ const login = (d, pushToHistory) => {
           if (Array.isArray(response)) {
             resolve({ err: true, response });
           } else {
-            resolve({ err: false, response, data, pushToHistory });
+            resolve({ err: false, response, pushToHistory });
           }
         },
         error: reject,
@@ -36,21 +37,31 @@ const login = (d, pushToHistory) => {
   });
 };
 
+const loginWT = () => {
+  const token = localStorage.getItem('t');
+  if (token) {
+    dispatch({
+      type: 'LOGIN_W_TOKEN',
+      payload: axios.get(`${BackendUrl}/loginWToken`, { headers: { Authorization: token } }),
+    });
+  }
+};
+
 const logOut = () => {
-  localStorage.removeItem('d');
+  localStorage.removeItem('t');
   dispatch({
     type: 'LOGOUT',
   });
 };
 
-const setD = data => {
-  localStorage.setItem('d', JSON.stringify(data));
+const setToken = token => {
+  localStorage.setItem('t', token);
 };
 
-const getD = () => JSON.parse(localStorage.getItem('d'));
+const getToken = () => localStorage.getItem('t');
 
-const deleteD = () => {
-  if (localStorage.getItem('d')) localStorage.removeItem('d');
+const deleteToken = () => {
+  if (localStorage.getItem('t')) localStorage.removeItem('t');
 };
 
-export { login, logOut, setD, getD, deleteD };
+export { login, loginWT, logOut, setToken, getToken, deleteToken };

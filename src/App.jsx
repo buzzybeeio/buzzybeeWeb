@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { login, getD } from './actions/auth';
+import { loginWT } from './actions/auth';
 import about from './routes/About';
 import jobs from './routes/Jobs';
 import story from './routes/Story';
@@ -22,8 +22,7 @@ import './css/About.css';
 
 export default class App extends Component {
   componentDidMount() {
-    const d = getD();
-    if (d) login(d);
+    loginWT();
     this.animation();
   }
 

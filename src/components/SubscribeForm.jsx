@@ -1,7 +1,6 @@
 /* eslint-env browser */
 /* eslint no-nested-ternary: 0 */
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Dialog, {
   DialogActions,
@@ -22,7 +21,7 @@ export default class SubscribeForm extends Component {
   submit(e) {
     if (e) e.preventDefault();
     this.setState({ status: 'waiting' });
-    POST('/subscribe')
+    POST('/subscribe', { email: this.state.email })
       .then(response => {
         if (response.error) {
           this.setState({ status: 'default', message: response.error });
@@ -46,15 +45,13 @@ export default class SubscribeForm extends Component {
           <Handler status={this.state.status}>
             <Default>
               <form onSubmit={this.submit} style={{ color: amber[500], fontSize: '16px' }}>
-                <TextField
-                  InputProps={{
-                    value: this.state.email,
-                    onChange: this.handleEmailChange,
-                  }}
-                  label="Email Address"
-                  fullWidth
-                  helperText={this.state.message}
+                <input
+                  value={this.state.email}
+                  onChange={this.handleEmailChange}
+                  className="form-control"
+                  placeholder="Email Address"
                 />
+                <p>{this.state.message}</p>
               </form>
             </Default>
             <Waiting />
