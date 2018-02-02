@@ -2,7 +2,6 @@
 
 const POST = (url, data) => (
   new Promise((resolve, reject) => {
-    console.log('data here:', data);
     window.$.ajax({
       type: 'POST',
       url,
