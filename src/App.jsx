@@ -42,17 +42,19 @@ export default class App extends Component {
         <div className="animation">
           <div className="cube" />
         </div>
-        <div className="animation-hide" style={{ marginTop: '80px' }}>
+        <div className="animation-hide">
           <Nav />
-          <Switch>
-            <Route exact path="/" component={story} />
-            <Route exact path="/jobs" component={jobs} />
-            <Route exact path="/about" component={about} />
-            <Route path="/story/:name" component={story} />
-            <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
-            <Route path="/profile" component={profile} />
-            <Route path="*" component={error404} />
-          </Switch>
+          <div className="switchWrapper">
+            <Switch>
+              <Route exact path="/" component={story} />
+              <Route exact path="/jobs" component={jobs} />
+              <Route exact path="/about" component={about} />
+              <Route path="/story/:name" component={story} />
+              <Route path="/verifyAccount/:verifyId" component={verifyAccount} />
+              <Route path="/profile" component={profile} />
+              <Route path="*" component={error404} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </div>

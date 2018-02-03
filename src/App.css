@@ -4,6 +4,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+div.switchWrapper {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 110px + 1px);
+}
+
 a {
   line-height: 1.2;
 }

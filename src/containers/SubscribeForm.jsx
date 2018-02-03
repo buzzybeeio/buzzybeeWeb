@@ -7,11 +7,44 @@ import Dialog, {
   DialogContent,
   DialogTitle,
 } from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
+import { FormControl } from 'material-ui/Form';
+import { withStyles } from 'material-ui/styles';
 import { amber } from 'material-ui/colors';
 import { POST } from '../requests';
 import { Handler, Default, Waiting, Success } from '../components/StatusHandler';
 
-export default class SubscribeForm extends Component {
+const styles = theme => ({
+  title: {
+    fontSize: '19px',
+  },
+  bar: {
+    '&:after': {
+      backgroundColor: amber[500],
+      height: '3px',
+    }
+  },
+  input: {
+    fontSize: '17px',
+    fontWeight: 300,
+  },
+  label: {
+    fontSize: '16px',
+    fontWeight: 300,
+  },
+  labelFocused: {
+    color: amber[500],
+  },
+  helperText: {
+    fontSize: '15px',
+    fontWeight: 500,
+  },
+  fullWidth: {
+    width: '100%',
+  }
+})
+
+class SubscribeForm extends Component {
   constructor() {
     super();
     this.state = { email: '', status: 'default', message: '' };
@@ -36,24 +69,40 @@ export default class SubscribeForm extends Component {
       });
   }
   render() {
+    const { classes } = this.props;
     return (
       <Dialog
         open={this.props.open}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle>Get our weekly story sent to your email! Subscribe!</DialogTitle>
+        <DialogTitle
+          disableTypography
+          classes={{ root: classes.title }}
+        >
+          Get our weekly story sent to your email! Subscribe!
+        </DialogTitle>
         <DialogContent>
           <Handler status={this.state.status}>
             <Default>
-              <form onSubmit={this.submit} style={{ color: amber[500], fontSize: '16px' }}>
-                <input
-                  value={this.state.email}
-                  onChange={this.handleEmailChange}
-                  className="form-control"
-                  placeholder="Email Address"
-                  type="email"
-                />
-                <p>{this.state.message}</p>
+              <form onSubmit={this.submit}>
+                <FormControl className={classes.fullWidth}>
+                  <TextField
+                    fullWidth
+                    label="Email Address"
+                    InputProps={{
+                      classes: { inkbar: classes.bar, input: classes.input },
+                      value: this.state.email,
+                      onChange: this.handleEmailChange,
+                      type: 'email'
+                    }}
+                    InputLabelProps={{
+                      className: classes.label,
+                      FormControlClasses: { focused: classes.labelFocused }
+                    }}
+                    helperText={this.state.message}
+                    helperTextClassName={classes.helperText}
+                  />
+                </FormControl>
               </form>
             </Default>
             <Waiting />
@@ -91,3 +140,5 @@ export default class SubscribeForm extends Component {
     );
   }
 }
+
+export default withStyles(styles)(SubscribeForm);
