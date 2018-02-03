@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from './ErrorList';
-import ErrorInput from './ErrorInput';
-import ToS from './ToS';
+import ErrorList from '../components/ErrorList';
+import ErrorInput from '../components/ErrorInput';
+import ToS from '../components/ToS';
 import ResendVerificationEmail from './ResendVerificationEmail';
 
 class Register extends Component {
@@ -148,7 +148,7 @@ class Register extends Component {
           <div>
             <h2>Register</h2>
             <ErrorList messages={this.state.errors} />
-            <form onSubmit={e => e.preventDefault()} className="well">
+            <form onSubmit={e => e.preventDefault()}>
               <div className="form-group">
                 {
                   Object.keys(this.state.fields).map(

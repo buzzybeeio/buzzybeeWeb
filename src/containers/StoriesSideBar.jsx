@@ -32,7 +32,7 @@ export default class StoriesSideBar extends Component {
       });
     }
 
-    if (!prevState.stories.length) {
+    if (prevState.stories.length !== this.state.stories.length) {
       // Don't change the functions to Arrow functions
       // Because when you use arrow functions "this" won't be binded
 

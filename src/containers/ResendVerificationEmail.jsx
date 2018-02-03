@@ -1,15 +1,15 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
 import { POST, BackendUrl } from '../requests';
-import { Handler, Waiting, Default, Error, Success, Open, Closed } from './StatusHandler';
+import { Handler, Waiting, Default, Success, Open, Closed, Error } from '../components/StatusHandler';
 
-export default class ForgotPassword extends Component {
+export default class RVE extends Component {
   constructor() {
     super();
     this.defaultState = {
       string: '',
-      open: false,
       status: 'default',
+      open: false,
       msg: '',
     };
     this.state = { ...this.defaultState };
@@ -18,10 +18,9 @@ export default class ForgotPassword extends Component {
     this.renderOpen = this.renderOpen.bind(this);
   }
 
-  submit(e) {
-    e.preventDefault();
+  submit() {
     this.setState({ status: 'waiting' });
-    POST(`${BackendUrl}/forgotPassword`, { string: this.state.string })
+    POST(`${BackendUrl}/resendVerificationEmail`, { string: this.state.string })
       .then(response => {
         if (Array.isArray(response)) {
           this.setState({ status: 'error', msg: response[0] });
@@ -35,32 +34,33 @@ export default class ForgotPassword extends Component {
 
   renderOpen() {
     return (
-      <Handler status={this.state.status}>
-        <Default>
-          <form onSubmit={this.submit}>
-            <h3>Get new password</h3>
+      <div>
+        <h3>Resend verification Email</h3>
+        <Handler status={this.state.status}>
+          <Default>
+            <h3>Resend verification Email</h3>
             <input
               value={this.state.string}
               onChange={e => this.setState({ string: e.target.value })}
               className="form-control"
               placeholder="Username or email"
             />
-            <input type="submit" className="btn" value="Get new password" />
+            <button onClick={() => this.submit()} className="btn">Send Email</button>
             <button onClick={() => this.setState({ open: false })} className="btn btn-danger">Close</button>
-          </form>
-        </Default>
-        <Error
-          msg={this.state.msg}
-          returnAction={() => this.setState({ ...this.defaultState, open: true })}
-          returnMessage="Retry"
-        />
-        <Success
-          msg={this.state.msg}
-          returnAction={() => this.setState({ ...this.defaultState })}
-          returnMessage="Close"
-        />
-        <Waiting />
-      </Handler>
+          </Default>
+          <Error
+            msg={this.state.msg}
+            returnAction={() => this.setState({ ...this.defaultState, open: true })}
+            returnMessage="Retry"
+          />
+          <Success
+            msg={this.state.msg}
+            returnAction={() => this.setState({ ...this.defaultState })}
+            returnMessage="Close"
+          />
+          <Waiting />
+        </Handler>
+      </div>
     );
   }
 
@@ -69,7 +69,7 @@ export default class ForgotPassword extends Component {
       <Handler status={this.state.open}>
         <Open>{this.renderOpen()}</Open>
         <Closed>
-          <button onClick={() => this.setState({ open: true })} className="btn">I forgot My password</button>
+          <button onClick={() => this.setState({ open: true })} className="btn">Resend Verification Email</button>
         </Closed>
       </Handler>
     );

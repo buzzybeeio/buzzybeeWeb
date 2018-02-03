@@ -2,7 +2,7 @@
 /* eslint-env browser */
 
 import React, { Component } from 'react';
-import JobsList from '../components/JobsList';
+import JobsList from '../containers/JobsList';
 
 export default class Jobs extends Component {
   componentDidMount() {

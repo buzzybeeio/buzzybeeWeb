@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'material-ui/Button';
 import { amber } from 'material-ui/colors';
-import SubscribeForm from './SubscribeForm';
+import SubscribeForm from '../containers/SubscribeForm';
 
 export default class TextBox extends Component {
   constructor() {

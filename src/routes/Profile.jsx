@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import Register from '../components/Register';
-import Login from '../components/Login';
+import Register from '../containers/Register';
+import Login from '../containers/Login';
 import Logged from '../components/Logged';
 import NotLogged from '../components/NotLogged';
 

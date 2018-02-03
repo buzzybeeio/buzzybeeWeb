@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 import { GET, POST, BackendUrl } from '../requests';
-import Job from './Job';
+import Job from '../components/Job';
 
 export default class JobsList extends Component {
   constructor(props) {

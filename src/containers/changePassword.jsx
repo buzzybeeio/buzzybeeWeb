@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { isLength } from 'validator';
-import { Handler, Waiting, Default, Success, Open, Closed } from './StatusHandler';
+import { Handler, Waiting, Default, Success, Open, Closed } from '../components/StatusHandler';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from './ErrorList';
-import ErrorInput from './ErrorInput';
+import ErrorList from '../components/ErrorList';
+import ErrorInput from '../components/ErrorInput';
 
 export default class changePassword extends Component {
   constructor() {
@@ -129,7 +129,7 @@ export default class changePassword extends Component {
 
   renderOpen() {
     return (
-      <div className="well">
+      <div>
         <h2>ChangePassword</h2>
         <Handler status={this.state.status}>
           <Default>

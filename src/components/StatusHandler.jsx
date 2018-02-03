@@ -1,10 +1,9 @@
 import React from 'react';
-import { CircularProgress } from 'material-ui/Progress';
-import { amber } from 'material-ui/colors';
+import Spinner from './Spinner';
 
 const create = (showOn, children) => ({ showOn, children });
 
-export const Option = ({ showOn, children }) => create(showOn, children);
+export const Option = ({ showOn, children, component }) => create(showOn, component || children);
 
 export const Error = props => {
   if (!props.returnAction) return create('error', <div className="alert alert-danger">{props.msg}</div>);
@@ -41,13 +40,10 @@ export const Success = props => {
 export const Waiting = ({ children }) => {
   if (children) return create('waiting', children);
 
-  const color = Math.floor(Math.random() * 2) ? '#222' : amber[500];
   const child = (
     <div>
       <h3>We are processing your request</h3>
-      <div className="flex-center">
-        <CircularProgress style={{ color }} size={175} />
-      </div>
+      <Spinner />
     </div>
   );
   return create('waiting', child);

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
-import ErrorList from './ErrorList';
+import ErrorList from '../components/ErrorList';
 import ForgotPassword from './ForgotPassword';
-
+import { Handler, Option } from '../components/StatusHandler';
+import Spinner from '../components/Spinner';
 
 class Login extends Component {
   constructor() {
@@ -33,9 +34,9 @@ class Login extends Component {
   changeShow() { this.setState({ show: !this.state.show }); }
 
   render() {
-    if (this.props.status === 'notLoggedIn') {
-      return (
-        <div className="well">
+    return (
+      <Handler status={this.props.status}>
+        <Option showOn="notLoggedIn">
           <h2>Login</h2>
           <ErrorList messages={this.props.errors} />
           <form onSubmit={this.submit}>
@@ -64,17 +65,13 @@ class Login extends Component {
             <input type="submit" className="btn btn-block" value="Submit" />
           </form>
           <ForgotPassword />
-        </div>
-      );
-    } else if (this.props.status === 'loggingIn') {
-      return <img src="spinner.svg" alt="spinner" className="spinner" />;
-    }
-
-    return (
-      <div>
-        <h2>Login</h2>
-        You are logged in! <Link to="/profile">Click here to go to your profile</Link>
-      </div>
+        </Option>
+        <Option showOn="loggingIn" component={Spinner} />
+        <Option showOn="loggedIn">
+          <h2>Login</h2>
+          You are logged in! <Link to="/profile">Click here to go to your profile</Link>
+        </Option>
+      </Handler>
     );
   }
 }

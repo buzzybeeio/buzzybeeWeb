@@ -146,6 +146,8 @@ All JavaScript must adhere to [JavaScript Standard Style](http://standardjs.com/
   export default ClassName
   ```
 
+* File names that export components/containers must be capitalized
+
 ## Thank You
 
 The BuzzyBee Team appreciates your contribution! 

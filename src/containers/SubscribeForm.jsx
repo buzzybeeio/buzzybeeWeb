@@ -9,7 +9,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import { amber } from 'material-ui/colors';
 import { POST } from '../requests';
-import { Handler, Default, Waiting, Success } from './StatusHandler';
+import { Handler, Default, Waiting, Success } from '../components/StatusHandler';
 
 export default class SubscribeForm extends Component {
   constructor() {
