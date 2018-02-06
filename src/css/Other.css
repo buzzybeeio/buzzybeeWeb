@@ -1,0 +1,13 @@
+.other-fullWidth {
+  width: 100%;
+}
+
+.other-fontSize19 {
+  font-size: 19px;
+}
+
+.other-flex-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
