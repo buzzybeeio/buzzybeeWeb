@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import JobsList from '../containers/JobsList';
+import Spinner from '../components/Reusable/Spinner';
 
 export default class Jobs extends Component {
   componentDidMount() {
@@ -42,7 +43,7 @@ export default class Jobs extends Component {
     return (
       <div className="jobs-list">
         <div className="jobs-loading-animation">
-          <img src="spinner.svg" alt="spinner" className="spinner" />
+          <Spinner size={300} />
           <p>
             Loading
             <span id="dot1">.</span>

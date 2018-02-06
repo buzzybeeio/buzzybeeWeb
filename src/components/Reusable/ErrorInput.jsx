@@ -11,7 +11,6 @@ export default props => {
 
   return (
     <div>
-      <ErrorList messages={errors} />
       <input
         type={props.type}
         value={props.value}
@@ -19,6 +18,7 @@ export default props => {
         className={props.className}
         placeholder={props.name}
       />
+      <ErrorList messages={errors} />
     </div>
   );
 };

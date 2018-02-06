@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
-import ErrorList from '../components/ErrorList';
+import ErrorList from '../components/Reusable/ErrorList';
 import ForgotPassword from './ForgotPassword';
-import { Handler, Option } from '../components/StatusHandler';
-import Spinner from '../components/Spinner';
+import { Handler, Option } from '../components/Reusable/StatusHandler';
+import Spinner from '../components/Reusable/Spinner';
 
 class Login extends Component {
   constructor() {
@@ -58,6 +58,7 @@ class Login extends Component {
                 onClick={e => { e.preventDefault(); this.changeShow(); }}
                 style={{ margin: '0', marginLeft: '20px', height: '2.5em' }}
                 className="btn"
+                type="button"
               >
                 {this.state.show ? 'Hide' : 'Show'}
               </button>

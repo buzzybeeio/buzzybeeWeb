@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from '../components/ErrorList';
-import ErrorInput from '../components/ErrorInput';
+import ErrorList from '../components/Reusable/ErrorList';
+import ErrorInput from '../components/Reusable/ErrorInput';
 import ToS from '../components/ToS';
 import ResendVerificationEmail from './ResendVerificationEmail';
+import { Handler, Option, Waiting, Success, Default } from '../components/Reusable/StatusHandler';
+import Spinner from '../components/Reusable/Spinner';
 
 class Register extends Component {
   constructor() {
     super();
     this.state = {
-      registerStatus: 'notRegistered',
+      status: 'default',
       errors: [],
       success: '',
       fields: {
@@ -78,6 +80,7 @@ class Register extends Component {
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.checkForError = this.checkForError.bind(this);
+    this.renderHandler = this.renderHandler.bind(this);
   }
 
   submit() {
@@ -95,21 +98,21 @@ class Register extends Component {
       data.email = email;
       data.email2 = email;
 
-      this.setState({ registerStatus: 'waiting', errors: [] });
+      this.setState({ status: 'waiting', errors: [] });
       POST(`${BackendUrl}/register`, data)
         .then(response => {
           if (Array.isArray(response)) {
             this.setState({
               errors: response,
-              registerStatus: 'notRegistered',
+              status: 'default',
             });
           } else {
-            this.setState({ registerStatus: 'success', errors: [], success: response.success });
+            this.setState({ status: 'success', errors: [], success: response.success });
           }
         }).catch(() => {
           this.setState({
             errors: ['There was an error, try again later! \n Error: INTERNAL'],
-            registerStatus: 'notRegistered',
+            status: 'default',
           });
         });
     }
@@ -141,61 +144,59 @@ class Register extends Component {
     });
   }
 
-  render() {
-    if (this.props.userStatus === 'notLoggedIn') {
-      if (this.state.registerStatus === 'notRegistered') {
-        return (
-          <div>
-            <h2>Register</h2>
-            <ErrorList messages={this.state.errors} />
-            <form onSubmit={e => e.preventDefault()}>
-              <div className="form-group">
-                {
-                  Object.keys(this.state.fields).map(
-                    key => {
-                      const { value, validation, name } = this.state.fields[key];
-                      let type = '';
-                      if (key === 'password' || key === 'password2') type = 'password';
-                      return (
-                        <ErrorInput
-                          key={name}
-                          type={type}
-                          name={name}
-                          value={value}
-                          validation={validation}
-                          onChange={e => this.handleChange(key, e)}
-                          className="form-control"
-                        />
-                      );
-                    },
-                  )
-                }
-              </div>
-              <ToS />
-              <button onClick={this.submit} disabled={this.checkForError()} className="btn btn-block">submit</button>
-            </form>
-            <ResendVerificationEmail />
-          </div>
-        );
-      } else if (this.state.registerStatus === 'waiting') {
-        return <img src="spinner.svg" alt="spinner" className="spinner" />;
-      }
-
-      return (
-        <div>
-          <h2>Register</h2>
-          <div className="alert alert-success">{this.state.success}</div>
-        </div>
-      );
-    } else if (this.props.userStatus === 'loggingIn') {
-      return <img src="spinner.svg" alt="spinner" className="spinner" />;
-    }
-
+  renderHandler() {
     return (
-      <div>
-        <h2>Register</h2>
-        You already have an account! <Link to="/profile">Click here to go to your profile</Link>
-      </div>
+      <Handler status={this.state.status}>
+        <Default>
+          <h2>Register</h2>
+          <ErrorList messages={this.state.errors} />
+          <form onSubmit={e => e.preventDefault()}>
+            <div className="form-group">
+              {
+                Object.keys(this.state.fields).map(
+                  key => {
+                    const { value, validation, name } = this.state.fields[key];
+                    let type = '';
+                    if (key === 'password' || key === 'password2') type = 'password';
+                    return (
+                      <ErrorInput
+                        key={name}
+                        type={type}
+                        name={name}
+                        value={value}
+                        validation={validation}
+                        onChange={e => this.handleChange(key, e)}
+                        className="form-control"
+                      />
+                    );
+                  },
+                )
+              }
+            </div>
+            <ToS />
+            <span>By clickling the button below you agree to the Terms of Service</span>
+            <button onClick={this.submit} type="button" disabled={this.checkForError()} className="btn btn-block">submit</button>
+          </form>
+          <ResendVerificationEmail />
+        </Default>
+        <Success msg={this.state.success} />
+        <Waiting />
+      </Handler>
+    );
+  }
+
+  render() {
+    return (
+      <Handler status={this.props.userStatus}>
+        <Option showOn="notLoggedIn">
+          {this.renderHandler()}
+        </Option>
+        <Option showOn="loggedIn">
+          <h2>Register</h2>
+          You already have an account! <Link to="/profile">Click here to go to your profile</Link>
+        </Option>
+        <Option showOn="loggingIn" component={Spinner} />
+      </Handler>
     );
   }
 }

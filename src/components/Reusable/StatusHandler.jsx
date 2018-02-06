@@ -3,7 +3,7 @@ import Spinner from './Spinner';
 
 const create = (showOn, children) => ({ showOn, children });
 
-export const Option = ({ showOn, children, component }) => create(showOn, component || children);
+export const Option = ({ showOn, children, component: C }) => create(showOn, C ? <C /> : children);
 
 export const Error = props => {
   if (!props.returnAction) return create('error', <div className="alert alert-danger">{props.msg}</div>);
@@ -51,15 +51,26 @@ export const Waiting = ({ children }) => {
 
 export const Default = ({ children }) => create('default', children);
 
-export const Open = ({ children }) => create(true, children);
-
-export const Closed = ({ children }) => create(false, children);
-
-export const Handler = (props) => {
+export const Handler = props => {
   let toDisplay;
   props.children.forEach(child => {
     const { showOn, children } = child.type(child.props);
     if (showOn === props.status) toDisplay = children;
   });
-  return toDisplay;
+  return toDisplay || '';
+};
+
+export const Hide = ({ HideOn, status, children }) => {
+  if (Array.isArray(HideOn)) {
+    if (HideOn.indexOf(status) > -1) return '';
+    return children;
+  }
+
+  if (HideOn === status) return '';
+  return children;
+};
+
+export const HideOnWaiting = ({ status, children }) => {
+  if (status === 'waiting') return '';
+  return children;
 };

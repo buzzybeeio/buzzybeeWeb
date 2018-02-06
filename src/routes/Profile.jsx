@@ -5,13 +5,14 @@ import Register from '../containers/Register';
 import Login from '../containers/Login';
 import Logged from '../components/Logged';
 import NotLogged from '../components/NotLogged';
+import Spinner from '../components/Reusable/Spinner';
 
 const Profile = props => {
   let Component = null;
   if (props.status === 'loggedIn') {
     Component = Logged;
   } else if (props.status === 'loggingIn') {
-    Component = () => (<img src="spinner.svg" alt="spinner" className="spinner" />);
+    Component = Spinner;
   } else {
     Component = NotLogged;
   }

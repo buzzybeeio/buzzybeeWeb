@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { isLength } from 'validator';
-import { Handler, Waiting, Default, Success, Open, Closed } from '../components/StatusHandler';
+import Button from 'material-ui/Button/Button';
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from 'material-ui/Dialog';
+import { Handler, Waiting, Default, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from '../components/ErrorList';
-import ErrorInput from '../components/ErrorInput';
+import ErrorList from '../components/Reusable/ErrorList';
+import ErrorInput from '../components/Reusable/ErrorInput';
 
 export default class changePassword extends Component {
   constructor() {
@@ -40,7 +46,7 @@ export default class changePassword extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.checkForError = this.checkForError.bind(this);
     this.close = this.close.bind(this);
-    this.renderOpen = this.renderOpen.bind(this);
+    this.renderContent = this.renderContent.bind(this);
     this.renderInputs = this.renderInputs.bind(this);
     this.submit = this.submit.bind(this);
   }
@@ -127,38 +133,42 @@ export default class changePassword extends Component {
     );
   }
 
-  renderOpen() {
+  renderContent() {
     return (
-      <div>
-        <h2>ChangePassword</h2>
-        <Handler status={this.state.status}>
-          <Default>
-            <ErrorList messages={this.state.errors} />
-            <form onSubmit={this.submit}>
-              {this.renderInputs()}
-              <input type="submit" className="btn" value="Change" disabled={this.checkForError()} />
-            </form>
-            <button onClick={() => this.close()} className="btn btn-danger">Cancel</button>
-          </Default>
-          <Success
-            msg={this.state.success}
-            returnAction={() => this.close()}
-            returnMessage="Close"
-          />
-          <Waiting />
-        </Handler>
-      </div>
+      <Handler status={this.state.status}>
+        <Default>
+          <ErrorList messages={this.state.errors} />
+          <form onSubmit={this.submit}>
+            {this.renderInputs()}
+            <input type="submit" className="btn" value="Change" disabled={this.checkForError()} />
+          </form>
+        </Default>
+        <Success msg={this.state.success} />
+        <Waiting />
+      </Handler>
     );
   }
 
   render() {
     return (
-      <Handler status={this.state.open}>
-        <Open>{this.renderOpen()}</Open>
-        <Closed>
-          <button onClick={() => this.setState({ open: true })} className="btn btn-success">Change Password</button>
-        </Closed>
-      </Handler>
+      <div>
+        <button onClick={() => this.setState({ open: true })} className="btn btn-success">Change Password</button>
+        <Dialog open={this.state.open} aria-labelledby="form-dialog-title">
+          <DialogTitle disableTypography>
+            <span style={{ fontSize: '19px' }}>Change Password</span>
+          </DialogTitle>
+          <DialogContent>
+            {this.renderContent()}
+          </DialogContent>
+          <DialogActions>
+            <HideOnWaiting status={this.state.status}>
+              <Button onClick={() => this.close()} style={{ color: '#222', fontSize: '1.1em' }}>
+                {this.state.status === 'success' ? 'Close' : 'Cancel'}
+              </Button>
+            </HideOnWaiting>
+          </DialogActions>
+        </Dialog>
+      </div>
     );
   }
 }
