@@ -25,7 +25,19 @@
 }
 
 .listBar {
-  border-radius: 50px;
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.find-a-story {
+  font-size: 21px;
+  color: #FFC107; /* amber 500 */
+  font-weight: 300;
+  margin-bottom: -10px;
+  margin-top: -5px;
 }
 
 .LBDiv {

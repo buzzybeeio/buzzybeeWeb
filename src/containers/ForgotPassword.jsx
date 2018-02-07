@@ -8,6 +8,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import { Handler, Waiting, Default, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
 import { POST, BackendUrl } from '../requests';
+import TextField from '../components/Reusable/DefaultTextField';
 
 export default class ForgotPassword extends Component {
   constructor() {
@@ -45,13 +46,13 @@ export default class ForgotPassword extends Component {
         <Default>
           {this.state.msg ? <div className="alert alert-danger">{this.state.msg}</div> : ''}
           <form onSubmit={this.submit}>
-            <input
+            <TextField
+              fullWidth
               value={this.state.string}
               onChange={e => this.setState({ string: e.target.value })}
-              className="form-control"
-              placeholder="Username or email"
+              label="Username or email"
             />
-            <input type="submit" className="btn" value="Get new password" />
+            <button type="submit" className="btn">Get new password</button>
           </form>
         </Default>
         <Success msg={this.state.msg} />

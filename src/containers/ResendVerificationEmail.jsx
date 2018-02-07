@@ -6,8 +6,10 @@ import Dialog, {
   DialogContent,
   DialogTitle,
 } from 'material-ui/Dialog';
+import { grey } from 'material-ui/colors';
 import { POST, BackendUrl } from '../requests';
 import { Handler, Waiting, Default, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
+import CreateTextField from '../components/Reusable/CreateTextField';
 
 export default class RVE extends Component {
   constructor() {
@@ -22,6 +24,10 @@ export default class RVE extends Component {
 
     this.submit = this.submit.bind(this);
     this.renderContent = this.renderContent.bind(this);
+    this.textField = CreateTextField({
+      inkbarColor: grey[700],
+      labelColorFocus: grey[700],
+    });
   }
 
   submit() {
@@ -39,15 +45,17 @@ export default class RVE extends Component {
   }
 
   renderContent() {
+    const TextField = this.textField;
+
     return (
       <Handler status={this.state.status}>
         <Default>
           {this.state.msg ? <div className="alert alert-danger">{this.state.msg}</div> : ''}
-          <input
+          <TextField
+            fullWidth
             value={this.state.string}
             onChange={e => this.setState({ string: e.target.value })}
-            className="form-control"
-            placeholder="Username or email"
+            label="Username or Email"
           />
           <button onClick={() => this.submit()} className="btn">Send Email</button>
         </Default>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
+import { grey } from 'material-ui/colors';
 import { POST, BackendUrl } from '../requests';
 import ErrorList from '../components/Reusable/ErrorList';
 import ErrorInput from '../components/Reusable/ErrorInput';
@@ -160,13 +161,13 @@ class Register extends Component {
                     if (key === 'password' || key === 'password2') type = 'password';
                     return (
                       <ErrorInput
+                        fullWidth
                         key={name}
                         type={type}
-                        name={name}
+                        label={name}
                         value={value}
                         validation={validation}
                         onChange={e => this.handleChange(key, e)}
-                        className="form-control"
                       />
                     );
                   },
@@ -174,7 +175,16 @@ class Register extends Component {
               }
             </div>
             <ToS />
-            <span>By clickling the button below you agree to the Terms of Service</span>
+            <p
+              style={{
+                color: grey[600],
+                fontSize: '18px',
+                marginTop: '25px',
+                textAlign: 'center',
+              }}
+            >
+              By clickling the button below you agree to the Terms of Service
+            </p>
             <button onClick={this.submit} type="button" disabled={this.checkForError()} className="btn btn-block">submit</button>
           </form>
           <ResendVerificationEmail />

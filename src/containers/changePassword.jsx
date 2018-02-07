@@ -120,13 +120,13 @@ export default class changePassword extends Component {
         const { value, validation, name } = this.state.fields[key];
         return (
           <ErrorInput
+            fullWidth
             key={name}
             type="password"
-            name={name}
+            label={name}
             value={value}
             validation={validation}
             onChange={e => this.handleChange(key, e)}
-            className="form-control"
           />
         );
       },
@@ -140,7 +140,7 @@ export default class changePassword extends Component {
           <ErrorList messages={this.state.errors} />
           <form onSubmit={this.submit}>
             {this.renderInputs()}
-            <input type="submit" className="btn" value="Change" disabled={this.checkForError()} />
+            <button type="submit" className="btn" disabled={this.checkForError()}>Change</button>
           </form>
         </Default>
         <Success msg={this.state.success} />

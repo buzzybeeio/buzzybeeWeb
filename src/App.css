@@ -33,3 +33,10 @@ input {
 .invisible {
   opacity: 0;
 }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

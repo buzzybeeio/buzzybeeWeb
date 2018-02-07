@@ -2,6 +2,7 @@
 /* eslint func-names: 0 */
 import React, { Component } from 'react';
 import { GET, BackendUrl } from '../requests';
+import TextField from './Reusable/DefaultTextField';
 
 export default class StoriesListBar extends Component {
   constructor() {
@@ -46,15 +47,15 @@ export default class StoriesListBar extends Component {
 
   render() {
     return (
-      <div style={{ position: 'relative' }}>
-        <input
-          className="form-control listBar"
+      <div className="listBar">
+        <p className="find-a-story">Find a Story</p>
+        <TextField
+          fullWidth
           onChange={this.findStory}
           value={this.state.listBar}
-          placeholder="Find a story"
         />
         <div className="LBDiv">
-          <div className="LBStories" style={this.state.listBarStories.length ? { padding: '20px', backgroundColor: 'white' } : {}}>
+          <div className="LBStories" style={this.state.listBarStories.length ? { padding: '4px', backgroundColor: 'white' } : {}}>
             {
               this.state.listBarStories.map(data => (
                 <div

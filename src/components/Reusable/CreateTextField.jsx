@@ -8,23 +8,10 @@ export default (opts = {}) => {
     inkbar: {
       '&:after': {
         backgroundColor: opts.inkbarColor || amber[500],
-        height: '3px',
       },
-    },
-    input: {
-      fontSize: '17px',
-      fontWeight: 300,
-    },
-    label: {
-      fontSize: '16px',
-      fontWeight: 300,
     },
     labelFocused: {
       color: opts.labelColorFocus || amber[500],
-    },
-    helperText: {
-      fontSize: '15px',
-      fontWeight: 500,
     },
     ...opts.styles,
   });
@@ -48,15 +35,15 @@ export default (opts = {}) => {
       <TextField
         {...properties}
         InputProps={InputProps ? InputProps(classes) : {
-          classes: { inkbar: classes.inkbar, input: classes.input },
-          ...otherInputProps
+          classes: { inkbar: classes.inkbar, input: classes.input || 'other-input-TextField' },
+          ...otherInputProps,
         }}
         InputLabelProps={InputLabelProps ? InputLabelProps(classes) : {
           FormControlClasses: { focused: classes.labelFocused },
-          ...otherInputLabelProps
+          ...otherInputLabelProps,
         }}
-        labelClassName={classes.label}
-        helperTextClassName={classes.helperText}
+        labelClassName={classes.label || 'other-label-TextField'}
+        helperTextClassName={classes.helperText || 'other-helperText-TextField'}
       />
     );
   };

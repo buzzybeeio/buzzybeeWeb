@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { GET, POST, BackendUrl } from '../requests';
 import Job from '../components/Job';
+import TextField from '../components/Reusable/DefaultTextField';
 
 export default class JobsList extends Component {
   constructor(props) {
@@ -130,14 +131,20 @@ export default class JobsList extends Component {
     return (
       <div style={{ display: this.state.status !== 'searching' ? 'block' : 'none' }} className="container">
         <div>
-          <div>
-            <input
+          <div className="flex">
+            <TextField
+              fullWidth
+              label="Find a Job!"
               placeholder="Type the keywords (each keyword has to be 1 space apart from each other)"
               value={this.state.keywords}
-              className="form-control"
               onChange={e => this.setState({ keywords: e.target.value })}
             />
-            <select value={this.state.place.city} onChange={e => this.changedPlace(e)} className="form-control">
+            <select
+              value={this.state.place.city}
+              onChange={e => this.changedPlace(e)}
+              className="form-control"
+              style={{ width: '150px' }}
+            >
               <option value="San Francisco">San Francisco</option>
               <option value="San Jose">San Jose</option>
               <option value="Los Angeles">Los Angeles</option>

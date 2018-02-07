@@ -23,11 +23,11 @@ export default class StoriesSideBar extends Component {
     const { $ } = window;
     const $children = $($('.sidebar-grid').children());
     const { currentIntroducction, nextIntroducction, setStory } = this.props;
-
-    if (prevProps.currentIntroducction !== currentIntroducction || prevProps.nextIntroducction === nextIntroducction) {
+    const { currentIntroducction: prevCIntro, nextIntroducction: prevNIntro } = prevProps;
+    if (prevCIntro !== currentIntroducction || prevNIntro === nextIntroducction) {
       $children.each(function () {
-        const data = JSON.parse($(this).attr('data'));
-        if (data.introducction === currentIntroducction || data.introducction === nextIntroducction) $(this).hide(750);
+        const { introducction: intro } = JSON.parse($(this).attr('data'));
+        if (intro === currentIntroducction || intro === nextIntroducction) $(this).hide(750);
         else $(this).slideDown(750);
       });
     }
