@@ -6,9 +6,8 @@ import Dialog, {
   DialogContent,
   DialogTitle,
 } from 'material-ui/Dialog';
-import { Handler, Waiting, Default, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
+import { Handler, Waiting, DefaultWithErrors, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from '../components/Reusable/ErrorList';
 import ErrorInput from '../components/Reusable/ErrorInput';
 
 export default class changePassword extends Component {
@@ -136,13 +135,12 @@ export default class changePassword extends Component {
   renderContent() {
     return (
       <Handler status={this.state.status}>
-        <Default>
-          <ErrorList messages={this.state.errors} />
+        <DefaultWithErrors errorMessages={this.state.errors}>
           <form onSubmit={this.submit}>
             {this.renderInputs()}
             <button type="submit" className="btn" disabled={this.checkForError()}>Change</button>
           </form>
-        </Default>
+        </DefaultWithErrors>
         <Success msg={this.state.success} />
         <Waiting />
       </Handler>

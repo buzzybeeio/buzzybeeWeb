@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import { isAlphanumeric, isEmail, isLength, normalizeEmail } from 'validator';
 import { grey } from 'material-ui/colors';
 import { POST, BackendUrl } from '../requests';
-import ErrorList from '../components/Reusable/ErrorList';
 import ErrorInput from '../components/Reusable/ErrorInput';
 import ToS from '../components/ToS';
 import ResendVerificationEmail from './ResendVerificationEmail';
-import { Handler, Option, Waiting, Success, Default } from '../components/Reusable/StatusHandler';
+import { Handler, Option, Waiting, Success, DefaultWithErrors } from '../components/Reusable/StatusHandler';
 import Spinner from '../components/Reusable/Spinner';
 
 class Register extends Component {
@@ -148,9 +147,7 @@ class Register extends Component {
   renderHandler() {
     return (
       <Handler status={this.state.status}>
-        <Default>
-          <h2>Register</h2>
-          <ErrorList messages={this.state.errors} />
+        <DefaultWithErrors title="Register" errorMessages={this.state.errors}>
           <form onSubmit={e => e.preventDefault()}>
             <div className="form-group">
               {
@@ -188,7 +185,7 @@ class Register extends Component {
             <button onClick={this.submit} type="button" disabled={this.checkForError()} className="btn btn-block">submit</button>
           </form>
           <ResendVerificationEmail />
-        </Default>
+        </DefaultWithErrors>
         <Success msg={this.state.success} />
         <Waiting />
       </Handler>

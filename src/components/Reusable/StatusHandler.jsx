@@ -1,5 +1,8 @@
+/* eslint object-curly-newline: 0 */
+
 import React from 'react';
 import Spinner from './Spinner';
+import ErrorList from './ErrorList';
 
 const create = (showOn, children) => ({ showOn, children });
 
@@ -50,6 +53,17 @@ export const Waiting = ({ children }) => {
 };
 
 export const Default = ({ children }) => create('default', children);
+
+export const DefaultWithErrors = ({ children, errorMessages = [], errorMessage = '', title }) => {
+  const component = (
+    <div>
+      {title ? (<h2>{title}</h2>) : ''}
+      {errorMessage || errorMessages ? <ErrorList messages={errorMessage ? [errorMessage] : errorMessages} /> : ''}
+      {children}
+    </div>
+  );
+  return create('default', component);
+};
 
 export const Handler = props => {
   let toDisplay;

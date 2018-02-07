@@ -8,7 +8,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import { grey } from 'material-ui/colors';
 import { POST, BackendUrl } from '../requests';
-import { Handler, Waiting, Default, Success, HideOnWaiting } from '../components/Reusable/StatusHandler';
+import { Handler, Waiting, Success, HideOnWaiting, DefaultWithErrors } from '../components/Reusable/StatusHandler';
 import CreateTextField from '../components/Reusable/CreateTextField';
 
 export default class RVE extends Component {
@@ -49,8 +49,7 @@ export default class RVE extends Component {
 
     return (
       <Handler status={this.state.status}>
-        <Default>
-          {this.state.msg ? <div className="alert alert-danger">{this.state.msg}</div> : ''}
+        <DefaultWithErrors errorMessage={this.state.msg}>
           <TextField
             fullWidth
             value={this.state.string}
@@ -58,7 +57,7 @@ export default class RVE extends Component {
             label="Username or Email"
           />
           <button onClick={() => this.submit()} className="btn">Send Email</button>
-        </Default>
+        </DefaultWithErrors>
         <Success msg={this.state.msg} />
         <Waiting />
       </Handler>
