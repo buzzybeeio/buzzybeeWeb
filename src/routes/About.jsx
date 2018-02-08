@@ -8,7 +8,7 @@ export default () => (
   <div className="about-container">
     <div className="container landing-row">
       <div className="comb-container">
-          <img className="comb" src="trihexagon_logo.png" alt="Buzzy Bee Logo" />
+        <img className="comb" src="trihexagon_logo.png" alt="Buzzy Bee Logo" />
       </div>
       <Textbox />
     </div>
