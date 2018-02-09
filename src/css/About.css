@@ -27,9 +27,10 @@
 }
 
 .comb {
-  display: block;
   height: 100%;
   width: auto;
+  display: block;
+  margin: auto;
 }
 
 .textbox {
@@ -97,7 +98,7 @@
   .textbox {
     width: 85%;
   }
-} 
+}
 @media (max-width: 460px) {
   .textbox {
     width: 100%;
