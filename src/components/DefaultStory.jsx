@@ -4,32 +4,32 @@ import React from 'react';
 
 const introducction = () => (
   <div>
-    <img className="narrator-pic" src="profilepics/meisha.jpg" alt="" />
-    <h4 className="story-title"><em>Meisha, Customer Care/Technical Support at AugMedix</em></h4>
-    <p><em>This week we got a chance to interview Meisha Booker. Meisha is starting her career in Tech with Augmedix, she has worked extremely hard to be where she is currently at. Here is the interview:</em></p>
+    <img className="narrator-pic" src="profilepics/rc.jpg" alt="" />
+    <h4 className="story-title"><em>RC, Technical Teaching Fellow at Hack the Hood</em></h4>
+    <p><em>This week we got a chance to interview RC Brown. RC broke into the Tech Space and is passionate about empowering others through code. Here is the interview:</em></p>
   </div>
 );
 
 const interview = () => (
   <div>
     <p><strong>Can you tell us a little bit about your background?</strong></p>
-    <p>“I am from Oakland, CA. My family moved to the Bay Area in the early 60’s from Louisiana. I have worked in technical support and customer care for the last 10 years with different companies such as Comcast, AT&T, etc. I have always loved technology and after a few years of working in different industries, I knew that my career was going to be doing something with tech. I switched from just wanting to do technical support to coding last year, in which I joined a bootcamp to help me progress my web development skills. I am an early stage web developer, still working on my web development skills building on the languages that I have learned.”</p>
-    <p><strong>What is your role at Augmedix?</strong></p>
-    <p>“Augmedix is a Google Glass company for health care providers across the United States. I am on the Customer Care team. My duties are to handle all technical issues the providers and scribes may encounter while using the glass units. We work closely with our Network and Software teams to help deliver a great service. As a web developer, I am hoping that in the future I will be working on one of those teams but for now I am enjoying learning my role and working with them as much as I can.”</p>
-    <p><strong>What obstacles did you have to overcome in order to achieve your goal of working in the Technology Field?</strong></p>
-    <p>“One of the major obstacles I had to overcome was the self doubt. I had been in the tech industry on the technical service side but it took somewhat of an internal push to go for it as a web developer. I thought I had missed my chance because I was ‘too old’ compared to some of the younger up-and-coming developers. Once I realized that I was not too old and not too far behind, I began to work hard at learning and building my web development skills.”</p>
-    <p><strong>What role did your family play on this journey?</strong></p>
-    <p>“I have two children, an eight year old boy and an eighteen month old girl. Balancing being a mom and trying to adjust my career in tech has its challenges. I am blessed to have a strong community of people to assist me, including my mother, the father of my children, my mother-in-law and close friends. My family gives me motivation to keep working hard and will not allow me to give up on my dreams.”</p>
+    <p>“I’ve been a DJ and Event Promoter since 2004. I spent 13 years throwing events for my community to provide a space of healing and release. In 2015, I decided that I wanted to find a career where I could blend all of my interests and make a future for myself. I wanted to shift into something that would make it possible for me to pay it forward to youth and provide me with stability in multiple areas of my life. I started teaching myself how to code, got a scholarship to Hack Reactors Fulcrum self-taught program, and from there I was accepted into an apprenticeship at Learners Guild in Oakland. After my time at the Guild, I was able to land a fantastic job at Hack the Hood.”</p>
+    <p><strong>What is your role at Hack the Hood? </strong></p>
+    <p>“I am a Technical Fellow at Hack the Hood. I am also the Lead Instructor during their Bootcamps (Spring and Summer) and I teach their Coding class. I get to develop curriculum, lead programming, and coordinate hackathons and other events.”</p>
+    <p><strong>What obstacles did you have to overcome to break into the Tech Field?</strong></p>
+    <p>“The biggest obstacle for myself has always been myself. I’m sure most self-taught engineers would say something similar. I could also mention that before my apprenticeship, one of the bigger obstacles I experienced was finances. I got into many different coding bootcamps, but couldn’t afford the upfront costs. I often wonder what the tech industry would look like if it were more accessible in that respect.”</p>
+    <p><strong>Prior to Hack the Hood, what was your job search process?</strong></p>
+    <p>“I became a pro at applying to jobs via Angelist, LinkedIn, and many other tech job search engines. I had the most luck applying for jobs where a friend could recommend me. If I didn’t have a friend in the company, I would find someone on LinkedIn and introduce myself. I spent 13 years being social for a living, I have no shame in hitting up someone I don’t know for a coffee and chat.”</p>
     <p><strong>What are some of the best resources that you’ve come across?</strong></p>
-    <p>“Udemy, Treehouse, and FreeCodeCamp are the resources that I currently use and have been using since the start of my web development career.”</p>
+    <p>“The best resource I found was YouTube. I mean, you can find a video of anything and everything on there. You have to dig through them and find the best video tutorials like when you are digging in record crates or going down rabbit holes on SoundCloud.”</p>
     <p><strong>What are some advice for people who are trying to break into Tech and/or are trying to be Software Engineers?</strong></p>
-    <p>“Start as early as you possibly can either in high school, college, or freelance study. Use the resources that are free or low in cost online before trying to go to a bootcamp. And let me not forget... Network, network, network!”</p>
-    <p><strong>How did you stay positive?</strong></p>
-    <p>“Having a strong support system with family and friends along with the tenacity to keep pushing the limitations in the tech industry. I was raised in a city and community that has a historical background for social and economical change. I pride myself in breaking into an industry as a black woman knowing that I am a part of an underrepresented group.”</p>
+    <p>“Whatever you do, always stay up-to-date on the basics. They go a long way and help to solidify complex concepts. They’re your foundation, keep it sturdy!”</p>
+    <p><strong>What is the easiest and hardest interview question that you remember?</strong></p>
+    <p>“Write a recursive function for traversing a binary search tree. It was pretty hard for me; I sweated bullets the whole way through. But I thought of how a node works and it helped me work it out. I don’t think I’ve ever been asked an ‘easy’ question during an interview, which I guess I am lucky for.”</p>
     <p><strong>If you could do it all over, is there anything that you would have done differently?</strong></p>
-    <p>“I would have started coding right out of high school or even while in high school. I was always a techy type of person from the beginning but was influenced to go in different directions. Once I noticed that technology was going to be the ‘Next Big Thing’ back in the early 2000’s, I should have jumped at the opportunity to start coding. I went to college for paralegal studies and before I graduated I was already looking for another career and working technical support.”</p>
+    <p>“I wouldn’t do it any differently at all. I love how becoming a software engineer has changed my trajectory in life and I’m excited to see where it takes me.”</p>
     <p><strong>Any last thoughts/insights that you would like to share with our readers?</strong></p>
-    <p>“It is never too late to try something new, so don’t be afraid to take that first step.”</p>
+    <p>“The world of tech is vast, if you have any interest in it, you have to go for it. It’ll be hard, but nothing worth the trouble is easy.”</p>
     <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
 );
