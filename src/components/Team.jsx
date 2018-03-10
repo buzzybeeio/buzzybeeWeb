@@ -3,7 +3,7 @@ import React from 'react';
 
 const TeamMember = ({ name, fullName, occupation, linkedIn }) => (
   <div className="team-member">
-    <img src={`teampics/${name}.jpg`} className="team-member-image" alt="team member" />
+    <img src={`assets/teampics/${name}.jpg`} className="team-member-image" alt="team member" />
     <div className="team-title">
       <h4>{fullName}</h4>
       <span>{occupation}</span>

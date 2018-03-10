@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const subscribeRouter = require('./contact/subscribe');
 app.use(bodyParser.json());
 
@@ -14,10 +15,16 @@ const forceSsl = (req, res, next) => {
 };
 
 app.use(forceSsl);
-
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('build'));
 app.use(subscribeRouter);
+
+app.get('/assets/*', (req, res, next) => {
+  res.append('Cache-Control', 'max-age=604800000'); // 1 week
+  next();
+});
+
+app.use(express.static('build'));
 
 app.get(/.*\/$/, (req, res) => {
   res.redirect(req.originalUrl.slice(0, -1));

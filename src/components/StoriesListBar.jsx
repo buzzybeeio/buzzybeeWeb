@@ -2,7 +2,6 @@
 /* eslint func-names: 0 */
 import React, { Component } from 'react';
 import { GET, BackendUrl } from '../requests';
-import TextField from './Reusable/DefaultTextField';
 
 export default class StoriesListBar extends Component {
   constructor() {
@@ -48,9 +47,9 @@ export default class StoriesListBar extends Component {
   render() {
     return (
       <div className="listBar">
-        <p className="find-a-story">Find a Story</p>
-        <TextField
-          fullWidth
+        <input
+          placeholder="Find a Story"
+          className="form-control"
           onChange={this.findStory}
           value={this.state.listBar}
         />
@@ -63,7 +62,7 @@ export default class StoriesListBar extends Component {
                   key={data.name}
                   className="LBStory"
                 >
-                  <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
+                  <img src={`assets/profilepics/${data.name}.png`} alt={data.name} className="mini-image" />
                   <span>{data.name}</span>
                 </div>
               ))
