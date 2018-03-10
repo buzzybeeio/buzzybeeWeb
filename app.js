@@ -24,6 +24,11 @@ app.get('/assets/*', (req, res, next) => {
   next();
 });
 
+app.get('/static/*', (req, res, next) => {
+  res.append('Cache-Control', 'max-age=2419200000'); // 4 weeks (doesn't matter because of react-script's cache busting)
+  next();
+});
+
 app.use(express.static('build'));
 
 app.get(/.*\/$/, (req, res) => {
