@@ -3,25 +3,17 @@
   max-width: 50px;
 }
 
-.icon-container {
-  flex: 1;
-}
-
-.footer-icon-container {
-  -webkit-flex-flow: row wrap;
-  flex: 1;
-  padding-left: 40%;
-  padding-right: 40%;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-}
-
 .footer {
   color: white;
   padding: 20px;
   font-size: 14px;
   min-height: 110px;
   background-color: #222;
+}
+
+.footer > .icons {
+  margin: 0 auto;
+  display: flex;
+  max-width: 300px;
+  justify-content: space-around;
 }

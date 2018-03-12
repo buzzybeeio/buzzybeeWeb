@@ -128,6 +128,14 @@ $ npm start
 * Reference issues and pull requests liberally after the first line
 * Be thoughtful about what the reviewer will read
 
+### CSS Rules
+
+The App.css file is used to store styles that apply to html tags or styles that affect components found in more than one of the Routes
+
+Other.css should be used for styles that apply only to the Reusable components found in src/components/Reusable
+
+The Other CSS files are pretty much self-descriptive
+
 ### JavaScript Styleguide
 
 All JavaScript must adhere to [JavaScript Standard Style](http://standardjs.com/).
@@ -145,6 +153,8 @@ All JavaScript must adhere to [JavaScript Standard Style](http://standardjs.com/
   }
   export default ClassName
   ```
+
+* File names that export components/containers must be capitalized
 
 ## Thank You
 

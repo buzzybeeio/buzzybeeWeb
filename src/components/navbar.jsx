@@ -62,7 +62,7 @@ class Nav extends Component {
     return (
       <AppBar style={{ backgroundColor: 'white', border: 'none' }}>
         <Toolbar className="container">
-          <img alt="Brand" src="buzzybee-logo.jpg" className="nav-image" />
+          <img alt="Brand" src="assets/buzzybee-logo.jpg" className="nav-image" />
           <Typography style={{ fontWeight: 700, fontSize: '2em', flex: 1, color: grey[700], paddingLeft: 0 }}>
             Buzzy<YS>bee</YS>.i<YS>o</YS>
           </Typography>

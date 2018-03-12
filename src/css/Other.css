@@ -1,0 +1,17 @@
+.other-fullWidth {
+  width: 100%;
+}
+
+.other-fontSize19 {
+  font-size: 19px;
+}
+
+.other-input-TextField, .other-label-TextField {
+  font-size: 19px !important;
+  font-weight: 300 !important;
+}
+
+.other-helperText-TextField {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}

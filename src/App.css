@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,500,700');
+
 body {
   background-color: white;
   font-family: 'Roboto', sans-serif;
+}
+
+div.switchWrapper {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px - 110px + 1px);
 }
 
 a {
@@ -28,8 +34,9 @@ input {
   opacity: 0;
 }
 
-.flex-center {
+.flex {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }

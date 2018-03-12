@@ -46,15 +46,15 @@ export default class StoriesListBar extends Component {
 
   render() {
     return (
-      <div style={{ position: 'relative' }}>
+      <div className="listBar">
         <input
-          className="form-control listBar"
+          placeholder="Find a Story"
+          className="form-control"
           onChange={this.findStory}
           value={this.state.listBar}
-          placeholder="Find a story"
         />
         <div className="LBDiv">
-          <div className="LBStories" style={this.state.listBarStories.length ? { padding: '20px', backgroundColor: 'white' } : {}}>
+          <div className="LBStories" style={this.state.listBarStories.length ? { padding: '4px', backgroundColor: 'white' } : {}}>
             {
               this.state.listBarStories.map(data => (
                 <div
@@ -62,7 +62,7 @@ export default class StoriesListBar extends Component {
                   key={data.name}
                   className="LBStory"
                 >
-                  <img src={`profilepics/${data.name}.jpg`} alt={data.name} className="mini-image" />
+                  <img src={`assets/profilepics/${data.name}.png`} alt={data.name} className="mini-image" />
                   <span>{data.name}</span>
                 </div>
               ))

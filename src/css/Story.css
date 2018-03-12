@@ -25,7 +25,11 @@
 }
 
 .listBar {
-  border-radius: 50px;
+  position: relative;
+}
+
+.listBar > input {
+  border-radius: 10px;
 }
 
 .LBDiv {

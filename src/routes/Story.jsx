@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import { GET, BackendUrl } from '../requests';
 import DefaultStory from '../components/DefaultStory';
-import StoriesSideBar from '../components/StoriesSideBar';
+import StoriesSideBar from '../containers/StoriesSideBar';
 import StoriesListBar from '../components/StoriesListBar';
 import StoryWrapper from '../components/StoryWrapper';
 import '../App.css';
@@ -29,8 +29,9 @@ export default class Story extends Component {
       GET(`${BackendUrl}/story/${name}`)
         .then(data => {
           try {
-            if (data.introducction) this.setState({ introducction: data.introducction, interview: data.interview });
-            else this.props.history.push('/');
+            if (data.introducction) {
+              this.setState({ introducction: data.introducction, interview: data.interview });
+            } else this.props.history.push('/');
           } catch (e) {
             this.props.history.push('/');
           }
