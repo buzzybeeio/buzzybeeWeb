@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import React from 'react';
 import Textbox from '../components/textbox';
-import Mission from '../components/Mission';
+import Mission from '../components/Hello';
 import Team from '../components/Team';
 
 export default () => (
