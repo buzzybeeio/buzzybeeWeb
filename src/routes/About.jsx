@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React from 'react';
-import Textbox from '../components/Textbox';
+import Textbox from '../components/textbox';
 import Mission from '../components/Mission';
 import Team from '../components/Team';
 
