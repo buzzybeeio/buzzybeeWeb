@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../actions/auth';
-import ChangePassword from '../containers/ChangePassword';
+import ChangePassword from '../containers/differentPassword';
 
 const Logged = ({ name, username }) => (
   <div>
