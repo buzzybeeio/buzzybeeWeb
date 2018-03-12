@@ -9,7 +9,7 @@ import story from './routes/Story';
 import profile from './routes/Profile';
 import error404 from './routes/404';
 import verifyAccount from './routes/verifyAccount';
-import Nav from './components/Navbar';
+import Nav from './components/navbar';
 import Footer from './components/Footer';
 import './css/Animations.css';
 import './css/Footer.css';
