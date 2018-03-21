@@ -4,41 +4,34 @@ import React from 'react';
 
 const introducction = () => (
   <div>
-    <img className="narrator-pic" src="assets/profilepics/gloria.png" alt="" />
-    <h4 className="story-title"><em>Gloria, Software Engineer at QuanticMind</em></h4>
-    <p><em>This week we got a chance to interview Gloria Chen. Although Gloria has a CS Degree, her journey to becoming a Software Engineer was not easy. Here is the interview:</em></p>
+    <img className="narrator-pic" src="assets/profilepics/david.png" alt="" />
+    <h4 className="story-title"><em>David, Software Engineer at goBalto</em></h4>
+    <p><em>This week we got a chance to interview David Blanchard. David went from Actor to Software Engineer, he's also passionate about teaching others how to code. Here is the interview:</em></p>
   </div>
 );
 
 const interview = () => (
   <div>
     <p><strong>Can you tell us a little bit about your background?</strong></p>
-    <p>“I am a first generation immigrant that grew up in the Bay Area. After having spent that many years in one location, I moved down south for two years to finish college in San Diego, where I completed an undergraduate degree in International Business.”</p>
-    <p><strong>Why are you interested in coding?</strong></p>
-    <p>“I’ve always been enamored with entrepreneurship and technology. I remember my first trip to San Francisco, where I encountered a large Yahoo billboard. When I got home, I went on Yahoo’s website and spent a good hour just exploring the website.</p>
-    <p>Finishing college, I’ve always wanted to explore the entrepreneurship route and see if I can at least make it in that world. I have had ideas that I wanted to start, but just didn’t know how to get it started. Also, a stint working with startups reaffirmed my decision to go into entrepreneurship.</p>
-    <p>These dilemmas led me to find a Udacity course, in which I first learned how to code. I was quickly interested and enamored in the topic of coding.”</p>
-    <p><strong>What obstacles are you going through on your way of becoming a Software Engineer?</strong></p>
-    <p>“Not going to lie here: learning how to code is definitely a challenge.</p>
-    <p>First of all, I’m horrible at thinking abstractly. Also, I would be able to see the big picture when trying to solve problems, but would be horrible at trying to break the big picture down into smaller, more solvable problems/solutions.</p>
-    <p>Second, I suffer from a condition called Tourette’s Syndrome, a nasty neurological disease which unfortunately doesn’t let me concentrate on tasks at hand for very long.”</p>
-    <p><strong>Can you tell us about 42 university?</strong></p>
-    <p>“42 is a free coding school in which it challenges and pushes you to do your absolute best.</p>
-    <p>It started out in France, where are a billionaire by the name of Xavier Niel started this school in hopes of churning out more software engineers and entrepreneurs to help contribute to the French economy. There are no teachers, so in order to learn, you must utilize every resource available(the internet/your peers).</p>
-    <p>To get admitted into the school, you must undergo two online logic tests and a one month intensive bootcamp called the ‘piscine’. During the piscine, you will be coding in C for 10-15 hrs everyday. It will be mentally and physically draining, but you’ll learn lots and make lifelong friends. If you’re successful, you’ll be admitted into 42 as a student.”</p>
-    <p><strong>What projects have you worked on at 42 University and how have they helped you?</strong></p>
-    <p>“The first two projects I’ve worked on are recreating a C library that includes important functions and an assignment that aims to recreate the basic functionalities of Tetris.</p>
-    <p>I’ve also been supplementing 42’s assignments with other online courses and recreating basic, but functional web pages, which a friend and I have done thanks to the web development club at 42.</p>
-    <p>All these assignments have taught me many things, but the most important two being: thinking abstractly and learning how to solve problems by breaking it down into its smallest, minute details, and to then recreate it.”</p>
-    <p><strong>Would you recommend 42 University?</strong></p>
-    <p>“If you’re not afraid to fail and retry and have the desire to better yourself, then I would wholeheartedly recommend 42. Besides, it’s the only free coding school (without conditions) here in the Bay Area.”</p>
-    <p><strong>What are some low points on your way to becoming a Software Engineer?</strong></p>
-    <p>“One of the low point in my path to becoming a software engineer is that I didn’t think I would a be a good one, let alone a decent SWE. For the online coding videos I obtained, I would do well in the early parts of the course, only to stumble when the material gets more challenging. After receiving absolutely no help from the supposedly friendly forums, I’d eventually give up. This happened many times for a lot of the courses that I took related to computer science. I honestly thought I was incapable of learning the material that many have mastered.”</p>
-    <p><strong>How do you keep yourself motivated?</strong></p>
-    <p>“I like to keep myself motivated by completing mini tasks while I’m coding: by completing and creating short but manageable web pages and by finishing small-sized bits of work, overall, in a big project.</p>
-    <p>While I’m not coding, I like to read a good book, enjoy coffee, and meet-up/socialize with close friends.”</p>
-    <p><strong>Any last thoughts/ advice for our readers?</strong></p>
-    <p>“Stay hungry, stay curious, and most of all, never give up in what you are trying to pursue.”</p>
+    <p>“Sure. I Grew up surrounded by farms in a small town in Northern California called Yuba City. Went to UC Berkeley where I spent 5 years getting a theater degree (thanks, dad!). After graduation, I eventually found my way down to Los Angeles where I pursued acting for about a year. And, after I got tired of wondering how I’d pay for my next meal, I moved back to the bay area to attend Hack Reactor and kickoff my career in software engineering.”</p>
+    <p><strong>What made you interested in coding?</strong></p>
+    <p>“I’ve always likened coding to legos without the constraints and I loved playing with legos as a kid. So, when I found myself looking for what I wanted to do after acting, coding really jumped out at me as a fun option that had equal parts, creative expression, and problem solving.”</p>
+    <p><strong>What steps did you take to become a Software Engineer?</strong></p>
+    <p>“I learned JavaScript on my own for about a month and then went to Hack Reactor.”</p>
+    <p><strong>Would you recommend Hack Reactor?</strong></p>
+    <p>“I certainly would. While I wouldn’t say the content they teach particularly stands out, I think the peer group they bring together really makes it worth it (at least it did in my experience).”</p>
+    <p><strong>What are some obstacles that you had to overcome?</strong></p>
+    <p>“Coming from a completely non-coding background, one of the biggest obstacles I encountered was simply building up my programming vocabulary so I wasn’t constantly googling terms people were using ubiquitously.”</p>
+    <p><strong>How was your job search process like?</strong></p>
+    <p>“I treated the job search process as a continuation of Hack Reactor. Kept the same schedule (13 hours a day, 6 days a week) and split my time between firing off 15 or so apps a day, completing coding challenges, and building additional side projects for my portfolio. Was lucky enough to get a good number of interviews and was able to turn them into a few different offers within a month of graduating.”</p>
+    <p><strong>What are some great resources that you have come across when learning programming?</strong></p>
+    <p>“I think learning by doing is always the best bet with stuff like this. And then, I’ve found that teaching has been tremendous in deepening my understanding of core concepts.”</p>
+    <p><strong>Do you have any advice for people who are trying to become Software Engineers?</strong></p>
+    <p>“Do it. Start building things. They’ll suck at first and that’s ok. Sucking is the first step in getting really good at something.”</p>
+    <p><strong>Are you still constantly having to learn new material?</strong></p>
+    <p>“I don’t have to learn new material too frequently at this point (fairly deep into a specific problem niche at work at this point). But I like to play around with new technologies just to keep current with what the cool kids are talking about. And while I’m not having to learn new stuff, I will say that I’m constantly faced with new problems.”</p>
+    <p><strong>Any last thoughts/advice?</strong></p>
+    <p>“When in doubt, drink beer.”</p>
     <p><em>For more awesome stories check out our <a href="https://www.facebook.com/buzzybee.io/" target="_blank" rel="noopener noreferrer">facebook</a> and <a href="https://medium.com/@buzzybeeio" target="_blank" rel="noopener noreferrer">medium</a> page!</em></p>
   </div>
 );
