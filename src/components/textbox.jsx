@@ -25,12 +25,12 @@ export default class TextBox extends Component {
       <div className="textbox">
         <h3 className="Landing-JTH">JOIN THE HIVE</h3>
         <p className="Landing-P">
-          Sign up for our Newsletter to get the latest jobs
+          Subscribe for our Newsletter to get the latest jobs
         in your area and weekly success stories about how normal people
         broke through into the tech field
         </p>
         <div className="flex-row">
-          <Button style={this.SignUpStyle} onClick={() => this.setState({ open: true })}><span className="Landing-Button">SIGN UP</span></Button>
+          <Button style={this.SignUpStyle} onClick={() => this.setState({ open: true })}><span className="Landing-Button">SUBSCRIBE</span></Button>
           <span style={{ color: '#bbb' }}>OR</span>
           <Button
             component={Link}
