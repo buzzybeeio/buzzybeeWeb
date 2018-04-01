@@ -68,13 +68,11 @@ export default class Story extends Component {
   render() {
     return (
       <div className="stories">
-        <div className="blackBG"></div>
-        <div className="greyBG"></div>
         <div className="container">
           <StoriesListBar setStory={this.setStory} />
           <div className="story-flex-wrapper">
             <div className="story-UpperWrapper">
-              <Paper elevation={4} style={{ borderRadius: '30px', padding: '20px', position: 'relative' }}>
+              <Paper elevation={4} style={{ borderRadius: '30px', padding: '20px' }}>
                 <StoryWrapper component={this.state.introducction} />
               </Paper>
               <Paper
@@ -84,7 +82,6 @@ export default class Story extends Component {
                   padding: '20px',
                   paddingTop: '40px',
                   marginTop: '50px',
-                  position: 'relative',
                 }}
               >
                 <div className="interview"><span className="thing">The Interview</span></div>

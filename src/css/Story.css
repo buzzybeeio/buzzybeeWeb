@@ -1,27 +1,9 @@
 .stories {
   min-height: 100vh;
-  background-color: white;
+  background: linear-gradient(#222 33%, rgba(0, 0, 0, 0) 33%), linear-gradient(#777 66%, #fff 66%);
   margin-top: -80px;
   padding-top: 90px;
   margin-bottom: 30px;
-}
-
-.blackBG {
-  position: absolute;
-  top: -90px;
-  background-color: #222;
-  height: 750px;
-  width: 100%;
-  z-index: 0;
-}
-
-.greyBG {
-  position: absolute;
-  background-color: #777;
-  height: 750px;
-  top: 660px;
-  width: 100%;
-  z-index: 0;
 }
 
 .listBar {
@@ -32,13 +14,7 @@
   border-radius: 10px;
 }
 
-.LBDiv {
-  position: relative;
-  z-index: 10;
-}
-
 .LBStories {
-  position: absolute;
   width: 100%;
   border-radius: 20px;
 }
@@ -73,20 +49,18 @@
   border-bottom-left-radius: 15px;
   border-top-right-radius: 15px;
   position: relative;
-  right: 15px;
 }
 
 .interview {
-  position: absolute;
   margin-top: -50px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
 .interview > .thing {
-  box-shadow: 0 8px 10px 4px #ccc;
+  box-shadow: 0 6px 7px #ccc;
 }
 
 .story-flex-wrapper {
