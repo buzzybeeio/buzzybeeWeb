@@ -20,6 +20,7 @@ import './css/Team.css';
 import './css/Profile.css';
 import './css/About.css';
 import './css/Other.css';
+import './css/404.css';
 
 export default class App extends Component {
   componentDidMount() {
