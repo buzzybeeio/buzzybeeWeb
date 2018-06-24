@@ -107,7 +107,7 @@ class Nav extends Component {
                   >
                     <span className="join-the-hive">Join the HIVE</span>
                   </Button>
-                ) : <span><Selected path="/profile" /> {profile}</span>
+                ) : <NB to="/profile" text={profile} />
               }
             </Link>
           </div>
