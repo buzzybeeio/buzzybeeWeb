@@ -7,8 +7,8 @@ import about from './routes/About';
 import jobs from './routes/Jobs';
 import story from './routes/Story';
 import profile from './routes/Profile';
-import error404 from './routes/404';
 import verifyAccount from './routes/verifyAccount';
+import error404 from './components/404';
 import Nav from './components/navbar';
 import Footer from './components/Footer';
 import './css/Animations.css';
@@ -21,6 +21,7 @@ import './css/Profile.css';
 import './css/About.css';
 import './css/Other.css';
 import './css/404.css';
+import './css/AddJobs.css';
 
 export default class App extends Component {
   componentDidMount() {
