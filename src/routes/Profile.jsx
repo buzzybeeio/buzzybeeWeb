@@ -6,6 +6,8 @@ import Login from '../containers/Login';
 import Logged from '../components/Logged';
 import NotLogged from '../components/NotLogged';
 import Spinner from '../components/Reusable/Spinner';
+import error404 from '../components/404';
+import Addjobs from './AddJobs';
 
 const Profile = props => {
   let Component = null;
@@ -22,7 +24,9 @@ const Profile = props => {
       <Switch>
         <Route path="/profile/login" component={Login} />
         <Route path="/profile/register" component={Register} />
+        <Route exact path="/profile/jobs" component={Addjobs} />
         <Route exact path="/profile" component={Component} />
+        <Route path="*" component={error404} />
       </Switch>
     </div>
   );

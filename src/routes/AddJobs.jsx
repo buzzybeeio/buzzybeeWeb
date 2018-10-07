@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import NotLogged from '../components/NotLogged';
 
-export default class AddJobs extends Component {
+class AddJobs extends Component {
 
-  constructor(){
+  constructor(props){
     super();
     this.state = {
  
