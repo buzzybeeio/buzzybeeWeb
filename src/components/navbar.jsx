@@ -94,22 +94,22 @@ class Nav extends Component {
             <NB to="/" exact text="Home" />
             <NB to="/jobs" text="Jobs" />
             <NB to="/about" text="About" />
-            <Link to="/profile" className="nav-link">
               {
                 profile === 'J' ? (
-                  <Button
-                    style={{
-                      border: `3px ${amber[500]} solid`,
-                      transform: 'scale(0.8)',
-                      borderRadius: '8px',
-                      color: amber[500],
-                    }}
-                  >
-                    <span className="join-the-hive">Join the HIVE</span>
-                  </Button>
+                  <Link to="/profile" className="nav-link">
+                    <Button
+                      style={{
+                        border: `3px ${amber[500]} solid`,
+                        transform: 'scale(0.8)',
+                        borderRadius: '8px',
+                        color: amber[500],
+                      }}
+                      >
+                      <span className="join-the-hive">Join the HIVE</span>
+                    </Button>
+                  </Link>
                 ) : <NB to="/profile" text={profile} />
               }
-            </Link>
           </div>
         </Toolbar>
       </AppBar >
